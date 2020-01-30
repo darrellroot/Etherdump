@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		2F0647D523E38FEC00965033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D423E38FEC00965033 /* Assets.xcassets */; };
 		2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D723E38FEC00965033 /* Preview Assets.xcassets */; };
 		2F0647DB23E38FEC00965033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D923E38FEC00965033 /* Main.storyboard */; };
+		2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2F0647E423E3907C00965033 /* PackageEtherCapture */; };
+		2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E623E3919300965033 /* CaptureFilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,7 @@
 		2F0647DA23E38FEC00965033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F0647DC23E38FEC00965033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0647DD23E38FEC00965033 /* Etherdump.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Etherdump.entitlements; sourceTree = "<group>"; };
+		2F0647E623E3919300965033 /* CaptureFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +61,7 @@
 			children = (
 				2F0647D023E38FE900965033 /* AppDelegate.swift */,
 				2F0647D223E38FE900965033 /* ContentView.swift */,
+				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
 				2F0647D423E38FEC00965033 /* Assets.xcassets */,
 				2F0647D923E38FEC00965033 /* Main.storyboard */,
 				2F0647DC23E38FEC00965033 /* Info.plist */,
@@ -90,6 +95,9 @@
 			dependencies = (
 			);
 			name = Etherdump;
+			packageProductDependencies = (
+				2F0647E423E3907C00965033 /* PackageEtherCapture */,
+			);
 			productName = Etherdump;
 			productReference = 2F0647CD23E38FE900965033 /* Etherdump.app */;
 			productType = "com.apple.product-type.application";
@@ -118,6 +126,9 @@
 				Base,
 			);
 			mainGroup = 2F0647C423E38FE900965033;
+			packageReferences = (
+				2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */,
+			);
 			productRefGroup = 2F0647CE23E38FE900965033 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
 				2F0647D323E38FE900965033 /* ContentView.swift in Sources */,
 				2F0647D123E38FE900965033 /* AppDelegate.swift in Sources */,
 			);
@@ -345,6 +357,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/darrellroot/PackageEtherCapture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.31;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2F0647E423E3907C00965033 /* PackageEtherCapture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */;
+			productName = PackageEtherCapture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F0647C523E38FE900965033 /* Project object */;
 }

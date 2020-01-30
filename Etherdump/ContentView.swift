@@ -9,9 +9,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    fileprivate func extractedFunc() -> Text {
+        return Text("Capture Filter")
+    }
+    
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack {
+            extractedFunc()
+            Text("Display Filter")
+            Text("Packet Summary")
+            Text("Packet Detail")
+            Text("Packet Hexdump")
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
