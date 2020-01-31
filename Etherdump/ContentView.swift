@@ -7,17 +7,16 @@
 //
 
 import SwiftUI
+import PackageEtherCapture
 
 struct ContentView: View {
-    fileprivate func extractedFunc() -> Text {
-        return Text("Capture Filter")
-    }
-    
+    @State var frames: [Frame] = []
+
     var body: some View {
         VStack {
-            extractedFunc()
+            CaptureFilterView(frames: self.$frames)
             Text("Display Filter")
-            Text("Packet Summary")
+            FrameSummaryView(frames: self.$frames)
             Text("Packet Detail")
             Text("Packet Hexdump")
         }.frame(maxWidth: .infinity, maxHeight: .infinity)

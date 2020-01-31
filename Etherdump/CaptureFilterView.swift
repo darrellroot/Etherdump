@@ -7,12 +7,16 @@
 //
 
 import SwiftUI
+import PackageEtherCapture
+import PackageEtherCaptureC
 
 struct CaptureFilterView: View {
+    @State var etherCapture: EtherCapture? = nil
+    @Binding var frames: [Frame]
     var body: some View {
         HStack {
             Button("Start") {
-                
+                self.startButtonPress()
             }
             Button("Stop") {
                 
@@ -20,10 +24,25 @@ struct CaptureFilterView: View {
             
         }
     }
+    
+    func startButtonPress() {
+        let interface = "en0"
+        let packetCount: Int32 = 10
+        let expression = "icmp or icmp6"
+        let snaplen = 96
+        let promiscuousMode = true
+        do {
+            etherCapture = try EtherCapture(interface: interface, count: packetCount, command: expression, snaplen: snaplen, promiscuous: promiscuousMode) { frame in
+                self.frames.append(frame)
+            }
+        } catch {
+            print("\(error)")
+        }
+    }
 }
 
 struct CaptureFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        CaptureFilterView()
+        CaptureFilterView(frames: .constant([Frame.sampleFrame]))
     }
 }

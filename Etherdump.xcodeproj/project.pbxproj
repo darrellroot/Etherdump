@@ -14,6 +14,8 @@
 		2F0647DB23E38FEC00965033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D923E38FEC00965033 /* Main.storyboard */; };
 		2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2F0647E423E3907C00965033 /* PackageEtherCapture */; };
 		2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E623E3919300965033 /* CaptureFilterView.swift */; };
+		2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E823E4CA3800965033 /* FrameSummaryView.swift */; };
+		2F0647EC23E4D92800965033 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0647EB23E4D92800965033 /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		2F0647DC23E38FEC00965033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0647DD23E38FEC00965033 /* Etherdump.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Etherdump.entitlements; sourceTree = "<group>"; };
 		2F0647E623E3919300965033 /* CaptureFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFilterView.swift; sourceTree = "<group>"; };
+		2F0647E823E4CA3800965033 /* FrameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSummaryView.swift; sourceTree = "<group>"; };
+		2F0647EB23E4D92800965033 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +38,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */,
+				2F0647EC23E4D92800965033 /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +50,7 @@
 			children = (
 				2F0647CF23E38FE900965033 /* Etherdump */,
 				2F0647CE23E38FE900965033 /* Products */,
+				2F0647EA23E4D92800965033 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +73,7 @@
 				2F0647DC23E38FEC00965033 /* Info.plist */,
 				2F0647DD23E38FEC00965033 /* Etherdump.entitlements */,
 				2F0647D623E38FEC00965033 /* Preview Content */,
+				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
 			);
 			path = Etherdump;
 			sourceTree = "<group>";
@@ -77,6 +84,14 @@
 				2F0647D723E38FEC00965033 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F0647EA23E4D92800965033 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F0647EB23E4D92800965033 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
+				2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */,
 				2F0647D323E38FE900965033 /* ContentView.swift in Sources */,
 				2F0647D123E38FE900965033 /* AppDelegate.swift in Sources */,
 			);
@@ -306,6 +322,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.networkmom.Etherdump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -329,6 +346,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.networkmom.Etherdump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -364,7 +382,7 @@
 			repositoryURL = "https://github.com/darrellroot/PackageEtherCapture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.31;
+				minimumVersion = 0.0.34;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
