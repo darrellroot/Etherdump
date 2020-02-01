@@ -16,6 +16,9 @@
 		2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E623E3919300965033 /* CaptureFilterView.swift */; };
 		2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E823E4CA3800965033 /* FrameSummaryView.swift */; };
 		2F0647EC23E4D92800965033 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F0647EB23E4D92800965033 /* NetworkExtension.framework */; };
+		2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */; };
+		2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647EF23E5027F00965033 /* Layer3DetailView.swift */; };
+		2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647F123E502A400965033 /* Layer4DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		2F0647E623E3919300965033 /* CaptureFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFilterView.swift; sourceTree = "<group>"; };
 		2F0647E823E4CA3800965033 /* FrameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSummaryView.swift; sourceTree = "<group>"; };
 		2F0647EB23E4D92800965033 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer2DetailView.swift; sourceTree = "<group>"; };
+		2F0647EF23E5027F00965033 /* Layer3DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer3DetailView.swift; sourceTree = "<group>"; };
+		2F0647F123E502A400965033 /* Layer4DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer4DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,9 @@
 				2F0647DD23E38FEC00965033 /* Etherdump.entitlements */,
 				2F0647D623E38FEC00965033 /* Preview Content */,
 				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
+				2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */,
+				2F0647EF23E5027F00965033 /* Layer3DetailView.swift */,
+				2F0647F123E502A400965033 /* Layer4DetailView.swift */,
 			);
 			path = Etherdump;
 			sourceTree = "<group>";
@@ -171,7 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */,
+				2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */,
 				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
+				2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */,
 				2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */,
 				2F0647D323E38FE900965033 /* ContentView.swift in Sources */,
 				2F0647D123E38FE900965033 /* AppDelegate.swift in Sources */,

@@ -11,14 +11,24 @@ import PackageEtherCapture
 
 struct ContentView: View {
     @State var frames: [Frame] = []
+    @State var activeFrame: Frame? = nil
 
     var body: some View {
         VStack {
             CaptureFilterView(frames: self.$frames)
             Text("Display Filter")
-            FrameSummaryView(frames: self.$frames)
-            Text("Packet Detail")
-            Text("Packet Hexdump")
+            FrameSummaryView(frames: self.$frames,activeFrame:  self.$activeFrame)
+            if activeFrame != nil {
+                Layer2DetailView(frame: self.$activeFrame)
+            }
+            if activeFrame != nil {
+                Layer3DetailView(frame: self.$activeFrame)
+            }
+            if activeFrame != nil {
+                Layer4DetailView(frame: self.$activeFrame)
+            }
+
+            Text(activeFrame?.hexdump ?? "")
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
