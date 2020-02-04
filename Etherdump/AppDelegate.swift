@@ -8,43 +8,80 @@
 
 import Cocoa
 import SwiftUI
+import PackageSwiftPcapng
+import PackageEtherCapture
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    var window: NSWindow!
-
-
+    
+    var windows: [NSWindow] = []
+    var windowCount = 1
+    
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
-
+        
         // Create the window and set the content view. 
-        window = NSWindow(
+        let window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered, defer: false)
+        self.windows.append(window)
         window.center()
-        window.setFrameAutosaveName("Main Window")
+        window.setFrameAutosaveName("Window \(self.windowCount)")
+        self.windowCount += 1
         window.contentView = NSHostingView(rootView: contentView)
         window.makeKeyAndOrderFront(nil)
     }
-
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-
+    
     @IBAction func importPcapngFile(_ sender: NSMenuItem) {
-        let contentView = ContentView()
-        window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        window.center()
-        window.setFrameAutosaveName("Main Window")
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
-
+        let panel = NSOpenPanel()
+        panel.nameFieldLabel = "Choose a pcapng file to open"
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = false
+        panel.canChooseFiles = true
+        panel.begin { response in
+            if response == NSApplication.ModalResponse.OK, let url = panel.url {
+                debugPrint("opening url \(url)")
+                let result = Result {
+                    try Data(contentsOf: url)
+                }
+                switch result {
+                case .failure(let error):
+                    debugPrint("open file failed with error \(error)")
+                    return
+                case .success(let data):
+                    let pcapng = Pcapng(data: data)
+                    guard let packetBlocks = pcapng?.segments.first?.packetBlocks else {
+                        debugPrint("Error: unable to get packets from decoding PCAPNG file \(url)")
+                        return
+                    }
+                    var frames: [Frame] = []
+                    for (count,packet) in packetBlocks.enumerated() {
+                        let frame = Frame(data: packet.packetData)
+                        frames.append(frame)
+                    }
+                    let contentView = ContentView(frames: frames)
+                    let window = NSWindow(
+                        contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+                        styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                        backing: .buffered, defer: false)
+                    self.windows.append(window)
+                    window.center()
+                    window.setFrameAutosaveName("Window \(self.windowCount)")
+                    self.windowCount += 1
+                    window.contentView = NSHostingView(rootView: contentView)
+                    window.makeKeyAndOrderFront(nil)
+                    self.windows.append(window)
+                    return
+                }
+            }
+        }
     }
     
 }

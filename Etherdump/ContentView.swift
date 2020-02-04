@@ -12,7 +12,9 @@ import PackageEtherCapture
 struct ContentView: View {
     @State var frames: [Frame] = []
     @State var activeFrame: Frame? = nil
-
+    init(frames: [Frame] = []) {
+        _frames = State<[Frame]>(initialValue: frames)
+    }
     var body: some View {
         VStack {
             CaptureFilterView(frames: self.$frames)
@@ -36,6 +38,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(frames: [Frame.sampleFrame])
     }
 }
