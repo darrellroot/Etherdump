@@ -19,6 +19,7 @@
 		2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */; };
 		2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647EF23E5027F00965033 /* Layer3DetailView.swift */; };
 		2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647F123E502A400965033 /* Layer4DetailView.swift */; };
+		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */,
 				2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */,
 				2F0647EC23E4D92800965033 /* NetworkExtension.framework in Frameworks */,
 			);
@@ -121,6 +123,7 @@
 			name = Etherdump;
 			packageProductDependencies = (
 				2F0647E423E3907C00965033 /* PackageEtherCapture */,
+				2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */,
 			);
 			productName = Etherdump;
 			productReference = 2F0647CD23E38FE900965033 /* Etherdump.app */;
@@ -152,6 +155,7 @@
 			mainGroup = 2F0647C423E38FE900965033;
 			packageReferences = (
 				2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */,
+				2FA6196B23E9D91700A75FA4 /* XCRemoteSwiftPackageReference "PackageSwiftPcapng" */,
 			);
 			productRefGroup = 2F0647CE23E38FE900965033 /* Products */;
 			projectDirPath = "";
@@ -394,7 +398,15 @@
 			repositoryURL = "https://github.com/darrellroot/PackageEtherCapture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.34;
+				minimumVersion = 0.0.40;
+			};
+		};
+		2FA6196B23E9D91700A75FA4 /* XCRemoteSwiftPackageReference "PackageSwiftPcapng" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/darrellroot/PackageSwiftPcapng.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.14;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -404,6 +416,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */;
 			productName = PackageEtherCapture;
+		};
+		2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FA6196B23E9D91700A75FA4 /* XCRemoteSwiftPackageReference "PackageSwiftPcapng" */;
+			productName = PackageSwiftPcapng;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
