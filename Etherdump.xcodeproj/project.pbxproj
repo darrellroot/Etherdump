@@ -406,7 +406,7 @@
 			repositoryURL = "https://github.com/darrellroot/PackageSwiftPcapng.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.14;
+				minimumVersion = 0.0.15;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
