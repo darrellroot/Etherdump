@@ -19,6 +19,8 @@
 		2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */; };
 		2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647EF23E5027F00965033 /* Layer3DetailView.swift */; };
 		2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647F123E502A400965033 /* Layer4DetailView.swift */; };
+		2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D123EE082900207DA3 /* DisplayFilterView.swift */; };
+		2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer2DetailView.swift; sourceTree = "<group>"; };
 		2F0647EF23E5027F00965033 /* Layer3DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer3DetailView.swift; sourceTree = "<group>"; };
 		2F0647F123E502A400965033 /* Layer4DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer4DetailView.swift; sourceTree = "<group>"; };
+		2F5451D123EE082900207DA3 /* DisplayFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFilterView.swift; sourceTree = "<group>"; };
+		2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterEnumerations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,15 +77,17 @@
 		2F0647CF23E38FE900965033 /* Etherdump */ = {
 			isa = PBXGroup;
 			children = (
+				2F5451D323EE0A6400207DA3 /* Enumerations */,
 				2F0647D023E38FE900965033 /* AppDelegate.swift */,
 				2F0647D223E38FE900965033 /* ContentView.swift */,
 				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
+				2F5451D123EE082900207DA3 /* DisplayFilterView.swift */,
+				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
 				2F0647D423E38FEC00965033 /* Assets.xcassets */,
 				2F0647D923E38FEC00965033 /* Main.storyboard */,
 				2F0647DC23E38FEC00965033 /* Info.plist */,
 				2F0647DD23E38FEC00965033 /* Etherdump.entitlements */,
 				2F0647D623E38FEC00965033 /* Preview Content */,
-				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
 				2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */,
 				2F0647EF23E5027F00965033 /* Layer3DetailView.swift */,
 				2F0647F123E502A400965033 /* Layer4DetailView.swift */,
@@ -103,6 +109,14 @@
 				2F0647EB23E4D92800965033 /* NetworkExtension.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F5451D323EE0A6400207DA3 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */,
+			);
+			path = Enumerations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */,
+				2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */,
+				2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */,
 				2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */,
 				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
 				2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */,

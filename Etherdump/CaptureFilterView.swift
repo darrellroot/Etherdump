@@ -17,7 +17,8 @@ struct CaptureFilterView: View {
     @State var error: String = ""
     @State var numberPackets = 10
     var body: some View {
-        HStack {
+        HStack() {
+            Text("Capture Controls:").fontWeight(.semibold)
             Button("Start") {
                 self.startButtonPress()
             }
@@ -38,7 +39,8 @@ struct CaptureFilterView: View {
             Button("Erase Frames") {
                 self.frames = []
             }
-        }
+        }.padding()
+            .background(Color.red.opacity(0.7))
     }
     
     func startButtonPress() {

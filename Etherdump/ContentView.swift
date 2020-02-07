@@ -12,14 +12,16 @@ import PackageEtherCapture
 struct ContentView: View {
     @State var frames: [Frame] = []
     @State var activeFrame: Frame? = nil
+    @State var layer3Filter: FilterIpVersion = .any
+
     init(frames: [Frame] = []) {
         _frames = State<[Frame]>(initialValue: frames)
     }
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             CaptureFilterView(frames: self.$frames)
-            Text("Display Filter")
-            FrameSummaryView(frames: self.$frames,activeFrame:  self.$activeFrame)
+            DisplayFilterView(layer3Filter: $layer3Filter)
+            FrameSummaryView(frames: self.$frames,activeFrame:  self.$activeFrame, layer3Filter: self.$layer3Filter)
             if activeFrame != nil {
                 Layer2DetailView(frame: self.$activeFrame)
             }
