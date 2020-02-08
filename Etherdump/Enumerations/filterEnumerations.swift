@@ -8,11 +8,19 @@
 
 import Foundation
 
-enum FilterIpVersion: String, Hashable, CaseIterable, Identifiable {
+enum Layer3Filter: String, Hashable, CaseIterable, Identifiable {
     var id: String { rawValue }
     
-    case any
-    case ipv4
-    case ipv6
-    case nonIp
+    case any = "Any Layer-3"
+    case ipv4 = "IPv4"
+    case ipv6 = "IPv6"
+    case nonIp = "Non-IP Protocols"
+}
+
+enum Layer4Filter: String, Hashable, CaseIterable, Identifiable {
+    var id: String { rawValue }
+    case any = "Any Layer-4"
+    case tcp = "TCP"
+    case udp = "UDP"
+    case icmp = "ICMP"
 }

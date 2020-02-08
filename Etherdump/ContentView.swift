@@ -12,24 +12,27 @@ import PackageEtherCapture
 struct ContentView: View {
     @State var frames: [Frame] = []
     @State var activeFrame: Frame? = nil
-    @State var layer3Filter: FilterIpVersion = .any
-
+    @State var layer3Filter: Layer3Filter = .any
+    @State var layer4Filter: Layer4Filter = .any
+    @State var portFilterA: String = ""
+    @State var portFilterB: String = ""
+    
     init(frames: [Frame] = []) {
         _frames = State<[Frame]>(initialValue: frames)
     }
     var body: some View {
         VStack(spacing: 0) {
             CaptureFilterView(frames: self.$frames)
-            DisplayFilterView(layer3Filter: $layer3Filter)
-            FrameSummaryView(frames: self.$frames,activeFrame:  self.$activeFrame, layer3Filter: self.$layer3Filter)
+            DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
+            FrameSummaryView(frames: $frames,activeFrame:  $activeFrame, layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             if activeFrame != nil {
-                Layer2DetailView(frame: self.$activeFrame)
+                Layer2DetailView(frame: $activeFrame)
             }
             if activeFrame != nil {
-                Layer3DetailView(frame: self.$activeFrame)
+                Layer3DetailView(frame: $activeFrame)
             }
             if activeFrame != nil {
-                Layer4DetailView(frame: self.$activeFrame)
+                Layer4DetailView(frame: $activeFrame)
             }
 
             Text(activeFrame?.hexdump ?? "")

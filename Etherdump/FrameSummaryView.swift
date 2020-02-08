@@ -12,12 +12,15 @@ import PackageEtherCapture
 struct FrameSummaryView: View {
     @Binding var frames: [Frame]
     @Binding var activeFrame: Frame?
-    @Binding var layer3Filter: FilterIpVersion
+    @Binding var layer3Filter: Layer3Filter
+    @Binding var layer4Filter: Layer4Filter
+    @Binding var portFilterA: String
+    @Binding var portFilterB: String
     
     var filteredFrames: [Frame] {
         var outputFrames = frames
+        
         switch layer3Filter {
-            
         case .any:
             break
         case .ipv4:
@@ -48,6 +51,82 @@ struct FrameSummaryView: View {
                 }
             }
         }
+        
+        switch layer4Filter {
+        case .any:
+            break
+        case .tcp:
+            for (position,frame) in outputFrames.enumerated().reversed() {
+                if case .tcp(_) = frame.layer4 {
+                    continue
+                } else {
+                    outputFrames.remove(at: position)
+                }
+            }
+        case .udp:
+            for (position,frame) in outputFrames.enumerated().reversed() {
+                if case .udp(_) = frame.layer4 {
+                    continue
+                } else {
+                    outputFrames.remove(at: position)
+                }
+            }
+        case .icmp:
+            debugPrint("icmp protocol not implemented in displayfilter")
+        }
+                
+        switch (Int(portFilterA),Int(portFilterB)) {
+        case (.none, .none):
+            break
+        case (.some(let filterPort), .none),(.none, .some(let filterPort)):
+            for (position, frame) in outputFrames.enumerated().reversed() {
+                guard let layer4 = frame.layer4 else {
+                    //not tcp or udp so filter it!
+                    outputFrames.remove(at: position)
+                    continue
+                }
+                switch layer4 {
+                case .tcp(let tcp):
+                    if tcp.sourcePort != filterPort && tcp.destinationPort != filterPort {
+                        outputFrames.remove(at: position)
+                        continue
+                    }
+                case .udp(let udp):
+                    if udp.sourcePort != filterPort && udp.destinationPort != filterPort {
+                        outputFrames.remove(at: position)
+                        continue
+                    }
+                default:
+                    //not tcp or udp so filter it!
+                    outputFrames.remove(at: position)
+                    continue
+                }
+            }
+        case (.some(let portA), .some(let portB)):
+            for (position, frame) in outputFrames.enumerated().reversed() {
+                guard let layer4 = frame.layer4 else {
+                    //not tcp or udp so filter it!
+                    outputFrames.remove(at: position)
+                    continue
+                }
+                switch layer4 {
+                case .tcp(let tcp):
+                    if (tcp.sourcePort != portA || tcp.destinationPort != portB) && (tcp.sourcePort != portB || tcp.destinationPort != portA) {
+                        outputFrames.remove(at: position)
+                        continue
+                    }
+                case .udp(let udp):
+                    if (udp.sourcePort != portA || udp.destinationPort != portB) && (udp.sourcePort != portB || udp.destinationPort != portA) {
+                        outputFrames.remove(at: position)
+                        continue
+                    }
+                default:
+                    //not tcp or udp so filter it!
+                    outputFrames.remove(at: position)
+                    continue
+                }
+            }
+        }
         return outputFrames
     }
     var body: some View {
@@ -55,12 +134,12 @@ struct FrameSummaryView: View {
             Button(frame.description) {
                 self.activeFrame = frame
             }
-        }
+        }.padding().background(Color.purple.opacity(0.7))
     }
 }
 
 struct FrameSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameSummaryView(frames: .constant([Frame.sampleFrame]),activeFrame: .constant(Frame.sampleFrame),layer3Filter: .constant(.any))
+        FrameSummaryView(frames: .constant([Frame.sampleFrame]),activeFrame: .constant(Frame.sampleFrame),layer3Filter: .constant(.any), layer4Filter: .constant(.any), portFilterA: .constant(""), portFilterB: .constant(""))
     }
 }

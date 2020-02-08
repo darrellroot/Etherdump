@@ -40,7 +40,7 @@ struct CaptureFilterView: View {
                 self.frames = []
             }
         }.padding()
-            .background(Color.red.opacity(0.7))
+            .background(Color.green.opacity(0.7))
     }
     
     func startButtonPress() {
