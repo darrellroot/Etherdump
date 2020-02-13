@@ -34,7 +34,6 @@ struct ContentView: View {
             if activeFrame != nil {
                 Layer4DetailView(frame: $activeFrame)
             }
-
             Text(activeFrame?.hexdump ?? "")
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
     }

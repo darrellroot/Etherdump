@@ -12,7 +12,7 @@ import PackageEtherCapture
 struct Layer2DetailView: View {
     @Binding var frame: Frame?
     var body: some View {
-        Text(frame?.verboseDescription ?? "Error displaying frame header")
+         Text(frame?.verboseDescription ?? "Error displaying frame header")
     }
 }
 

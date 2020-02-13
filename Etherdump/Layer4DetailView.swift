@@ -10,9 +10,23 @@ import SwiftUI
 import PackageEtherCapture
 
 struct Layer4DetailView: View {
+    //@Binding var frame: Frame?
     @Binding var frame: Frame?
     var body: some View {
-        Text(frame?.layer4?.verboseDescription ?? "Error displaying layer-4 header")
+        if let frame = frame, let layer4 = frame.layer4 {
+            switch layer4 {
+                
+            case .tcp(let tcp):
+                return AnyView(TcpDetailView(tcp: tcp))
+            case .udp(let udp):
+                return AnyView(UdpDetailView(udp: udp))
+            case .unknown(let unknown):
+                return AnyView(Text("unknown"))
+            }
+        } else {
+            return AnyView(Text("should not get here"))
+        }
+        //Text(frame?.layer4?.verboseDescription ?? "Error displaying layer-4 header")
     }
 }
 
