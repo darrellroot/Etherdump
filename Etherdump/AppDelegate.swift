@@ -10,15 +10,28 @@ import Cocoa
 import SwiftUI
 import PackageSwiftPcapng
 import PackageEtherCapture
+import Logging
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var windows: [NSWindow] = []
     var windowCount = 1
-    
+    var authorizedUrls: [URL] = []
+    var openPanel: NSOpenPanel?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        let verboseLogging = true
+        LoggingSystem.bootstrap(DarrellLogHandler.init)
+        if verboseLogging {
+            Pcapng.logger.logLevel = .info
+            EtherCapture.logger.logLevel = .info
+        } else {
+            Pcapng.logger.logLevel = .error
+            EtherCapture.logger.logLevel = .error
+        }
+
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
         
@@ -39,6 +52,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
+    @IBAction func authorizePacketCapture(_ sender: NSMenuItem) {
+        let openPanel = NSOpenPanel()
+        openPanel.directoryURL = URL(fileURLWithPath: "/dev", isDirectory: true)
+        self.openPanel = openPanel
+        openPanel.allowsMultipleSelection = true
+        openPanel.showsHiddenFiles = true
+        openPanel.canSelectHiddenExtension = true
+        openPanel.canChooseDirectories = false
+        openPanel.canChooseFiles = true
+        openPanel.begin { (result) -> Void in
+            if result.rawValue == NSApplication.ModalResponse.OK.rawValue {
+                let urls = openPanel.urls
+                self.authorizedUrls.append(contentsOf: urls)
+            }
+        }
+    }
     @IBAction func importPcapngFile(_ sender: NSMenuItem) {
         let panel = NSOpenPanel()
         panel.nameFieldLabel = "Choose a pcapng file to open"

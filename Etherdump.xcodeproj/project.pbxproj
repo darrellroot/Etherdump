@@ -24,6 +24,7 @@
 		2F22B36523EE81EC009DD8ED /* Ipv6DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */; };
 		2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D123EE082900207DA3 /* DisplayFilterView.swift */; };
 		2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
+		2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */; };
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
@@ -37,7 +38,6 @@
 		2F0647D723E38FEC00965033 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F0647DA23E38FEC00965033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F0647DC23E38FEC00965033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F0647DD23E38FEC00965033 /* Etherdump.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Etherdump.entitlements; sourceTree = "<group>"; };
 		2F0647E623E3919300965033 /* CaptureFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFilterView.swift; sourceTree = "<group>"; };
 		2F0647E823E4CA3800965033 /* FrameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSummaryView.swift; sourceTree = "<group>"; };
 		2F0647EB23E4D92800965033 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
@@ -49,6 +49,8 @@
 		2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ipv6DetailView.swift; sourceTree = "<group>"; };
 		2F5451D123EE082900207DA3 /* DisplayFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFilterView.swift; sourceTree = "<group>"; };
 		2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterEnumerations.swift; sourceTree = "<group>"; };
+		2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarrellLogHandler.swift; sourceTree = "<group>"; };
+		2F78582123F6576000B5F5ED /* Etherdump.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Etherdump.entitlements; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,14 +91,15 @@
 			children = (
 				2F5451D323EE0A6400207DA3 /* Enumerations */,
 				2F0647D023E38FE900965033 /* AppDelegate.swift */,
+				2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */,
 				2F0647D223E38FE900965033 /* ContentView.swift */,
 				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
 				2F5451D123EE082900207DA3 /* DisplayFilterView.swift */,
+				2F78582123F6576000B5F5ED /* Etherdump.entitlements */,
 				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
 				2F0647D423E38FEC00965033 /* Assets.xcassets */,
 				2F0647D923E38FEC00965033 /* Main.storyboard */,
 				2F0647DC23E38FEC00965033 /* Info.plist */,
-				2F0647DD23E38FEC00965033 /* Etherdump.entitlements */,
 				2F0647D623E38FEC00965033 /* Preview Content */,
 				2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */,
 				2F0647EF23E5027F00965033 /* Layer3DetailView.swift */,
@@ -213,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */,
 				2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */,
 				2F22B36123EE6B77009DD8ED /* PayloadView.swift in Sources */,
 				2F22B36523EE81EC009DD8ED /* Ipv6DetailView.swift in Sources */,

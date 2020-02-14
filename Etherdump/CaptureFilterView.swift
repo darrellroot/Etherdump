@@ -54,7 +54,7 @@ struct CaptureFilterView: View {
                 self.frames.append(frame)
             }
         } catch {
-            self.error = error.localizedDescription
+            self.error = "\(error)" // error.localizedDescription
         }
     }
     func stopButtonPress() {

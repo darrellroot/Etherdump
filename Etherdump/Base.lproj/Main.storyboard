@@ -342,6 +342,25 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Security" id="41q-WR-h6S">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Security" id="VF6-O8-vnp">
+                                    <items>
+                                        <menuItem title="Authorize Packet Capture" id="flW-Fa-Yxz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="authorizePacketCapture:" target="Voe-Tx-rLC" id="vn9-7d-1oA"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Item 2" id="u4j-Rh-DUo">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Item 3" id="Qyl-19-kGf">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Format" id="jxT-CU-nIS">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Format" id="GEO-Iw-cKr">
