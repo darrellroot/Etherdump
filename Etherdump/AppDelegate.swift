@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
         let verboseLogging = true
-        LoggingSystem.bootstrap(DarrellLogHandler.init)
+        LoggingSystem.bootstrap(DarrellLogHandler.bootstrap)
         if verboseLogging {
             Pcapng.logger.logLevel = .info
             EtherCapture.logger.logLevel = .info
@@ -48,29 +48,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
     }
     
+    @IBAction func showLogs(_ sender: NSMenuItem) {
+        let logView = LogView()
+        let window = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 3000, height: 400),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        self.windows.append(window)
+        window.center()
+        window.setFrameAutosaveName("Window \(self.windowCount)")
+        self.windowCount += 1
+        window.contentView = NSHostingView(rootView: logView)
+        window.makeKeyAndOrderFront(nil)
+    }
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    @IBAction func authorizePacketCapture(_ sender: NSMenuItem) {
-        let openPanel = NSOpenPanel()
-        openPanel.directoryURL = URL(fileURLWithPath: "/dev", isDirectory: true)
-        self.openPanel = openPanel
-        openPanel.allowsMultipleSelection = true
-        openPanel.showsHiddenFiles = true
-        openPanel.canSelectHiddenExtension = true
-        openPanel.canChooseDirectories = false
-        openPanel.canChooseFiles = true
-        openPanel.begin { (result) -> Void in
-            if result.rawValue == NSApplication.ModalResponse.OK.rawValue {
-                let urls = openPanel.urls
-                self.authorizedUrls.append(contentsOf: urls)
-            }
-        }
-    }
     @IBAction func importPcapngFile(_ sender: NSMenuItem) {
         let panel = NSOpenPanel()
-        panel.nameFieldLabel = "Choose a pcapng file to open"
+        panel.nameFieldLabel = "Choose a pcap or pcapng file to open"
         panel.allowsMultipleSelection = false
         panel.canChooseDirectories = false
         panel.canChooseFiles = true
@@ -85,11 +83,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     debugPrint("open file failed with error \(error)")
                     return
                 case .success(let data):
-                    let pcapng = Pcapng(data: data)
-                    guard let packetBlocks = pcapng?.segments.first?.packetBlocks else {
-                        debugPrint("Error: unable to get packets from decoding PCAPNG file \(url)")
-                        return
-                    }
+                    switch PcapType.detect(data: data) {
+                    case .pcap:
+                        let pcap = try Pcap(data: data)
+                        for (count,packet) in pcap.packets.enumerated() {
+                            let frame = Frame(data: packet.packetData)
+                            displayFrame(frame: frame, packetCount: Int32(count), arguments: arguments)
+                        }
+                    case .pcapng:
+                        let pcapng = Pcapng(data: data)
+                        var packetBlocks: [PcapngPacket] = []
+                        for segment in pcapng?.segments ?? [] {
+                            packetBlocks.append(contentsOf: segment.packetBlocks)
+                        }
+                        for (count,packet) in packetBlocks.enumerated() {
+                            let frame = Frame(data: packet.packetData)
+                            displayFrame(frame: frame, packetCount: Int32(count), arguments: arguments)
+                        }
+                    case .neither:
+                        print("Unable to decode pcap file")
+                        exit(EXIT_FAILURE)
+
                     var frames: [Frame] = []
                     for (count,packet) in packetBlocks.enumerated() {
                         let frame = Frame(data: packet.packetData)

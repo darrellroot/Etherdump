@@ -81,7 +81,7 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="Import Pcapng File" id="lhE-Bf-pXb">
+                                        <menuItem title="Import Pcap or Pcapng File" id="lhE-Bf-pXb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="importPcapngFile:" target="Voe-Tx-rLC" id="Sei-ul-a4U"/>
@@ -338,25 +338,6 @@
                                                     </menuItem>
                                                 </items>
                                             </menu>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Security" id="41q-WR-h6S">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Security" id="VF6-O8-vnp">
-                                    <items>
-                                        <menuItem title="Authorize Packet Capture" id="flW-Fa-Yxz">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="authorizePacketCapture:" target="Voe-Tx-rLC" id="vn9-7d-1oA"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Item 2" id="u4j-Rh-DUo">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="Item 3" id="Qyl-19-kGf">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -687,6 +668,12 @@
                                         <menuItem title="Etherdump Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show Logs" id="6ML-Xg-aha">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showLogs:" target="Voe-Tx-rLC" id="Awy-uO-J9W"/>
                                             </connections>
                                         </menuItem>
                                     </items>

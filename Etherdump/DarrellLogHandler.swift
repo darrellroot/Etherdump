@@ -12,10 +12,15 @@ import Logging
 // initially this is a copy of StreamLogHandler built into
 // the Apple Logging API.  My own copy will let me modify
 
-public struct DarrellLogHandler: LogHandler {
+public class DarrellLogHandler: LogHandler {
+    
 
-    private let label: String
-
+    static let shared = DarrellLogHandler()
+    static func bootstrap(_ _: String) -> LogHandler {
+        return DarrellLogHandler.shared
+    }
+    public var logData = ""
+    
     public var logLevel: Logger.Level = .error // set to .info or .debug for troubleshooting
 
     private var prettyMetadata: String?
@@ -30,18 +35,14 @@ public struct DarrellLogHandler: LogHandler {
         }
     }
 
-    init(label: String) {
-        self.label = label
-    }
-    init() {
-        self.init(label: "default")
-    }
+    private init() { }
 
     public func log(level: Logger.Level,
                     message: Logger.Message,
                     metadata: Logger.Metadata?,
                     file: String, function: String, line: UInt) {
-        print("\(level) \(message)")
+        debugPrint("\(level) \(message)")
+        self.logData.append("\(timestamp) \(level) \(message)\n")
     }
 
     private func prettify(_ metadata: Logger.Metadata) -> String? {
