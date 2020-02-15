@@ -83,12 +83,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     debugPrint("open file failed with error \(error)")
                     return
                 case .success(let data):
+                    var frames: [Frame] = []
+
                     switch PcapType.detect(data: data) {
                     case .pcap:
-                        let pcap = try Pcap(data: data)
+                        guard let pcap = try? Pcap(data: data) else {
+                            debugPrint("Unable to decode pcap file")
+                            return
+                        }
                         for (count,packet) in pcap.packets.enumerated() {
                             let frame = Frame(data: packet.packetData)
-                            displayFrame(frame: frame, packetCount: Int32(count), arguments: arguments)
+                            frames.append(frame)
                         }
                     case .pcapng:
                         let pcapng = Pcapng(data: data)
@@ -98,16 +103,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         }
                         for (count,packet) in packetBlocks.enumerated() {
                             let frame = Frame(data: packet.packetData)
-                            displayFrame(frame: frame, packetCount: Int32(count), arguments: arguments)
+                            frames.append(frame)
                         }
                     case .neither:
                         print("Unable to decode pcap file")
                         exit(EXIT_FAILURE)
-
-                    var frames: [Frame] = []
-                    for (count,packet) in packetBlocks.enumerated() {
-                        let frame = Frame(data: packet.packetData)
-                        frames.append(frame)
                     }
                     let contentView = ContentView(frames: frames)
                     let window = NSWindow(
@@ -122,7 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     window.makeKeyAndOrderFront(nil)
                     self.windows.append(window)
                     return
-                }
+                }// switch result
             }
         }
     }
