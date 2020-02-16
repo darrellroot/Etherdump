@@ -22,7 +22,7 @@ struct ContentView: View {
     }
     var body: some View {
         VStack(spacing: 0) {
-            CaptureFilterView(frames: self.$frames)
+            if BuildConfiguration.heavy { CaptureFilterView(frames: self.$frames) }
             DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             FrameSummaryView(frames: $frames,activeFrame:  $activeFrame, layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             if activeFrame != nil {

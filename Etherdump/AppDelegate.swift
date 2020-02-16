@@ -32,20 +32,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             EtherCapture.logger.logLevel = .error
         }
 
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
-        
-        // Create the window and set the content view. 
-        let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered, defer: false)
-        self.windows.append(window)
-        window.center()
-        window.setFrameAutosaveName("Window \(self.windowCount)")
-        self.windowCount += 1
-        window.contentView = NSHostingView(rootView: contentView)
-        window.makeKeyAndOrderFront(nil)
+        if BuildConfiguration.heavy {
+            // Create the SwiftUI view that provides the window contents.
+            let contentView = ContentView()
+            // Create the window and set the content view.
+            let window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+                styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                backing: .buffered, defer: false)
+            self.windows.append(window)
+            window.center()
+            window.setFrameAutosaveName("Window \(self.windowCount)")
+            self.windowCount += 1
+            window.contentView = NSHostingView(rootView: contentView)
+            window.makeKeyAndOrderFront(nil)
+        }
     }
     
     @IBAction func showLogs(_ sender: NSMenuItem) {
@@ -107,7 +108,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         }
                     case .neither:
                         print("Unable to decode pcap file")
-                        exit(EXIT_FAILURE)
+                        let alertView = AlertView(textMessage: "Unable to decode pcap file")
+                        let window = NSWindow(                       contentRect: NSRect(x: 50, y: 50, width: 50, height: 50),
+                            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                            backing: .buffered, defer: false)
+                        self.windows.append(window)
+                        window.center()
+                        window.setFrameAutosaveName("Window \(self.windowCount)")
+                        self.windowCount += 1
+                        window.contentView = NSHostingView(rootView: alertView)
+                        window.makeKeyAndOrderFront(nil)
+                        self.windows.append(window)
+                        return
                     }
                     let contentView = ContentView(frames: frames)
                     let window = NSWindow(

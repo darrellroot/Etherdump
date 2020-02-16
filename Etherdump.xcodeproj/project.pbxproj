@@ -48,6 +48,10 @@
 		2F78585223F8CE9000B5F5ED /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2F78585123F8CE9000B5F5ED /* PackageEtherCapture */; };
 		2F78585423F8CE9400B5F5ED /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2F78585323F8CE9400B5F5ED /* PackageSwiftPcapng */; };
 		2F78585623F8CE9900B5F5ED /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = 2F78585523F8CE9900B5F5ED /* Logging */; };
+		2F78585823F8CF3900B5F5ED /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585723F8CF3900B5F5ED /* BuildConfiguration.swift */; };
+		2F78585A23F8CF7300B5F5ED /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585923F8CF7300B5F5ED /* BuildConfiguration.swift */; };
+		2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585B23F8D2BB00B5F5ED /* AlertView.swift */; };
+		2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585B23F8D2BB00B5F5ED /* AlertView.swift */; };
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
@@ -79,6 +83,9 @@
 		2F78583423F8C9FF00B5F5ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F78583623F8C9FF00B5F5ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F78583723F8C9FF00B5F5ED /* Etherdump_Lite.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Etherdump_Lite.entitlements; sourceTree = "<group>"; };
+		2F78585723F8CF3900B5F5ED /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
+		2F78585923F8CF7300B5F5ED /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
+		2F78585B23F8D2BB00B5F5ED /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +153,7 @@
 				2F22B36223EE706F009DD8ED /* Ipv4DetailView.swift */,
 				2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */,
 				2F78582223F6603A00B5F5ED /* LogView.swift */,
+				2F78585B23F8D2BB00B5F5ED /* AlertView.swift */,
 			);
 			path = Etherdump;
 			sourceTree = "<group>";
@@ -173,6 +181,7 @@
 				2F78583623F8C9FF00B5F5ED /* Info.plist */,
 				2F78583723F8C9FF00B5F5ED /* Etherdump_Lite.entitlements */,
 				2F78583023F8C9FF00B5F5ED /* Preview Content */,
+				2F78585723F8CF3900B5F5ED /* BuildConfiguration.swift */,
 			);
 			path = "Etherdump Lite Target";
 			sourceTree = "<group>";
@@ -192,6 +201,7 @@
 				2F0647DC23E38FEC00965033 /* Info.plist */,
 				2F78582123F6576000B5F5ED /* Etherdump.entitlements */,
 				2F0647D623E38FEC00965033 /* Preview Content */,
+				2F78585923F8CF7300B5F5ED /* BuildConfiguration.swift */,
 			);
 			path = "Etherdump Heavy Target";
 			sourceTree = "<group>";
@@ -320,9 +330,11 @@
 				2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */,
 				2F78582323F6603A00B5F5ED /* LogView.swift in Sources */,
 				2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */,
+				2F78585A23F8CF7300B5F5ED /* BuildConfiguration.swift in Sources */,
 				2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */,
 				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
 				2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */,
+				2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F22B36323EE706F009DD8ED /* Ipv4DetailView.swift in Sources */,
 				2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */,
 				2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */,
@@ -343,9 +355,11 @@
 				2F78584A23F8CB1000B5F5ED /* PayloadView.swift in Sources */,
 				2F78584D23F8CB1800B5F5ED /* LogView.swift in Sources */,
 				2F78584223F8CAFC00B5F5ED /* CaptureFilterView.swift in Sources */,
+				2F78585823F8CF3900B5F5ED /* BuildConfiguration.swift in Sources */,
 				2F78584923F8CB0E00B5F5ED /* UdpDetailView.swift in Sources */,
 				2F78584123F8CAF900B5F5ED /* ContentView.swift in Sources */,
 				2F78584C23F8CB1600B5F5ED /* Ipv6DetailView.swift in Sources */,
+				2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F78583E23F8CAF100B5F5ED /* filterEnumerations.swift in Sources */,
 				2F78584723F8CB0800B5F5ED /* Layer4DetailView.swift in Sources */,
 				2F78584423F8CB0000B5F5ED /* FrameSummaryView.swift in Sources */,
@@ -549,7 +563,7 @@
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Etherdump Lite/Info.plist";
+				INFOPLIST_FILE = "Etherdump/Etherdump Lite Target/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -572,7 +586,7 @@
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Etherdump Lite/Info.plist";
+				INFOPLIST_FILE = "Etherdump/Etherdump Lite Target/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
