@@ -16,7 +16,6 @@ import Logging
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var windows: [NSWindow] = []
-    var windowCount = 1
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
     
@@ -32,33 +31,52 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             EtherCapture.logger.logLevel = .error
         }
 
+        
         if BuildConfiguration.heavy {
             // Create the SwiftUI view that provides the window contents.
             let contentView = ContentView()
             // Create the window and set the content view.
             let window = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+                contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered, defer: false)
             self.windows.append(window)
             window.center()
-            window.setFrameAutosaveName("Window \(self.windowCount)")
-            self.windowCount += 1
+            //window.setFrameAutosaveName("Window \(self.windowCount)")
             window.contentView = NSHostingView(rootView: contentView)
             window.makeKeyAndOrderFront(nil)
         }
     }
     
+    @IBAction func newCaptureWindow(_ sender: Any) {
+        self.newCaptureWindow()
+    }
+    func newCaptureWindow() {
+        if BuildConfiguration.heavy {
+            // Create the SwiftUI view that provides the window contents.
+            let contentView = ContentView()
+            // Create the window and set the content view.
+            let window = NSWindow(
+                contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
+                styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                backing: .buffered, defer: false)
+            self.windows.append(window)
+            window.center()
+            //window.setFrameAutosaveName("Window \(self.windowCount)")
+            window.contentView = NSHostingView(rootView: contentView)
+            window.makeKeyAndOrderFront(nil)
+        }
+    }
+
     @IBAction func showLogs(_ sender: NSMenuItem) {
         let logView = LogView()
         let window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 3000, height: 400),
+            contentRect: NSRect(x: 300, y: 150, width: 500, height: 500),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered, defer: false)
         self.windows.append(window)
         window.center()
-        window.setFrameAutosaveName("Window \(self.windowCount)")
-        self.windowCount += 1
+        //window.setFrameAutosaveName("Log Window")
         window.contentView = NSHostingView(rootView: logView)
         window.makeKeyAndOrderFront(nil)
     }
@@ -109,13 +127,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     case .neither:
                         print("Unable to decode pcap file")
                         let alertView = AlertView(textMessage: "Unable to decode pcap file")
-                        let window = NSWindow(                       contentRect: NSRect(x: 50, y: 50, width: 50, height: 50),
+                        let window = NSWindow(
+                            contentRect: NSRect(x: 50, y: 50, width: 50, height: 50),
                             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                             backing: .buffered, defer: false)
                         self.windows.append(window)
                         window.center()
-                        window.setFrameAutosaveName("Window \(self.windowCount)")
-                        self.windowCount += 1
+                        //window.setFrameAutosaveName("Window \(self.windowCount)")
                         window.contentView = NSHostingView(rootView: alertView)
                         window.makeKeyAndOrderFront(nil)
                         self.windows.append(window)
@@ -123,13 +141,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     }
                     let contentView = ContentView(frames: frames)
                     let window = NSWindow(
-                        contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
+                        contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
                         styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                         backing: .buffered, defer: false)
                     self.windows.append(window)
                     window.center()
-                    window.setFrameAutosaveName("Window \(self.windowCount)")
-                    self.windowCount += 1
+                    //window.setFrameAutosaveName("Window \(self.windowCount)")
                     window.contentView = NSHostingView(rootView: contentView)
                     window.makeKeyAndOrderFront(nil)
                     self.windows.append(window)
