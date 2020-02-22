@@ -371,9 +371,9 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="5gT-KC-WSO"/>
-                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="Ptp-SP-VEL">
+                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="eLg-js-Y0V">
                                                         <connections>
-                                                            <action selector="modifyFont:" target="YLy-65-1bz" id="Uc7-di-UnL"/>
+                                                            <action selector="modifyFont:" target="YLy-65-1bz" id="j2a-Mg-ZIr"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Smaller" tag="4" keyEquivalent="-" id="i1d-Er-qST">

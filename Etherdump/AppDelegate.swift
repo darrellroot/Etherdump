@@ -15,13 +15,16 @@ import Logging
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    
     var windows: [NSWindow] = []
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
+    var appSettings = AppSettings()
+    //var fontStyle: Font = .body
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
-        let verboseLogging = true
+        let verboseLogging = false
         LoggingSystem.bootstrap(DarrellLogHandler.bootstrap)
         if verboseLogging {
             Pcapng.logger.logLevel = .info
@@ -34,10 +37,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if BuildConfiguration.heavy {
             // Create the SwiftUI view that provides the window contents.
-            let contentView = ContentView()
+            //let contentView = ContentView(showCapture: true, appSettings: appSettings)
+            let contentView = ContentView(showCapture: true).environmentObject(appSettings)
+
             // Create the window and set the content view.
             let window = NSWindow(
-                contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
+                contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered, defer: false)
             self.windows.append(window)
@@ -54,7 +59,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func newCaptureWindow() {
         if BuildConfiguration.heavy {
             // Create the SwiftUI view that provides the window contents.
-            let contentView = ContentView()
+            //let contentView = ContentView(showCapture: true, appSettings: appSettings)
+            let contentView = ContentView(showCapture: true).environmentObject(appSettings)
+
             // Create the window and set the content view.
             let window = NSWindow(
                 contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
@@ -69,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func showLogs(_ sender: NSMenuItem) {
-        let logView = LogView()
+        let logView = LogView().environmentObject(appSettings)
         let window = NSWindow(
             contentRect: NSRect(x: 300, y: 150, width: 500, height: 500),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -139,7 +146,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         self.windows.append(window)
                         return
                     }
-                    let contentView = ContentView(frames: frames)
+                    //let contentView = ContentView(frames: frames, showCapture: false, appSettings: self.appSettings)
+                    let contentView = ContentView(frames: frames, showCapture: false).environmentObject(self.appSettings)
+
                     let window = NSWindow(
                         contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
                         styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],

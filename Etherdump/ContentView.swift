@@ -10,6 +10,10 @@ import SwiftUI
 import PackageEtherCapture
 
 struct ContentView: View {
+    let showCapture: Bool
+    //@Environment(\.font) var font
+    @EnvironmentObject var appSettings: AppSettings
+    //@ObservedObject var appSettings: AppSettings
     @State var frames: [Frame] = []
     @State var activeFrame: Frame? = nil
     @State var layer3Filter: Layer3Filter = .any
@@ -17,12 +21,16 @@ struct ContentView: View {
     @State var portFilterA: String = ""
     @State var portFilterB: String = ""
     
-    init(frames: [Frame] = []) {
+    init(frames: [Frame] = [], showCapture: Bool) {
+
+        //init(frames: [Frame] = [], showCapture: Bool, appSettings: AppSettings) {
+        self.showCapture = showCapture
+        //self.appSettings = appSettings
         _frames = State<[Frame]>(initialValue: frames)
     }
     var body: some View {
         VStack(spacing: 0) {
-            if BuildConfiguration.heavy { CaptureFilterView(frames: self.$frames) }
+            if showCapture { CaptureFilterView(frames: self.$frames) }
             DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             FrameSummaryView(frames: $frames,activeFrame:  $activeFrame, layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             if activeFrame != nil {
@@ -35,13 +43,18 @@ struct ContentView: View {
                 Layer4DetailView(frame: $activeFrame)
             }
             Text(activeFrame?.hexdump ?? "")
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }//.frame(maxWidth: .infinity, maxHeight: .infinity)
+            //.frame(idealWidth: 1000, idealHeight: 1000)
+            .font(appSettings.font)
     }
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(frames: [Frame.sampleFrame])
+        //ContentView(frames: [Frame.sampleFrame], showCapture: true, appSettings: AppSettings())
+        ContentView(frames: [Frame.sampleFrame], showCapture: false).environmentObject(AppSettings())
+
+        
     }
 }

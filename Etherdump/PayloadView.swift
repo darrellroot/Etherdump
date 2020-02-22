@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct PayloadView: View {
+    //@EnvironmentObject var appSettings: AppSettings
     var payload: Data
     var body: some View {
         HStack {

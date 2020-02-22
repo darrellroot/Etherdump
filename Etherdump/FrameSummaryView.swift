@@ -10,6 +10,7 @@ import SwiftUI
 import PackageEtherCapture
 
 struct FrameSummaryView: View {
+    @EnvironmentObject var appSettings: AppSettings
     @Binding var frames: [Frame]
     @Binding var activeFrame: Frame?
     @Binding var layer3Filter: Layer3Filter
@@ -131,8 +132,10 @@ struct FrameSummaryView: View {
     }
     var body: some View {
         List(self.filteredFrames) { frame in
-            Button(frame.description) {
+            Button(action: {
                 self.activeFrame = frame
+            }) {
+                Text(frame.description).font(self.appSettings.font)
             }
         }.padding().background(Color.purple.opacity(0.7))
     }

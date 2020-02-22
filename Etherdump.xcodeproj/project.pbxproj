@@ -52,6 +52,10 @@
 		2F78585A23F8CF7300B5F5ED /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585923F8CF7300B5F5ED /* BuildConfiguration.swift */; };
 		2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585B23F8D2BB00B5F5ED /* AlertView.swift */; };
 		2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585B23F8D2BB00B5F5ED /* AlertView.swift */; };
+		2F78585F23F9E71400B5F5ED /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585E23F9E71400B5F5ED /* AppSettings.swift */; };
+		2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585E23F9E71400B5F5ED /* AppSettings.swift */; };
+		2F7858632401C69200B5F5ED /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7858622401C69200B5F5ED /* Font+extensions.swift */; };
+		2F7858642401C69300B5F5ED /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7858622401C69200B5F5ED /* Font+extensions.swift */; };
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
@@ -86,6 +90,8 @@
 		2F78585723F8CF3900B5F5ED /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		2F78585923F8CF7300B5F5ED /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildConfiguration.swift; sourceTree = "<group>"; };
 		2F78585B23F8D2BB00B5F5ED /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		2F78585E23F9E71400B5F5ED /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		2F7858622401C69200B5F5ED /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,10 +140,12 @@
 		2F0647CF23E38FE900965033 /* Etherdump */ = {
 			isa = PBXGroup;
 			children = (
+				2F7858612401C67100B5F5ED /* Extensions */,
 				2F78582923F8C9FD00B5F5ED /* Etherdump Lite Target */,
 				2F78583C23F8CA3400B5F5ED /* Etherdump Heavy Target */,
 				2F5451D323EE0A6400207DA3 /* Enumerations */,
 				2F0647D023E38FE900965033 /* AppDelegate.swift */,
+				2F78585E23F9E71400B5F5ED /* AppSettings.swift */,
 				2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */,
 				2F0647D223E38FE900965033 /* ContentView.swift */,
 				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
@@ -204,6 +212,14 @@
 				2F78585923F8CF7300B5F5ED /* BuildConfiguration.swift */,
 			);
 			path = "Etherdump Heavy Target";
+			sourceTree = "<group>";
+		};
+		2F7858612401C67100B5F5ED /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2F7858622401C69200B5F5ED /* Font+extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */,
+				2F78585F23F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */,
 				2F22B36123EE6B77009DD8ED /* PayloadView.swift in Sources */,
 				2F22B36523EE81EC009DD8ED /* Ipv6DetailView.swift in Sources */,
@@ -336,6 +353,7 @@
 				2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */,
 				2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F22B36323EE706F009DD8ED /* Ipv4DetailView.swift in Sources */,
+				2F7858632401C69200B5F5ED /* Font+extensions.swift in Sources */,
 				2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */,
 				2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */,
 				2F0647D323E38FE900965033 /* ContentView.swift in Sources */,
@@ -349,6 +367,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78584023F8CAF700B5F5ED /* DarrellLogHandler.swift in Sources */,
+				2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
 				2F78584623F8CB0500B5F5ED /* Layer3DetailView.swift in Sources */,
 				2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */,
@@ -361,6 +380,7 @@
 				2F78584C23F8CB1600B5F5ED /* Ipv6DetailView.swift in Sources */,
 				2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F78583E23F8CAF100B5F5ED /* filterEnumerations.swift in Sources */,
+				2F7858642401C69300B5F5ED /* Font+extensions.swift in Sources */,
 				2F78584723F8CB0800B5F5ED /* Layer4DetailView.swift in Sources */,
 				2F78584423F8CB0000B5F5ED /* FrameSummaryView.swift in Sources */,
 				2F78584523F8CB0300B5F5ED /* Layer2DetailView.swift in Sources */,
