@@ -15,6 +15,10 @@ import Logging
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    @IBOutlet weak var etherdumpLiteMenuItem: NSMenuItem!
+    @IBOutlet weak var aboutEtherdumpLiteMenuItem: NSMenuItem!
+    @IBOutlet weak var newCaptureWindowMenuItem: NSMenuItem!
+    @IBOutlet weak var etherdumpLiteHelpMenuItem: NSMenuItem!
     
     var windows: [NSWindow] = []
     var authorizedUrls: [URL] = []
@@ -27,9 +31,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc public func changeFont(_ sender: AnyObject) {
         appSettings.changeFont(sender)
     }
+    
+    func setupFullVersion() {
+        etherdumpLiteMenuItem.title = "Etherdump"
+        aboutEtherdumpLiteMenuItem.title = "About Etherdump"
+        newCaptureWindowMenuItem.isEnabled = true
+        etherdumpLiteHelpMenuItem.title = "Etherdump Help"
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+        if BuildConfiguration.heavy {
+            setupFullVersion()
+        }
         let verboseLogging = false
         LoggingSystem.bootstrap(DarrellLogHandler.bootstrap)
         if verboseLogging {

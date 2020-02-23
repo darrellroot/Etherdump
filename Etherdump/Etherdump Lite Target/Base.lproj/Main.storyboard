@@ -58,7 +58,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="bib-Uj-vzu">
                                     <items>
-                                        <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
+                                        <menuItem title="New Capture Window" enabled="NO" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
                                                 <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
                                             </connections>
@@ -679,7 +679,14 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Etherdump_Lite" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Etherdump_Lite" customModuleProvider="target">
+                    <connections>
+                        <outlet property="aboutEtherdumpLiteMenuItem" destination="5kV-Vb-QxS" id="aPW-8g-hFf"/>
+                        <outlet property="etherdumpLiteHelpMenuItem" destination="FKE-Sm-Kum" id="pJL-F1-oiX"/>
+                        <outlet property="etherdumpLiteMenuItem" destination="1Xt-HY-uBw" id="bVI-tg-i2s"/>
+                        <outlet property="newCaptureWindowMenuItem" destination="Was-JA-tGl" id="DDA-ec-W0L"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <customObject id="zEz-1I-iAX" customClass="NSFontManager"/>
             </objects>

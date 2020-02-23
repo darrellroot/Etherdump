@@ -11,7 +11,6 @@
 		2F0647D323E38FE900965033 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647D223E38FE900965033 /* ContentView.swift */; };
 		2F0647D523E38FEC00965033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D423E38FEC00965033 /* Assets.xcassets */; };
 		2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D723E38FEC00965033 /* Preview Assets.xcassets */; };
-		2F0647DB23E38FEC00965033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D923E38FEC00965033 /* Main.storyboard */; };
 		2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2F0647E423E3907C00965033 /* PackageEtherCapture */; };
 		2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E623E3919300965033 /* CaptureFilterView.swift */; };
 		2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E823E4CA3800965033 /* FrameSummaryView.swift */; };
@@ -59,6 +58,7 @@
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
+		2FDD9D732403071A002D271A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -316,7 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F0647DB23E38FEC00965033 /* Main.storyboard in Resources */,
+				2FDD9D732403071A002D271A /* Main.storyboard in Resources */,
 				2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */,
 				2F0647D523E38FEC00965033 /* Assets.xcassets in Resources */,
 			);
