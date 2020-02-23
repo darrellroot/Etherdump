@@ -21,9 +21,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var openPanel: NSOpenPanel?
     var appSettings = AppSettings()
     //var fontStyle: Font = .body
-    
+    //var fontManager: NSFontManager!
+
+    //Some font menu items only enabled if this is in appdelegate
+    @objc public func changeFont(_ sender: AnyObject) {
+        appSettings.changeFont(sender)
+    }
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+
         let verboseLogging = false
         LoggingSystem.bootstrap(DarrellLogHandler.bootstrap)
         if verboseLogging {

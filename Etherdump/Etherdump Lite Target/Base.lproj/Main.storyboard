@@ -352,17 +352,17 @@
                                                 <items>
                                                     <menuItem title="Show Fonts" keyEquivalent="t" id="Q5e-8K-NDq">
                                                         <connections>
-                                                            <action selector="orderFrontFontPanel:" target="YLy-65-1bz" id="WHr-nq-2xA"/>
+                                                            <action selector="orderFrontFontPanel:" target="zEz-1I-iAX" id="aWF-dW-v0l"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Bold" tag="2" keyEquivalent="b" id="GB9-OM-e27">
                                                         <connections>
-                                                            <action selector="addFontTrait:" target="YLy-65-1bz" id="hqk-hr-sYV"/>
+                                                            <action selector="addFontTrait:" target="zEz-1I-iAX" id="Yzp-T0-5uy"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Italic" tag="1" keyEquivalent="i" id="Vjx-xi-njq">
                                                         <connections>
-                                                            <action selector="addFontTrait:" target="YLy-65-1bz" id="IHV-OB-c03"/>
+                                                            <action selector="addFontTrait:" target="zEz-1I-iAX" id="N8v-HB-Xse"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Underline" keyEquivalent="u" id="WRG-CD-K1S">
@@ -373,12 +373,12 @@
                                                     <menuItem isSeparatorItem="YES" id="5gT-KC-WSO"/>
                                                     <menuItem title="Bigger" tag="3" keyEquivalent="+" id="eLg-js-Y0V">
                                                         <connections>
-                                                            <action selector="modifyFont:" target="YLy-65-1bz" id="j2a-Mg-ZIr"/>
+                                                            <action selector="modifyFont:" target="zEz-1I-iAX" id="0OV-rD-DUA"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem title="Smaller" tag="4" keyEquivalent="-" id="i1d-Er-qST">
                                                         <connections>
-                                                            <action selector="modifyFont:" target="YLy-65-1bz" id="HcX-Lf-eNd"/>
+                                                            <action selector="modifyFont:" target="zEz-1I-iAX" id="Tww-aX-W7P"/>
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="kx3-Dk-x3B"/>
@@ -680,8 +680,8 @@
                     </connections>
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Etherdump_Lite" customModuleProvider="target"/>
-                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="zEz-1I-iAX" customClass="NSFontManager"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>

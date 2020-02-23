@@ -12,11 +12,13 @@ import SwiftUI
 class AppSettings: ObservableObject {
     @Published var font: Font
     var nsfont: NSFont
-    let fontManager = NSFontManager.shared
+    var fontManager: NSFontManager!
 
     var fontStyle: Font.TextStyle = .body
     
     init() {
+
+        self.fontManager = NSFontManager.shared
         if let newFont = NSFont(name: "Courier", size: 12) {
             fontManager.setSelectedFont(newFont, isMultiple: false)
             self.nsfont = newFont
@@ -25,13 +27,10 @@ class AppSettings: ObservableObject {
             self.nsfont = NSFont.systemFont(ofSize: 12)
         }
         self.font = Font(self.nsfont)
-        //font = Font.system(fontStyle, design: .monospaced)
-        fontManager.setSelectedFont(self.nsfont, isMultiple: false)
         fontManager.target = self
-        fontManager.action = #selector(self.changeFont(sender:))
-        fontManager.isEnabled = true
+        fontManager.setSelectedFont(self.nsfont, isMultiple: false)
     }
-    @objc public func changeFont(sender: AnyObject) {
+    @objc public func changeFont(_ sender: AnyObject) {
         debugPrint("font changed")
         guard let sender = sender as? NSFontManager else {
             return
