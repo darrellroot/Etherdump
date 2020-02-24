@@ -21,7 +21,6 @@ struct Ipv4DetailView: View {
                 Text("TTL \(ipv4.ttl)")
                 Spacer()
             }
-            Text("blah")
             HStack {
                 Text("DSCP: \(ipv4.dscp)")
                 Text("ECN: \(ipv4.ecn)")

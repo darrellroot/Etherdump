@@ -20,7 +20,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var newCaptureWindowMenuItem: NSMenuItem!
     @IBOutlet weak var etherdumpLiteHelpMenuItem: NSMenuItem!
     
-    var windows: [NSWindow] = []
+    
+    @objc func exportPcap(_ sender: Any) {
+        // this is a fake export pcap needed for menu onCommand to work.  But this will be called if no responding ContentView in focus
+        debugPrint("exportPcap 2")
+    }
+    
+    var windows: [NSWindow] = [] {
+        didSet {
+            print("windows.count \(windows.count)")
+        }
+    }
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
     var appSettings = AppSettings()
@@ -67,6 +77,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 backing: .buffered, defer: false)
             self.windows.append(window)
             window.center()
+            window.tabbingMode = .disallowed
+            window.title = "Capture \(self.windows.count)"
             //window.setFrameAutosaveName("Window \(self.windowCount)")
             window.contentView = NSHostingView(rootView: contentView)
             window.makeKeyAndOrderFront(nil)
@@ -84,10 +96,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             // Create the window and set the content view.
             let window = NSWindow(
-                contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
+                contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered, defer: false)
             self.windows.append(window)
+            window.title = "Capture \(self.windows.count)"
+            window.tabbingMode = .disallowed
             window.center()
             //window.setFrameAutosaveName("Window \(self.windowCount)")
             window.contentView = NSHostingView(rootView: contentView)
@@ -103,11 +117,48 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         self.windows.append(window)
         window.center()
+        window.title = "Logs"
         //window.setFrameAutosaveName("Log Window")
+        window.tabbingMode = .disallowed
         window.contentView = NSHostingView(rootView: logView)
         window.makeKeyAndOrderFront(nil)
     }
     
+    func exportPcap(frames: [Frame]) {
+        debugPrint("appdelegate exportPcap")
+        guard frames.count > 0 else {
+            return
+        }
+        let pcapData = EtherCapture.makePcap(frames: frames)
+        let panel = NSSavePanel()
+        panel.title = "PCAP Export \(frames.count) Frames"
+        panel.nameFieldLabel = "Filename:"
+        panel.prompt = "Export"
+        panel.allowedFileTypes = ["pcap"]
+        panel.allowsOtherFileTypes = true
+        panel.begin { response in
+            if response == NSApplication.ModalResponse.OK, let url = panel.url {
+                debugPrint("saving url \(url)")
+                do {
+                    try pcapData.write(to: url)
+                } catch {
+                    let alertView = AlertView(textMessage: "Unable to save pcap file: \(error)")
+                    let window = NSWindow(
+                        contentRect: NSRect(x: 50, y: 50, width: 50, height: 50),
+                        styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+                        backing: .buffered, defer: false)
+                    self.windows.append(window)
+                    window.center()
+                    //window.setFrameAutosaveName("Window \(self.windowCount)")
+                    window.contentView = NSHostingView(rootView: alertView)
+                    window.makeKeyAndOrderFront(nil)
+                    self.windows.append(window)
+
+                }
+            }
+        }
+    }
+
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
@@ -138,7 +189,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             return
                         }
                         for (count,packet) in pcap.packets.enumerated() {
-                            let frame = Frame(data: packet.packetData)
+                            let frame = Frame(data: packet.packetData, originalLength: packet.originalLength)
                             frames.append(frame)
                         }
                     case .pcapng:
@@ -148,7 +199,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             packetBlocks.append(contentsOf: segment.packetBlocks)
                         }
                         for (count,packet) in packetBlocks.enumerated() {
-                            let frame = Frame(data: packet.packetData)
+                            let frame = Frame(data: packet.packetData, originalLength: packet.originalLength)
                             frames.append(frame)
                         }
                     case .neither:
@@ -174,7 +225,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                         backing: .buffered, defer: false)
                     self.windows.append(window)
+                    window.title = url.lastPathComponent
                     window.center()
+                    window.tabbingMode = .disallowed
                     //window.setFrameAutosaveName("Window \(self.windowCount)")
                     window.contentView = NSHostingView(rootView: contentView)
                     window.makeKeyAndOrderFront(nil)

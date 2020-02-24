@@ -21,7 +21,6 @@ struct Ipv6DetailView: View {
                 Text("Hop Limit \(ipv6.hopLimit)")
                 Spacer()
             }
-            Text("blah")
             HStack {
                 Text("Traffic Class: \(ipv6.trafficClass)")
                 Text("FlowLabel: \(ipv6.flowLabel)")

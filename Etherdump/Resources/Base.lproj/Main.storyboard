@@ -60,7 +60,7 @@
                                     <items>
                                         <menuItem title="New Capture Window" enabled="NO" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <action selector="newCaptureWindow:" target="Voe-Tx-rLC" id="qKm-UX-XcB"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
@@ -81,10 +81,16 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="Import Pcap or Pcapng File" id="TpJ-qp-cVG">
+                                        <menuItem title="Import PCAP or PCAPNG File" id="TpJ-qp-cVG">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="importPcapngFile:" target="Voe-Tx-rLC" id="0tH-2x-ZS4"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Export PCAP" id="iei-0Y-AB9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="exportPcap:" target="Ady-hI-5gd" id="Usf-x9-936"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>

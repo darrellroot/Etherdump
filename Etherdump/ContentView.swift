@@ -9,6 +9,9 @@
 import SwiftUI
 import PackageEtherCapture
 
+
+
+
 struct ContentView: View {
     let showCapture: Bool
     //@Environment(\.font) var font
@@ -20,6 +23,7 @@ struct ContentView: View {
     @State var layer4Filter: Layer4Filter = .any
     @State var portFilterA: String = ""
     @State var portFilterB: String = ""
+    let appDelegate = NSApplication.shared.delegate as! AppDelegate
     
     init(frames: [Frame] = [], showCapture: Bool) {
 
@@ -46,8 +50,13 @@ struct ContentView: View {
         }//.frame(maxWidth: .infinity, maxHeight: .infinity)
             //.frame(idealWidth: 1000, idealHeight: 1000)
             .font(appSettings.font)
-    }
-}
+            .onCommand(#selector(AppDelegate.exportPcap(_:))) {
+            debugPrint("export Pcap")
+                self.appDelegate.exportPcap(frames: self.frames)
+
+        }
+
+    }}
 
 
 struct ContentView_Previews: PreviewProvider {

@@ -67,7 +67,6 @@
 		2F0647D223E38FE900965033 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F0647D423E38FEC00965033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F0647D723E38FEC00965033 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2F0647DA23E38FEC00965033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2F0647DC23E38FEC00965033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F0647E623E3919300965033 /* CaptureFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureFilterView.swift; sourceTree = "<group>"; };
 		2F0647E823E4CA3800965033 /* FrameSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameSummaryView.swift; sourceTree = "<group>"; };
@@ -140,6 +139,7 @@
 		2F0647CF23E38FE900965033 /* Etherdump */ = {
 			isa = PBXGroup;
 			children = (
+				2FDD9D74240332FA002D271A /* Resources */,
 				2F7858612401C67100B5F5ED /* Extensions */,
 				2F78582923F8C9FD00B5F5ED /* Etherdump Lite Target */,
 				2F78583C23F8CA3400B5F5ED /* Etherdump Heavy Target */,
@@ -185,7 +185,6 @@
 		2F78582923F8C9FD00B5F5ED /* Etherdump Lite Target */ = {
 			isa = PBXGroup;
 			children = (
-				2F78583323F8C9FF00B5F5ED /* Main.storyboard */,
 				2F78583623F8C9FF00B5F5ED /* Info.plist */,
 				2F78583723F8C9FF00B5F5ED /* Etherdump_Lite.entitlements */,
 				2F78583023F8C9FF00B5F5ED /* Preview Content */,
@@ -205,7 +204,6 @@
 		2F78583C23F8CA3400B5F5ED /* Etherdump Heavy Target */ = {
 			isa = PBXGroup;
 			children = (
-				2F0647D923E38FEC00965033 /* Main.storyboard */,
 				2F0647DC23E38FEC00965033 /* Info.plist */,
 				2F78582123F6576000B5F5ED /* Etherdump.entitlements */,
 				2F0647D623E38FEC00965033 /* Preview Content */,
@@ -220,6 +218,14 @@
 				2F7858622401C69200B5F5ED /* Font+extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2FDD9D74240332FA002D271A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F78583323F8C9FF00B5F5ED /* Main.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -392,14 +398,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2F0647D923E38FEC00965033 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2F0647DA23E38FEC00965033 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2F78583323F8C9FF00B5F5ED /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
