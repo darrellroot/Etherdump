@@ -147,21 +147,10 @@
 				2F0647D023E38FE900965033 /* AppDelegate.swift */,
 				2F78585E23F9E71400B5F5ED /* AppSettings.swift */,
 				2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */,
-				2F0647D223E38FE900965033 /* ContentView.swift */,
-				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
-				2F5451D123EE082900207DA3 /* DisplayFilterView.swift */,
-				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
-				2F0647D423E38FEC00965033 /* Assets.xcassets */,
-				2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */,
-				2F0647EF23E5027F00965033 /* Layer3DetailView.swift */,
-				2F0647F123E502A400965033 /* Layer4DetailView.swift */,
-				2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */,
-				2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */,
-				2F22B36023EE6B77009DD8ED /* PayloadView.swift */,
-				2F22B36223EE706F009DD8ED /* Ipv4DetailView.swift */,
-				2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */,
 				2F78582223F6603A00B5F5ED /* LogView.swift */,
 				2F78585B23F8D2BB00B5F5ED /* AlertView.swift */,
+				2FDD9D75240378F3002D271A /* ContentView */,
+				2F0647D423E38FEC00965033 /* Assets.xcassets */,
 			);
 			path = Etherdump;
 			sourceTree = "<group>";
@@ -226,6 +215,49 @@
 				2F78583323F8C9FF00B5F5ED /* Main.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2FDD9D75240378F3002D271A /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				2F0647D223E38FE900965033 /* ContentView.swift */,
+				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
+				2F5451D123EE082900207DA3 /* DisplayFilterView.swift */,
+				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
+				2FDD9D7824037973002D271A /* Layer4Views */,
+				2FDD9D772403796B002D271A /* Layer3Views */,
+				2FDD9D7624037962002D271A /* Layer2Views */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
+		2FDD9D7624037962002D271A /* Layer2Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */,
+			);
+			path = Layer2Views;
+			sourceTree = "<group>";
+		};
+		2FDD9D772403796B002D271A /* Layer3Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F0647EF23E5027F00965033 /* Layer3DetailView.swift */,
+				2F22B36223EE706F009DD8ED /* Ipv4DetailView.swift */,
+				2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */,
+			);
+			path = Layer3Views;
+			sourceTree = "<group>";
+		};
+		2FDD9D7824037973002D271A /* Layer4Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F0647F123E502A400965033 /* Layer4DetailView.swift */,
+				2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */,
+				2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */,
+				2F22B36023EE6B77009DD8ED /* PayloadView.swift */,
+			);
+			path = Layer4Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
