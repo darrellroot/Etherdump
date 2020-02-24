@@ -9,9 +9,12 @@
 import SwiftUI
 
 struct LogView: View {
+    @ObservedObject var logHandler = DarrellLogHandler.shared
     var body: some View {
         ScrollView {
-            Text(DarrellLogHandler.shared.logData)
+            Text("                                    ")
+            //Text(DarrellLogHandler.shared.logData)
+            Text(logHandler.logData)
         }
     }
 }

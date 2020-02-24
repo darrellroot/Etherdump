@@ -8,18 +8,18 @@
 
 import Foundation
 import Logging
+import SwiftUI
 
 // initially this is a copy of StreamLogHandler built into
 // the Apple Logging API.  My own copy will let me modify
 
-public class DarrellLogHandler: LogHandler {
-    
+public class DarrellLogHandler: LogHandler, ObservableObject {
 
     static let shared = DarrellLogHandler()
     static func bootstrap(_ _: String) -> LogHandler {
         return DarrellLogHandler.shared
     }
-    public var logData = ""
+    @Published public var logData = ""
     
     public var logLevel: Logger.Level = .error // set to .info or .debug for troubleshooting
 

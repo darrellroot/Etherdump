@@ -26,11 +26,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         debugPrint("exportPcap 2")
     }
     
+    var logWindows: [NSWindow] = [] // memory leak but i keep crashing otherwise
+    
     var windows: [NSWindow] = [] {
         didSet {
             print("windows.count \(windows.count)")
         }
     }
+    var windowCount = 0
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
     var appSettings = AppSettings()
@@ -54,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if BuildConfiguration.heavy {
             setupFullVersion()
         }
-        let verboseLogging = false
+        let verboseLogging = true
         LoggingSystem.bootstrap(DarrellLogHandler.bootstrap)
         if verboseLogging {
             Pcapng.logger.logLevel = .info
@@ -75,10 +78,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered, defer: false)
-            self.windows.append(window)
+            //self.windows.append(window)
             window.center()
             window.tabbingMode = .disallowed
-            window.title = "Capture \(self.windows.count)"
+            windowCount = windowCount + 1
+            window.title = "Capture \(self.windowCount)"
             //window.setFrameAutosaveName("Window \(self.windowCount)")
             window.contentView = NSHostingView(rootView: contentView)
             window.makeKeyAndOrderFront(nil)
@@ -99,8 +103,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                 backing: .buffered, defer: false)
-            self.windows.append(window)
-            window.title = "Capture \(self.windows.count)"
+            //self.windows.append(window)
+            windowCount = windowCount + 1
+            window.title = "Capture \(self.windowCount)"
             window.tabbingMode = .disallowed
             window.center()
             //window.setFrameAutosaveName("Window \(self.windowCount)")
@@ -112,10 +117,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func showLogs(_ sender: NSMenuItem) {
         let logView = LogView().environmentObject(appSettings)
         let window = NSWindow(
-            contentRect: NSRect(x: 300, y: 150, width: 500, height: 500),
+            contentRect: NSRect(x: 300, y: 150, width: 1000, height: 1000),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered, defer: false)
-        self.windows.append(window)
+        self.logWindows.append(window)
         window.center()
         window.title = "Logs"
         //window.setFrameAutosaveName("Log Window")
@@ -147,12 +152,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         contentRect: NSRect(x: 50, y: 50, width: 50, height: 50),
                         styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                         backing: .buffered, defer: false)
-                    self.windows.append(window)
+                    //self.windows.append(window)
                     window.center()
                     //window.setFrameAutosaveName("Window \(self.windowCount)")
                     window.contentView = NSHostingView(rootView: alertView)
                     window.makeKeyAndOrderFront(nil)
-                    self.windows.append(window)
 
                 }
             }
@@ -209,12 +213,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             contentRect: NSRect(x: 50, y: 50, width: 50, height: 50),
                             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                             backing: .buffered, defer: false)
-                        self.windows.append(window)
+                        //self.windows.append(window)
                         window.center()
                         //window.setFrameAutosaveName("Window \(self.windowCount)")
                         window.contentView = NSHostingView(rootView: alertView)
                         window.makeKeyAndOrderFront(nil)
-                        self.windows.append(window)
                         return
                     }
                     //let contentView = ContentView(frames: frames, showCapture: false, appSettings: self.appSettings)
@@ -224,14 +227,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),
                         styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
                         backing: .buffered, defer: false)
-                    self.windows.append(window)
+                    //self.windows.append(window)
                     window.title = url.lastPathComponent
                     window.center()
                     window.tabbingMode = .disallowed
                     //window.setFrameAutosaveName("Window \(self.windowCount)")
                     window.contentView = NSHostingView(rootView: contentView)
                     window.makeKeyAndOrderFront(nil)
-                    self.windows.append(window)
                     return
                 }// switch result
             }

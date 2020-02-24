@@ -676,6 +676,12 @@
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Show Logs" id="5s2-QD-EUI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showLogs:" target="Voe-Tx-rLC" id="mwy-Rc-reA"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -685,7 +691,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Etherdump_Lite" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Etherdump" customModuleProvider="target">
                     <connections>
                         <outlet property="aboutEtherdumpLiteMenuItem" destination="5kV-Vb-QxS" id="aPW-8g-hFf"/>
                         <outlet property="etherdumpLiteHelpMenuItem" destination="FKE-Sm-Kum" id="pJL-F1-oiX"/>
