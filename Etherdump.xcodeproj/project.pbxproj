@@ -61,6 +61,8 @@
 		2FDD9D732403071A002D271A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
 		2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
 		2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
+		2FDD9D7D2405D485002D271A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7C2405D485002D271A /* AboutView.swift */; };
+		2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7C2405D485002D271A /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +98,7 @@
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
 		2FDD9D792404DC0F002D271A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		2FDD9D7C2405D485002D271A /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,7 @@
 				2FDD9D75240378F3002D271A /* ContentView */,
 				2F0647D423E38FEC00965033 /* Assets.xcassets */,
 				2FDD9D792404DC0F002D271A /* HelpView.swift */,
+				2FDD9D7C2405D485002D271A /* AboutView.swift */,
 			);
 			path = Etherdump;
 			sourceTree = "<group>";
@@ -383,6 +387,7 @@
 			files = (
 				2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */,
 				2F78585F23F9E71400B5F5ED /* AppSettings.swift in Sources */,
+				2FDD9D7D2405D485002D271A /* AboutView.swift in Sources */,
 				2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */,
 				2F22B36123EE6B77009DD8ED /* PayloadView.swift in Sources */,
 				2F22B36523EE81EC009DD8ED /* Ipv6DetailView.swift in Sources */,
@@ -411,6 +416,7 @@
 			files = (
 				2F78584023F8CAF700B5F5ED /* DarrellLogHandler.swift in Sources */,
 				2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */,
+				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
 				2F78584623F8CB0500B5F5ED /* Layer3DetailView.swift in Sources */,
 				2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */,

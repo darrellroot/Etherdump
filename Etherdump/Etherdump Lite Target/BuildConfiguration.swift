@@ -12,4 +12,5 @@ struct BuildConfiguration {
     static let lite = true
     static let heavy = false
     static let appName = "Etherdump Lite"
+
 }

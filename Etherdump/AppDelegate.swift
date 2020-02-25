@@ -30,15 +30,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         debugPrint("exportFilteredPcap AppDelegate")
     }
 
+    var windows: [Int:NSWindow] = [:]
     
-    var helpWindows: [NSWindow] = [] // memory leak
-    var logWindows: [NSWindow] = [] // memory leak but i keep crashing otherwise
+    //var helpWindows: [NSWindow] = [] // memory leak
+    //var logWindows: [NSWindow] = [] // memory leak but i keep crashing otherwise
     
-    var windows: [NSWindow] = [] {
+    /*var windows: [NSWindow] = [] {
         didSet {
             print("windows.count \(windows.count)")
         }
-    }
+    }*/
     var windowCount = 0
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
@@ -57,21 +58,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func showHelp(_ sender: Any) {
+        windowCount = windowCount + 1
         let helpView = HelpView().environmentObject(appSettings)
         let window = NSWindow(
             contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
             styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView],
             backing: .buffered, defer: false)
         window.contentView = NSHostingView(rootView: helpView)
-        windowCount = windowCount + 1
         window.title = "\(BuildConfiguration.appName) Help"
         window.tabbingMode = .disallowed
         window.center()
         window.setFrameAutosaveName("Help Window \(windowCount)")
-        helpWindows.append(window)
+        windows[windowCount] = window
         window.makeKeyAndOrderFront(nil)
-        
     }
+    
+    @IBAction func showAbout(_ sender: Any) {
+        windowCount = windowCount + 1
+        let aboutView = AboutView().environmentObject(appSettings)
+        let window = NSWindow(
+            contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
+            styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.contentView = NSHostingView(rootView: aboutView)
+        window.title = "About \(BuildConfiguration.appName)"
+        window.tabbingMode = .disallowed
+        window.center()
+        window.setFrameAutosaveName("About Window \(windowCount)")
+        windows[windowCount] = window
+        window.makeKeyAndOrderFront(nil)
+    }
+
     
     
     func setupFullVersion() {
@@ -144,12 +161,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @IBAction func showLogs(_ sender: NSMenuItem) {
+        windowCount = windowCount + 1
         let logView = LogView().environmentObject(appSettings)
         let window = NSWindow(
             contentRect: NSRect(x: 300, y: 150, width: 1000, height: 1000),
             styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
             backing: .buffered, defer: false)
-        self.logWindows.append(window)
+        windows[windowCount] = window
         window.center()
         window.title = "Logs"
         //window.setFrameAutosaveName("Log Window")
