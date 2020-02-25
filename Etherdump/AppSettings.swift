@@ -23,10 +23,12 @@ class AppSettings: ObservableObject {
             fontManager.setSelectedFont(newFont, isMultiple: false)
             self.nsfont = newFont
         } else {
-            debugPrint("Warning failed to initialize Courier font")
+            debugPrint("Warning failed to initialize San Francisco font")
             self.nsfont = NSFont.systemFont(ofSize: 12)
         }
-        self.font = Font(self.nsfont)
+        //self.font = Font.system(.body, design: .monospaced)
+        self.font = Font.system(size: 17, weight: .regular, design: .monospaced)
+        
         fontManager.target = self
         fontManager.setSelectedFont(self.nsfont, isMultiple: false)
     }
