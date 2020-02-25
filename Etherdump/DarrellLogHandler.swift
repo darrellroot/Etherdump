@@ -19,6 +19,8 @@ public class DarrellLogHandler: LogHandler, ObservableObject {
     static func bootstrap(_ _: String) -> LogHandler {
         return DarrellLogHandler.shared
     }
+    static var logger = Logger(label: "net.networkmom.Etherdump")
+    
     @Published public var logData = ""
     
     public var logLevel: Logger.Level = .error // set to .info or .debug for troubleshooting
@@ -42,7 +44,7 @@ public class DarrellLogHandler: LogHandler, ObservableObject {
                     metadata: Logger.Metadata?,
                     file: String, function: String, line: UInt) {
         debugPrint("\(level) \(message)")
-        self.logData.append("\(timestamp) \(level) \(message)\n")
+        self.logData.append("\(timestamp()) \(level) \(message)\n")
     }
 
     private func prettify(_ metadata: Logger.Metadata) -> String? {

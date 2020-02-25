@@ -21,10 +21,10 @@ struct Layer3DetailView: View {
             case .ipv6(let ipv6):
                 return AnyView(Ipv6DetailView(ipv6: ipv6))
             case .unknown(let unknown):
-                return AnyView(Text("unknown"))
+                return AnyView(Text("layer 3 protocol unknown"))
             }
         } else {
-            return AnyView(Text("should not get here"))
+            return AnyView(Text("layer 3 decode not implemented"))
         }
         //Text(frame?.layer4?.verboseDescription ?? "Error displaying layer-4 header")
     }

@@ -21,10 +21,10 @@ struct Layer4DetailView: View {
             case .udp(let udp):
                 return AnyView(UdpDetailView(udp: udp))
             case .unknown(let unknown):
-                return AnyView(Text("unknown"))
+                return AnyView(Text("layer 4 protocol unknown"))
             }
         } else {
-            return AnyView(Text("should not get here"))
+            return AnyView(Text("layer 4 decode not implemented"))
         }
         //Text(frame?.layer4?.verboseDescription ?? "Error displaying layer-4 header")
     }
