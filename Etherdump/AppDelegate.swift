@@ -38,14 +38,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
     var appSettings = AppSettings()
-    //var fontStyle: Font = .body
-    //var fontManager: NSFontManager!
-
-    //Some font menu items only enabled if this is in appdelegate
-    @objc public func changeFont(_ sender: AnyObject) {
-        appSettings.changeFont(sender)
+    
+    @IBAction func biggerFont(_ sender: NSMenuItem) {
+        appSettings.biggerFont(sender)
     }
     
+    @IBAction func defaultFont(_ sender: NSMenuItem) {
+        appSettings.defaultFont(sender)
+    }
+    
+    @IBAction func smallerFont(_ sender: NSMenuItem) {
+        appSettings.smallerFont(sender)
+    }
     
     @IBAction func showHelp(_ sender: Any) {
         let helpView = HelpView().environmentObject(appSettings)
