@@ -12,7 +12,12 @@ import PackageEtherCapture
 struct Layer2DetailView: View {
     @Binding var frame: Frame?
     var body: some View {
-         Text(frame?.verboseDescription ?? "Error displaying frame header")
+        HStack {
+            Text(frame?.frameFormat.rawValue ?? "Frame").font(.headline)
+            Spacer()
+            Text(frame?.verboseDescription ?? "Error displaying frame header")
+            Spacer()
+        }.padding().cornerRadius(8).border(Color.green.opacity(0.7),width: 2).padding()
     }
 }
 

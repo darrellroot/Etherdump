@@ -16,8 +16,8 @@ struct UdpDetailView: View {
             HStack {
                 Text("UDP").font(.headline)
                 Spacer()
-                Text("\(udp.sourcePort) > \(udp.destinationPort)")
-                Text("Checksum: \(udp.checksum)")
+                Text(verbatim: "\(udp.sourcePort) > \(udp.destinationPort)")
+                Text(verbatim: "Checksum: \(udp.checksum)")
                 Spacer()
             }
             PayloadView(payload: udp.payload)

@@ -12,6 +12,8 @@ import PackageEtherCapture
 struct Ipv6DetailView: View {
     let ipv6: IPv6
     var body: some View {
+        let flowLabelHex = String(format: "%x",ipv6.flowLabel).uppercased()
+
         return VStack {
             HStack {
                 Text("IPv6").font(.headline)
@@ -23,8 +25,8 @@ struct Ipv6DetailView: View {
             }
             HStack {
                 Text("Traffic Class: \(ipv6.trafficClass)")
-                Text("FlowLabel: \(ipv6.flowLabel)")
-                Text("PayloadLength: \(ipv6.payloadLength)")
+                Text("FlowLabel: 0x\(flowLabelHex)")
+                Text(verbatim: "PayloadLength: \(ipv6.payloadLength)")
             }
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }

@@ -11,4 +11,5 @@ import Foundation
 struct BuildConfiguration {
     static let lite = false
     static let heavy = true
+    static let appName = "Etherdump"
 }

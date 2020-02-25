@@ -25,7 +25,7 @@ struct Ipv4DetailView: View {
                 Text("DSCP: \(ipv4.dscp)")
                 Text("ECN: \(ipv4.ecn)")
                 Text("Header Length: \(ipv4.ihl * 5) bytes")
-                Text("Header checksum: \(ipv4.headerChecksum)")
+                Text(verbatim: "Header checksum: \(ipv4.headerChecksum)")
                 Text("TotalLength: \(ipv4.totalLength)")
                 if ipv4.dontFragmentFlag { Text("DontFrag")}
                 if ipv4.moreFragmentsFlag { Text("MoreFrag")}

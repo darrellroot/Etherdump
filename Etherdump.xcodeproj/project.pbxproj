@@ -59,6 +59,8 @@
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
 		2FDD9D732403071A002D271A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
+		2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
+		2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,7 @@
 		2F7858622401C69200B5F5ED /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
+		2FDD9D792404DC0F002D271A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,7 @@
 				2F78585B23F8D2BB00B5F5ED /* AlertView.swift */,
 				2FDD9D75240378F3002D271A /* ContentView */,
 				2F0647D423E38FEC00965033 /* Assets.xcassets */,
+				2FDD9D792404DC0F002D271A /* HelpView.swift */,
 			);
 			path = Etherdump;
 			sourceTree = "<group>";
@@ -224,9 +228,9 @@
 				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
 				2F5451D123EE082900207DA3 /* DisplayFilterView.swift */,
 				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
-				2FDD9D7824037973002D271A /* Layer4Views */,
-				2FDD9D772403796B002D271A /* Layer3Views */,
 				2FDD9D7624037962002D271A /* Layer2Views */,
+				2FDD9D772403796B002D271A /* Layer3Views */,
+				2FDD9D7824037973002D271A /* Layer4Views */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -387,6 +391,7 @@
 				2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */,
 				2F78585A23F8CF7300B5F5ED /* BuildConfiguration.swift in Sources */,
 				2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */,
+				2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */,
 				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
 				2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */,
 				2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
@@ -414,6 +419,7 @@
 				2F78584223F8CAFC00B5F5ED /* CaptureFilterView.swift in Sources */,
 				2F78585823F8CF3900B5F5ED /* BuildConfiguration.swift in Sources */,
 				2F78584923F8CB0E00B5F5ED /* UdpDetailView.swift in Sources */,
+				2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */,
 				2F78584123F8CAF900B5F5ED /* ContentView.swift in Sources */,
 				2F78584C23F8CB1600B5F5ED /* Ipv6DetailView.swift in Sources */,
 				2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */,

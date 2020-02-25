@@ -673,7 +673,7 @@
                                     <items>
                                         <menuItem title="Etherdump Lite Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="showHelp:" target="Voe-Tx-rLC" id="eNR-1k-rMb"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Show Logs" id="5s2-QD-EUI">

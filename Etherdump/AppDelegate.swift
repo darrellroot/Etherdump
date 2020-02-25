@@ -26,6 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         debugPrint("exportPcap 2")
     }
     
+    var helpWindows: [NSWindow] = [] // memory leak
     var logWindows: [NSWindow] = [] // memory leak but i keep crashing otherwise
     
     var windows: [NSWindow] = [] {
@@ -44,6 +45,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc public func changeFont(_ sender: AnyObject) {
         appSettings.changeFont(sender)
     }
+    
+    
+    @IBAction func showHelp(_ sender: Any) {
+        let helpView = HelpView().environmentObject(appSettings)
+        let window = NSWindow(
+            contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
+            styleMask: [.titled, .closable, .miniaturizable, .fullSizeContentView],
+            backing: .buffered, defer: false)
+        window.contentView = NSHostingView(rootView: helpView)
+        windowCount = windowCount + 1
+        window.title = "\(BuildConfiguration.appName) Help"
+        window.tabbingMode = .disallowed
+        window.center()
+        window.setFrameAutosaveName("Help Window \(windowCount)")
+        helpWindows.append(window)
+        window.makeKeyAndOrderFront(nil)
+        
+    }
+    
     
     func setupFullVersion() {
         etherdumpLiteMenuItem.title = "Etherdump"
