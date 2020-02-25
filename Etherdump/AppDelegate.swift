@@ -21,10 +21,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var etherdumpLiteHelpMenuItem: NSMenuItem!
     
     
-    @objc func exportPcap(_ sender: Any) {
+    @IBAction @objc func exportAllPcap(_ sender: Any) {
         // this is a fake export pcap needed for menu onCommand to work.  But this will be called if no responding ContentView in focus
-        debugPrint("exportPcap 2")
+        debugPrint("exportAllPcap AppDelegate")
     }
+    @IBAction @objc func exportFilteredPcap(_ sender: Any) {
+        // this is a fake export pcap needed for menu onCommand to work.  But this will be called if no responding ContentView in focus
+        debugPrint("exportFilteredPcap AppDelegate")
+    }
+
     
     var helpWindows: [NSWindow] = [] // memory leak
     var logWindows: [NSWindow] = [] // memory leak but i keep crashing otherwise
@@ -154,7 +159,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func exportPcap(frames: [Frame]) {
-        debugPrint("appdelegate exportPcap")
+        debugPrint("appdelegate exportPcap \(frames.count) frames")
         guard frames.count > 0 else {
             return
         }
