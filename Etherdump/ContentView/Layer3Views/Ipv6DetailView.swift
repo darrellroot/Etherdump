@@ -27,6 +27,7 @@ struct Ipv6DetailView: View {
                 Text("Traffic Class: \(ipv6.trafficClass)")
                 Text("FlowLabel: 0x\(flowLabelHex)")
                 Text(verbatim: "PayloadLength: \(ipv6.payloadLength)")
+                Text("Padding: \(ipv6.padding.count) Bytes")
             }
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }

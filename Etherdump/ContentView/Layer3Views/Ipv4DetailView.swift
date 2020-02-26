@@ -26,11 +26,14 @@ struct Ipv4DetailView: View {
                 Text("ECN: \(ipv4.ecn)")
                 Text("Header Length: \(ipv4.ihl * 5) bytes")
                 Text(verbatim: "Header checksum: \(ipv4.headerChecksum)")
+            }
+            HStack {
                 Text("TotalLength: \(ipv4.totalLength)")
                 if ipv4.dontFragmentFlag { Text("DontFrag")}
                 if ipv4.moreFragmentsFlag { Text("MoreFrag")}
                 Text("FragmentOffset: \(ipv4.fragmentOffset)")
                 if ipv4.options != nil { Text("Options: \(ipv4.options!.hexdump)") }
+                Text("Padding: \(ipv4.padding.count) Bytes")
             }
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }

@@ -47,7 +47,7 @@ struct CaptureFilterView: View {
         self.error = ""
         let interface = "en0"
         let packetCount: Int32 = Int32(numberPackets)
-        let snaplen = 96
+        let snaplen = 65535
         let promiscuousMode = true
         do {
             etherCapture = try EtherCapture(interface: interface, count: packetCount, command: captureFilter, snaplen: snaplen, promiscuous: promiscuousMode) { frame in
