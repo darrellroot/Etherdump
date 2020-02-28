@@ -22,6 +22,8 @@ struct Layer3DetailView: View {
                 return AnyView(Ipv6DetailView(ipv6: ipv6))
             case .bpdu(let bpdu):
                 return AnyView(BpduDetailView(bpdu: bpdu))
+            case .cdp(let cdp):
+                return AnyView(CdpDetailView(cdp: cdp))
             case .unknown(let unknown):
                 return AnyView(Text("layer 3 protocol unknown"))
             }
