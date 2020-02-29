@@ -67,6 +67,8 @@
 		2FDD9D8124062346002D271A /* BpduDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7F24062346002D271A /* BpduDetailView.swift */; };
 		2FDD9D8324075617002D271A /* CdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D8224075617002D271A /* CdpDetailView.swift */; };
 		2FDD9D8424075617002D271A /* CdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D8224075617002D271A /* CdpDetailView.swift */; };
+		2FDD9D86240ADF32002D271A /* LldpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D85240ADF32002D271A /* LldpDetailView.swift */; };
+		2FDD9D87240ADF32002D271A /* LldpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D85240ADF32002D271A /* LldpDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +107,7 @@
 		2FDD9D7C2405D485002D271A /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2FDD9D7F24062346002D271A /* BpduDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpduDetailView.swift; sourceTree = "<group>"; };
 		2FDD9D8224075617002D271A /* CdpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CdpDetailView.swift; sourceTree = "<group>"; };
+		2FDD9D85240ADF32002D271A /* LldpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LldpDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +264,7 @@
 				2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */,
 				2FDD9D7F24062346002D271A /* BpduDetailView.swift */,
 				2FDD9D8224075617002D271A /* CdpDetailView.swift */,
+				2FDD9D85240ADF32002D271A /* LldpDetailView.swift */,
 			);
 			path = Layer3Views;
 			sourceTree = "<group>";
@@ -394,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */,
+				2FDD9D86240ADF32002D271A /* LldpDetailView.swift in Sources */,
 				2F78585F23F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2FDD9D7D2405D485002D271A /* AboutView.swift in Sources */,
 				2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */,
@@ -425,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78584023F8CAF700B5F5ED /* DarrellLogHandler.swift in Sources */,
+				2FDD9D87240ADF32002D271A /* LldpDetailView.swift in Sources */,
 				2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
