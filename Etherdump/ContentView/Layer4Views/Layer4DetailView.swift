@@ -22,6 +22,8 @@ struct Layer4DetailView: View {
                 return AnyView(UdpDetailView(udp: udp))
             case .noLayer4:
                 return AnyView(EmptyView())
+            case .icmp4(let icmp4):
+                return AnyView(Icmp4DetailView(icmp: icmp4))
             case .unknown(let unknown):
                 return AnyView(Text("layer 4 protocol unknown"))
             }

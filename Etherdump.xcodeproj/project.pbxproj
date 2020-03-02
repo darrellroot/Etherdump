@@ -55,6 +55,8 @@
 		2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78585E23F9E71400B5F5ED /* AppSettings.swift */; };
 		2F7858632401C69200B5F5ED /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7858622401C69200B5F5ED /* Font+extensions.swift */; };
 		2F7858642401C69300B5F5ED /* Font+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7858622401C69200B5F5ED /* Font+extensions.swift */; };
+		2F7F583E240C350B00E08061 /* Icmp4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F583D240C350B00E08061 /* Icmp4DetailView.swift */; };
+		2F7F583F240C350B00E08061 /* Icmp4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F583D240C350B00E08061 /* Icmp4DetailView.swift */; };
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
@@ -101,6 +103,7 @@
 		2F78585B23F8D2BB00B5F5ED /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		2F78585E23F9E71400B5F5ED /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		2F7858622401C69200B5F5ED /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
+		2F7F583D240C350B00E08061 /* Icmp4DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icmp4DetailView.swift; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
 		2FDD9D792404DC0F002D271A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
@@ -275,6 +278,7 @@
 				2F0647F123E502A400965033 /* Layer4DetailView.swift */,
 				2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */,
 				2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */,
+				2F7F583D240C350B00E08061 /* Icmp4DetailView.swift */,
 				2F22B36023EE6B77009DD8ED /* PayloadView.swift */,
 			);
 			path = Layer4Views;
@@ -416,6 +420,7 @@
 				2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F22B36323EE706F009DD8ED /* Ipv4DetailView.swift in Sources */,
 				2F7858632401C69200B5F5ED /* Font+extensions.swift in Sources */,
+				2F7F583E240C350B00E08061 /* Icmp4DetailView.swift in Sources */,
 				2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */,
 				2FDD9D8324075617002D271A /* CdpDetailView.swift in Sources */,
 				2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */,
@@ -448,6 +453,7 @@
 				2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F78583E23F8CAF100B5F5ED /* filterEnumerations.swift in Sources */,
 				2F7858642401C69300B5F5ED /* Font+extensions.swift in Sources */,
+				2F7F583F240C350B00E08061 /* Icmp4DetailView.swift in Sources */,
 				2F78584723F8CB0800B5F5ED /* Layer4DetailView.swift in Sources */,
 				2FDD9D8424075617002D271A /* CdpDetailView.swift in Sources */,
 				2F78584423F8CB0000B5F5ED /* FrameSummaryView.swift in Sources */,
