@@ -1,0 +1,59 @@
+<title>Etherdump and Etherdump Lite Help</title>
+
+<h2>Etherdump Lite versus Etherdump</h2>
+"Etherdump Lite" is a <em>sandboxed</em> version of Etherdump designed for the MacOS App Store. It is not capable of making packet captures directly, but can import packet captures made using other tools (such as tcpdump).
+<p>
+"Etherdump" is a "full" version of Etherdump available at https://etherdump.net   It is not <em>sandboxed</em> but is <em>notarized</em> by Apple.
+<p>
+Both versions are <em>free</em>.  Open source code for both versions is available at https://github.com/darrellroot/Etherdump under the lenient MIT license.  Etherdump is implemented in Swift and SwiftUI.
+<p>
+
+<h2>Getting packet captures for Etherdump Lite</h2>
+You can capture 100 ethernet frames from interface en0 by executing the following command in a <em>Terminal</em> window:<p>
+<code>sudo tcpdump -i en0 -c 100 -s 65000 -w capture.pcapng</code>
+<p>
+Then you can use the <em>File -> Import PCAP or PCAPNG File</em> menu item to import the capture.pcapng file into Etherdump Lite.
+
+<h2>Getting packet captures with Etherdump (full version)</h2>
+<em>In order to capture ethernet frames directly with Etherdump, your username needs read-access to all /dev/bpf* files.</em>  Assuming your account is allowed to administer your Macintosh, you can gain access by executing the following command in a Terminal window:<p>
+<code>sudo chmod g+r /dev/bpf*</code>
+<p>
+The Mac dynamically creates /dev/bpf devices, so you may need to repeat this procedure after attempting a frame capture.
+Once you have read group permission to /dev/bpf*, you can use the <em>File -> New Capture Window</em> menu command to open a capture window.  Then select your interface and click <em>Start</em>.
+If you previously installed <em>Wireshark</em> your read permissions to /dev/bpf* may already be fixed.
+
+<h2>Etherdump welcomes feedback at feedback@networkmom.net</h2>
+<ul>
+    <li>Please email feedback or suggestions to feedback@networkmom.net</li>
+    <li>We welcome pull requests at github, particularly for additional protocol decodes.  Writing a protocol decode is an excellent Computer Science student project and looks great on your resume!  All submissions require a test case and will be carefully reviewed.
+    </ul>
+
+<h2>Etherdump Open Source Repositories</h2>
+<ul>
+    <li>Etherdump and Etherdump Lite https://github.com/darrellroot/Etherdump</li>
+    <li>etherdump command-line version https://github.com/darrellroot/etherdump-CLI</li>
+    <li>PackageEtherCapture (frame/packet decode logic) https://github.com/darrellroot/PackageEtherCapture</li>
+    <li>PackageSwiftPcapng (file import logic) https://github.com/darrellroot/PackageSwiftPcapng</li>
+    <li>https://github.com/apple/swift-log</li>
+</ul>
+
+<h2>Frame Decodes Supported in version 1.0 March 2020</h2>
+<ul>
+    <li>Ethernet-II Frame</li>
+    <li>802.2 Frame</li>
+    <li>802.3 SNAP Header</li>
+    <li>Cisco Discovery Protocol (CDP)</li>
+    <li>Link Layer Discovery Protocol (LLDP)</li>
+    <li>Bridge Protocol Data Unit (STP BPDU)</li>
+    <li>IPv4</li>
+    <li>IPv6</li>
+    <li>TCP</li>
+    <li>UDP</li>
+    <li>ICMPv4</li>
+    <li>ICMPv6</li>
+</ul>
+
+<h2>About Wireshark</h2>
+Wireshark, available from https://wireshark.org, is the worlds best packet capture and analysis tool (originally implemented by Gerald Combs).  It is open source, implemented in C, and supports many platforms.  It has (many) more packet decodes and expert troubleshooting tools than Etherdump.  We thank the Wireshark team for their excellent tool and hope that one day Etherdump will be a Swift alternative with competitive functionality.
+
+

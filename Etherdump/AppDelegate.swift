@@ -30,6 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         debugPrint("exportFilteredPcap AppDelegate")
     }
 
+
     var windows: [Int:NSWindow] = [:]
     
     var windowCount = 0
@@ -49,7 +50,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         appSettings.smallerFont(sender)
     }
     
-    @IBAction func showHelp(_ sender: Any) {
+    @IBAction func showHelp(_ sender: NSMenuItem) {
+        let staticHtmlController = StaticHtmlController()
+        staticHtmlController.resource = "help"
+        staticHtmlController.showWindow(self)
+    }
+
+    /*@IBAction func showHelp(_ sender: Any) {
         windowCount = windowCount + 1
         let helpView = HelpView().environmentObject(appSettings)
         let window = NSWindow(
@@ -64,7 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.setFrameAutosaveName("Help Window \(windowCount)")
         windows[windowCount] = window
         window.makeKeyAndOrderFront(nil)
-    }
+    }*/
     
     @IBAction func showAbout(_ sender: Any) {
         windowCount = windowCount + 1

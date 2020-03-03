@@ -62,6 +62,12 @@
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
+		2FD30ECD240E18A30020F7F7 /* StaticHtmlController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */; };
+		2FD30ECE240E18A30020F7F7 /* StaticHtmlController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */; };
+		2FD30ED0240E18A90020F7F7 /* StaticHtmlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */; };
+		2FD30ED1240E18A90020F7F7 /* StaticHtmlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */; };
+		2FD30ED3240E19BF0020F7F7 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ED2240E19BF0020F7F7 /* help.html */; };
+		2FD30ED4240E19BF0020F7F7 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ED2240E19BF0020F7F7 /* help.html */; };
 		2FDD9D732403071A002D271A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
 		2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
 		2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
@@ -109,6 +115,9 @@
 		2F7F5840240DDC1B00E08061 /* Icmp6DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icmp6DetailView.swift; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
+		2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticHtmlController.xib; sourceTree = "<group>"; };
+		2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticHtmlController.swift; sourceTree = "<group>"; };
+		2FD30ED2240E19BF0020F7F7 /* help.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
 		2FDD9D792404DC0F002D271A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		2FDD9D7C2405D485002D271A /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2FDD9D7F24062346002D271A /* BpduDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpduDetailView.swift; sourceTree = "<group>"; };
@@ -160,6 +169,7 @@
 		2F0647CF23E38FE900965033 /* Etherdump */ = {
 			isa = PBXGroup;
 			children = (
+				2FD30ECB240E188E0020F7F7 /* Help */,
 				2FDD9D74240332FA002D271A /* Resources */,
 				2F7858612401C67100B5F5ED /* Extensions */,
 				2F78582923F8C9FD00B5F5ED /* Etherdump Lite Target */,
@@ -232,10 +242,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2FD30ECB240E188E0020F7F7 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */,
+				2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
 		2FDD9D74240332FA002D271A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				2F78583323F8C9FF00B5F5ED /* Main.storyboard */,
+				2FD30ED2240E19BF0020F7F7 /* help.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -383,7 +403,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FDD9D732403071A002D271A /* Main.storyboard in Resources */,
+				2FD30ED3240E19BF0020F7F7 /* help.html in Resources */,
 				2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */,
+				2FD30ECD240E18A30020F7F7 /* StaticHtmlController.xib in Resources */,
 				2F0647D523E38FEC00965033 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +415,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78583523F8C9FF00B5F5ED /* Main.storyboard in Resources */,
+				2FD30ED4240E19BF0020F7F7 /* help.html in Resources */,
 				2F78583223F8C9FF00B5F5ED /* Preview Assets.xcassets in Resources */,
+				2FD30ECE240E18A30020F7F7 /* StaticHtmlController.xib in Resources */,
 				2F78583D23F8CAAC00B5F5ED /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +439,7 @@
 				2F22B36523EE81EC009DD8ED /* Ipv6DetailView.swift in Sources */,
 				2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */,
 				2F78582323F6603A00B5F5ED /* LogView.swift in Sources */,
+				2FD30ED0240E18A90020F7F7 /* StaticHtmlController.swift in Sources */,
 				2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */,
 				2F78585A23F8CF7300B5F5ED /* BuildConfiguration.swift in Sources */,
 				2F0647F023E5027F00965033 /* Layer3DetailView.swift in Sources */,
@@ -449,6 +474,7 @@
 				2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */,
 				2F78584A23F8CB1000B5F5ED /* PayloadView.swift in Sources */,
 				2F78584D23F8CB1800B5F5ED /* LogView.swift in Sources */,
+				2FD30ED1240E18A90020F7F7 /* StaticHtmlController.swift in Sources */,
 				2F78584223F8CAFC00B5F5ED /* CaptureFilterView.swift in Sources */,
 				2F78585823F8CF3900B5F5ED /* BuildConfiguration.swift in Sources */,
 				2F78584923F8CB0E00B5F5ED /* UdpDetailView.swift in Sources */,
