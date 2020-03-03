@@ -8,9 +8,12 @@
 
 import Foundation
 import SwiftUI
+import Network
 
 class AppSettings: ObservableObject {
     @Published var font: Font
+    @Published var interfaces: [String]
+    let monitor: NWPathMonitor
     var bodyFontSize = 17 {
         didSet {
             self.font = Font.system(size: CGFloat(bodyFontSize), weight: .regular, design: .monospaced)
@@ -21,6 +24,16 @@ class AppSettings: ObservableObject {
     init() {
         //self.font = Font.system(.body, design: .monospaced)
         self.font = Font.system(size: CGFloat(bodyFontSize), weight: .regular, design: .monospaced)
+        self.monitor = NWPathMonitor()
+        self.interfaces = []
+        monitor.pathUpdateHandler = { path in
+            var interfaces: [String] = []
+            for nwInterface in path.availableInterfaces {
+                interfaces.append(nwInterface.debugDescription)
+            }
+            self.interfaces = interfaces
+        }
+        monitor.start(queue: .main)
         
     }
     func biggerFont(_ sender: NSMenuItem) {

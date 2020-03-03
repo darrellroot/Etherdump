@@ -16,7 +16,6 @@ struct ContentView: View {
     let showCapture: Bool
     //@Environment(\.font) var font
     @EnvironmentObject var appSettings: AppSettings
-    //@ObservedObject var appSettings: AppSettings
     @State var frames: [Frame] = []
     @State var activeFrame: Frame? = nil
     @State var layer3Filter: Layer3Filter = .any
@@ -29,12 +28,13 @@ struct ContentView: View {
 
         //init(frames: [Frame] = [], showCapture: Bool, appSettings: AppSettings) {
         self.showCapture = showCapture
-        //self.appSettings = appSettings
         _frames = State<[Frame]>(initialValue: frames)
     }
     var body: some View {
         VStack(spacing: 0) {
-            if showCapture { CaptureFilterView(frames: self.$frames) }
+            if showCapture {
+                CaptureFilterView(frames: self.$frames,interface: appSettings.interfaces.first ?? "en0")
+            }
             DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame , layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             if activeFrame != nil {

@@ -11,6 +11,7 @@ import SwiftUI
 import PackageSwiftPcapng
 import PackageEtherCapture
 import Logging
+import Network
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -37,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var authorizedUrls: [URL] = []
     var openPanel: NSOpenPanel?
     var appSettings = AppSettings()
+    //@Published var interfaces: [String] = []
     
     @IBAction func biggerFont(_ sender: NSMenuItem) {
         appSettings.biggerFont(sender)
@@ -115,11 +117,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             EtherCapture.logger.logLevel = .error
             DarrellLogHandler.logger.logLevel = .error
         }
-
+        /*let monitor = NWPathMonitor()
+        monitor.pathUpdateHandler = { path in
+            debugPrint("path update")
+            var interfaces: [String] = []
+            for nwInterface in path.availableInterfaces {
+                debugPrint("interface \(nwInterface.debugDescription)")
+                interfaces.append(nwInterface.debugDescription)
+                debugPrint("self.interfaces after \(self.interfaces)")
+            }
+            self.interfaces = interfaces
+        }
+        monitor.start(queue: .main)
+        self.interfaces.append("blah")*/
         
         if BuildConfiguration.heavy {
-            windowCount = windowCount + 1
-            let contentView = ContentView(showCapture: true).environmentObject(appSettings)
+            newCaptureWindow()
+            /*windowCount = windowCount + 1
+            let contentView = ContentView(showCapture: true,interfaces: self.$interfaces).environmentObject(appSettings)
 
             let window = NSWindow(
                 contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
@@ -132,7 +147,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             window.title = "Capture \(self.windowCount)"
             //window.setFrameAutosaveName("Window \(self.windowCount)")
             window.contentView = NSHostingView(rootView: contentView)
-            window.makeKeyAndOrderFront(nil)
+            window.makeKeyAndOrderFront(nil)*/
         }
     }
     
