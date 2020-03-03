@@ -6,7 +6,8 @@
 //  Copyright © 2020 net.networkmom. All rights reserved.
 //
 
-import SwiftUI
+//not currently used
+/*import SwiftUI
 
 struct HelpView: View {
     @EnvironmentObject var appSettings: AppSettings
@@ -59,3 +60,4 @@ struct HelpView_Previews: PreviewProvider {
         HelpView().environmentObject(AppSettings())
     }
 }
+ */

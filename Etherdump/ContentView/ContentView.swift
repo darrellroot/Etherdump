@@ -60,115 +60,98 @@ struct ContentView: View {
             }
     }
     var filteredFrames: [Frame] {
-        var outputFrames = frames
-        
-        switch layer3Filter {
-        case .any:
-            break
-        case .ipv4:
-            for (position,frame) in outputFrames.enumerated().reversed() {
+        var outputFrames: [Frame] = []
+        frameloop: for frame in frames {
+            switch layer3Filter {
+            case .any:
+                break
+            case .ipv4:
                 if case .ipv4(_) = frame.layer3 {
-                //if false {
-                    continue
+                    break
                 } else {
-                    outputFrames.remove(at: position)
+                   continue frameloop
                 }
-            }
-        case .ipv6:
-            for (position,frame) in outputFrames.enumerated().reversed() {
+            case .ipv6:
                 if case .ipv6(_) = frame.layer3 {
-                    continue
+                    break
                 } else {
-                    outputFrames.remove(at: position)
+                   continue frameloop
                 }
-            }
-        case .nonIp:
-            for (position,frame) in outputFrames.enumerated().reversed() {
+            case .nonIp:
                 if case .ipv4(_) = frame.layer3 {
-                    outputFrames.remove(at: position)
+                    continue frameloop
                 } else if case .ipv6(_) = frame.layer3 {
-                    outputFrames.remove(at: position)
+                    continue frameloop
                 } else {
-                    continue
+                    break
                 }
-            }
-        }
-        
-        switch layer4Filter {
-        case .any:
-            break
-        case .tcp:
-            for (position,frame) in outputFrames.enumerated().reversed() {
+            }// switch layer3filter
+            switch layer4Filter {
+            case .any:
+                break
+            case .tcp:
                 if case .tcp(_) = frame.layer4 {
-                    continue
+                    break
                 } else {
-                    outputFrames.remove(at: position)
+                    continue frameloop
                 }
-            }
-        case .udp:
-            for (position,frame) in outputFrames.enumerated().reversed() {
+            case .udp:
                 if case .udp(_) = frame.layer4 {
-                    continue
+                    break
                 } else {
-                    outputFrames.remove(at: position)
+                    continue frameloop
                 }
-            }
-        case .icmp:
-            debugPrint("icmp protocol not implemented in displayfilter")
-        }
-                
-        switch (Int(portFilterA),Int(portFilterB)) {
-        case (.none, .none):
-            break
-        case (.some(let filterPort), .none),(.none, .some(let filterPort)):
-            for (position, frame) in outputFrames.enumerated().reversed() {
+            case .icmp:
+                if case .icmp4 = frame.layer4 {
+                    break
+                } else if case .icmp6 = frame.layer4 {
+                    break
+                } else {
+                    continue frameloop
+                }
+            }// switch layer4filter
+            switch (Int(portFilterA),Int(portFilterB)) {
+            case (.none, .none):
+                break
+            case (.some(let filterPort), .none),(.none, .some(let filterPort)):
                 guard let layer4 = frame.layer4 else {
                     //not tcp or udp so filter it!
-                    outputFrames.remove(at: position)
-                    continue
+                    continue frameloop
                 }
                 switch layer4 {
-                case .tcp(let tcp):
-                    if tcp.sourcePort != filterPort && tcp.destinationPort != filterPort {
-                        outputFrames.remove(at: position)
-                        continue
-                    }
-                case .udp(let udp):
-                    if udp.sourcePort != filterPort && udp.destinationPort != filterPort {
-                        outputFrames.remove(at: position)
-                        continue
-                    }
-                default:
-                    //not tcp or udp so filter it!
-                    outputFrames.remove(at: position)
-                    continue
+                    case .tcp(let tcp):
+                        if tcp.sourcePort != filterPort && tcp.destinationPort != filterPort {
+                            continue frameloop
+                        }
+                    case .udp(let udp):
+                        if udp.sourcePort != filterPort && udp.destinationPort != filterPort {
+                            continue frameloop
+                        }
+                    default:
+                        //not tcp or udp so filter it!
+                        continue frameloop
                 }
-            }
-        case (.some(let portA), .some(let portB)):
-            for (position, frame) in outputFrames.enumerated().reversed() {
-                guard let layer4 = frame.layer4 else {
-                    //not tcp or udp so filter it!
-                    outputFrames.remove(at: position)
-                    continue
-                }
-                switch layer4 {
-                case .tcp(let tcp):
-                    if (tcp.sourcePort != portA || tcp.destinationPort != portB) && (tcp.sourcePort != portB || tcp.destinationPort != portA) {
-                        outputFrames.remove(at: position)
-                        continue
+                case (.some(let portA), .some(let portB)):
+                    guard let layer4 = frame.layer4 else {
+                        //not tcp or udp so filter it!
+                        continue frameloop
                     }
-                case .udp(let udp):
-                    if (udp.sourcePort != portA || udp.destinationPort != portB) && (udp.sourcePort != portB || udp.destinationPort != portA) {
-                        outputFrames.remove(at: position)
-                        continue
+                    switch layer4 {
+                    case .tcp(let tcp):
+                        if (tcp.sourcePort != portA || tcp.destinationPort != portB) && (tcp.sourcePort != portB || tcp.destinationPort != portA) {
+                            continue frameloop
+                        }
+                    case .udp(let udp):
+                        if (udp.sourcePort != portA || udp.destinationPort != portB) && (udp.sourcePort != portB || udp.destinationPort != portA) {
+                            continue frameloop
+                        }
+                    default:
+                        //not tcp or udp so filter it!
+                        continue frameloop
                     }
-                default:
-                    //not tcp or udp so filter it!
-                    outputFrames.remove(at: position)
-                    continue
                 }
-            }
-        }
+            outputFrames.append(frame)
+        }//frameloop
         return outputFrames
     }
 
