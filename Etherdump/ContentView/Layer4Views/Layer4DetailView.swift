@@ -1,8 +1,8 @@
 //
-//  Layer4DetailView.swift
+//  Layer6DetailView.swift
 //  Etherdump
 //
-//  Created by Darrell Root on 1/31/20.
+//  Created by Darrell Root on 3/2/20.
 //  Copyright © 2020 net.networkmom. All rights reserved.
 //
 
@@ -24,6 +24,8 @@ struct Layer4DetailView: View {
                 return AnyView(EmptyView())
             case .icmp4(let icmp4):
                 return AnyView(Icmp4DetailView(icmp: icmp4))
+            case .icmp6(let icmp6):
+                return AnyView(Icmp6DetailView(icmp: icmp6))
             case .unknown(let unknown):
                 return AnyView(Text("layer 4 protocol unknown"))
             }

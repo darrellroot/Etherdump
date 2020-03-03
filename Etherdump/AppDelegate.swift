@@ -97,7 +97,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if BuildConfiguration.heavy {
             setupFullVersion()
         }
-        let verboseLogging = true
+        let verboseLogging = false
         LoggingSystem.bootstrap(DarrellLogHandler.bootstrap)
         if verboseLogging {
             Pcapng.logger.logLevel = .info
@@ -106,7 +106,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             Pcapng.logger.logLevel = .error
             EtherCapture.logger.logLevel = .error
-            DarrellLogHandler.logger.logLevel = .info
+            DarrellLogHandler.logger.logLevel = .error
         }
 
         
@@ -264,6 +264,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         return
                     }
                     //let contentView = ContentView(frames: frames, showCapture: false, appSettings: self.appSettings)
+                    
                     let contentView = ContentView(frames: frames, showCapture: false).environmentObject(self.appSettings)
 
                     let window = NSWindow(

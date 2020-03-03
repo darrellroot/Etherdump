@@ -11,6 +11,7 @@ import PackageEtherCapture
 
 struct CdpDetailView: View {
     let cdp: Cdp
+    @EnvironmentObject var appSettings: AppSettings
     var body: some View {
         return VStack {
             HStack {
@@ -22,6 +23,7 @@ struct CdpDetailView: View {
             }
             List(cdp.values, id: \.self) { value in
                 Text(value.description)
+                    .font(self.appSettings.font)
             }
     }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
