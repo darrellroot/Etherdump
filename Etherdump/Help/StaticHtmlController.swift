@@ -21,7 +21,7 @@ class StaticHtmlController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        let html = loadHTML()
+        let html: String = loadHTML()
         webViewOutlet.loadHTMLString(html, baseURL: nil)
     }
     func loadHTML() -> String {
