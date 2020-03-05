@@ -26,6 +26,8 @@ struct AboutView: View {
                 Text(" ")
                 Text("The full \"Etherdump\" version, downloadable from https://etherdump.net, supports live packet captures on  MacOS network interfaces.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 Text(" ")
+                Text("The full \"Etherdump\" version requires read-access to /dev/bfp*.  See Help for details.")
+                Text(" ")
                 Text("The \"Etherdump Lite\" version, available in the MacOS App Store, does not support live packet captures. Live packet capture functionality is not compatible with  sandbox security required by the MacOS App Store.  \"Etherdump Lite\" supports importing .pcap and .pcapng files captured with other tools (such as tcpdump or Wireshark)").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 }
                 Group {

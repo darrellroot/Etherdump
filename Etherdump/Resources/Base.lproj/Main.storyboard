@@ -419,6 +419,7 @@
                         <outlet property="etherdumpLiteHelpMenuItem" destination="FKE-Sm-Kum" id="pJL-F1-oiX"/>
                         <outlet property="etherdumpLiteMenuItem" destination="1Xt-HY-uBw" id="bVI-tg-i2s"/>
                         <outlet property="newCaptureWindowMenuItem" destination="Was-JA-tGl" id="DDA-ec-W0L"/>
+                        <outlet property="quitEtherdumpMenuItem" destination="4sb-4s-VLi" id="eoM-rc-nTO"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

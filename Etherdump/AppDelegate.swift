@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var aboutEtherdumpLiteMenuItem: NSMenuItem!
     @IBOutlet weak var newCaptureWindowMenuItem: NSMenuItem!
     @IBOutlet weak var etherdumpLiteHelpMenuItem: NSMenuItem!
+    @IBOutlet weak var quitEtherdumpMenuItem: NSMenuItem!
     
     
     @IBAction @objc func exportAllPcap(_ sender: Any) {
@@ -100,6 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         aboutEtherdumpLiteMenuItem.title = "About Etherdump"
         newCaptureWindowMenuItem.isEnabled = true
         etherdumpLiteHelpMenuItem.title = "Etherdump Help"
+        quitEtherdumpMenuItem.title = "Quit Etherdump"
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {

@@ -25,7 +25,6 @@
 		2F78582323F6603A00B5F5ED /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78582223F6603A00B5F5ED /* LogView.swift */; };
 		2F78583223F8C9FF00B5F5ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583123F8C9FF00B5F5ED /* Preview Assets.xcassets */; };
 		2F78583523F8C9FF00B5F5ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
-		2F78583D23F8CAAC00B5F5ED /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583623F8C9FF00B5F5ED /* Info.plist */; };
 		2F78583E23F8CAF100B5F5ED /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
 		2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647D023E38FE900965033 /* AppDelegate.swift */; };
 		2F78584023F8CAF700B5F5ED /* DarrellLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */; };
@@ -72,7 +71,6 @@
 		2FD536292410A9860048CB79 /* UInt16+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD536272410A9860048CB79 /* UInt16+extensions.swift */; };
 		2FD5362B24116E7C0048CB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5362A24116E7C0048CB79 /* Assets.xcassets */; };
 		2FD5362C24116E860048CB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D423E38FEC00965033 /* Assets.xcassets */; };
-		2FD5362D24117B1C0048CB79 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647DC23E38FEC00965033 /* Info.plist */; };
 		2FD5362E24117B670048CB79 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ED2240E19BF0020F7F7 /* help.html */; };
 		2FDD9D732403071A002D271A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
 		2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
@@ -414,7 +412,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FD5362D24117B1C0048CB79 /* Info.plist in Resources */,
 				2FDD9D732403071A002D271A /* Main.storyboard in Resources */,
 				2FD30ED3240E19BF0020F7F7 /* help.html in Resources */,
 				2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */,
@@ -432,7 +429,6 @@
 				2F78583223F8C9FF00B5F5ED /* Preview Assets.xcassets in Resources */,
 				2FD30ECE240E18A30020F7F7 /* StaticHtmlController.xib in Resources */,
 				2FD5362C24116E860048CB79 /* Assets.xcassets in Resources */,
-				2F78583D23F8CAAC00B5F5ED /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +643,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Heavy Target/Etherdump.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Heavy Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -671,6 +668,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Heavy Target/Etherdump.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Heavy Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -695,6 +693,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Lite Target/Etherdump_Lite.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Lite Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -718,6 +717,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Lite Target/Etherdump_Lite.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Lite Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
