@@ -258,7 +258,6 @@
 				2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */,
 				2FDD9D792404DC0F002D271A /* HelpView.swift */,
 				2FDD9D7C2405D485002D271A /* AboutView.swift */,
-				2FD30ED2240E19BF0020F7F7 /* help.html */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -267,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				2F78583323F8C9FF00B5F5ED /* Main.storyboard */,
+				2FD30ED2240E19BF0020F7F7 /* help.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
