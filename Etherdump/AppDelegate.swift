@@ -24,11 +24,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction @objc func exportAllPcap(_ sender: Any) {
         // this is a fake export pcap needed for menu onCommand to work.  But this will be called if no responding ContentView in focus
-        debugPrint("exportAllPcap AppDelegate")
+        DarrellLogHandler.logger.error("Menu->ExportAllPcap but window not in focus")
+
     }
     @IBAction @objc func exportFilteredPcap(_ sender: Any) {
         // this is a fake export pcap needed for menu onCommand to work.  But this will be called if no responding ContentView in focus
-        debugPrint("exportFilteredPcap AppDelegate")
+        DarrellLogHandler.logger.error("Menu->ExportFilteredPcap but window not in focus")
     }
 
 
@@ -117,37 +118,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             EtherCapture.logger.logLevel = .error
             DarrellLogHandler.logger.logLevel = .error
         }
-        /*let monitor = NWPathMonitor()
-        monitor.pathUpdateHandler = { path in
-            debugPrint("path update")
-            var interfaces: [String] = []
-            for nwInterface in path.availableInterfaces {
-                debugPrint("interface \(nwInterface.debugDescription)")
-                interfaces.append(nwInterface.debugDescription)
-                debugPrint("self.interfaces after \(self.interfaces)")
-            }
-            self.interfaces = interfaces
-        }
-        monitor.start(queue: .main)
-        self.interfaces.append("blah")*/
         
         if BuildConfiguration.heavy {
             newCaptureWindow()
-            /*windowCount = windowCount + 1
-            let contentView = ContentView(showCapture: true,interfaces: self.$interfaces).environmentObject(appSettings)
-
-            let window = NSWindow(
-                contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
-                styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-                backing: .buffered, defer: false)
-            window.isReleasedWhenClosed = false
-            windows[windowCount] = window
-            window.center()
-            window.tabbingMode = .disallowed
-            window.title = "Capture \(self.windowCount)"
-            //window.setFrameAutosaveName("Window \(self.windowCount)")
-            window.contentView = NSHostingView(rootView: contentView)
-            window.makeKeyAndOrderFront(nil)*/
         }
     }
     
@@ -191,7 +164,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func exportPcap(frames: [Frame]) {
-        debugPrint("appdelegate exportPcap \(frames.count) frames")
         guard frames.count > 0 else {
             return
         }
@@ -204,7 +176,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         panel.allowsOtherFileTypes = true
         panel.begin { response in
             if response == NSApplication.ModalResponse.OK, let url = panel.url {
-                debugPrint("saving url \(url)")
+                DarrellLogHandler.logger.error("saving url \(url)")
                 do {
                     try pcapData.write(to: url)
                 } catch {
@@ -238,13 +210,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         panel.canChooseFiles = true
         panel.begin { response in
             if response == NSApplication.ModalResponse.OK, let url = panel.url {
-                debugPrint("opening url \(url)")
+                DarrellLogHandler.logger.error("opening url \(url)")
                 let result = Result {
                     try Data(contentsOf: url)
                 }
                 switch result {
                 case .failure(let error):
-                    debugPrint("open file failed with error \(error)")
+                    DarrellLogHandler.logger.error("open file failed with error \(error)")
                     return
                 case .success(let data):
                     var frames: [Frame] = []
@@ -252,11 +224,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     switch PcapType.detect(data: data) {
                     case .pcap:
                         guard let pcap = try? Pcap(data: data) else {
-                            debugPrint("Unable to decode pcap file")
+                            DarrellLogHandler.logger.error("Unable to decode pcap file")
                             return
                         }
                         for (count,packet) in pcap.packets.enumerated() {
-                            let frame = Frame(data: packet.packetData, originalLength: packet.originalLength)
+                            let frame = Frame(data: packet.packetData, originalLength: packet.originalLength, frameNumber: count + 1)
                             frames.append(frame)
                         }
                     case .pcapng:
@@ -266,7 +238,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             packetBlocks.append(contentsOf: segment.packetBlocks)
                         }
                         for (count,packet) in packetBlocks.enumerated() {
-                            let frame = Frame(data: packet.packetData, originalLength: packet.originalLength)
+                            let frame = Frame(data: packet.packetData, originalLength: packet.originalLength, frameNumber: count + 1)
                             frames.append(frame)
                         }
                     case .neither:

@@ -68,6 +68,10 @@
 		2FD30ED1240E18A90020F7F7 /* StaticHtmlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */; };
 		2FD30ED3240E19BF0020F7F7 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ED2240E19BF0020F7F7 /* help.html */; };
 		2FD30ED4240E19BF0020F7F7 /* help.html in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ED2240E19BF0020F7F7 /* help.html */; };
+		2FD536252410A8130048CB79 /* ArpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD536242410A8130048CB79 /* ArpDetailView.swift */; };
+		2FD536262410A8130048CB79 /* ArpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD536242410A8130048CB79 /* ArpDetailView.swift */; };
+		2FD536282410A9860048CB79 /* UInt16+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD536272410A9860048CB79 /* UInt16+extensions.swift */; };
+		2FD536292410A9860048CB79 /* UInt16+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD536272410A9860048CB79 /* UInt16+extensions.swift */; };
 		2FDD9D732403071A002D271A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F78583323F8C9FF00B5F5ED /* Main.storyboard */; };
 		2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
 		2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
@@ -118,6 +122,8 @@
 		2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticHtmlController.xib; sourceTree = "<group>"; };
 		2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticHtmlController.swift; sourceTree = "<group>"; };
 		2FD30ED2240E19BF0020F7F7 /* help.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = help.html; sourceTree = "<group>"; };
+		2FD536242410A8130048CB79 /* ArpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArpDetailView.swift; sourceTree = "<group>"; };
+		2FD536272410A9860048CB79 /* UInt16+extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt16+extensions.swift"; sourceTree = "<group>"; };
 		2FDD9D792404DC0F002D271A /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		2FDD9D7C2405D485002D271A /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		2FDD9D7F24062346002D271A /* BpduDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpduDetailView.swift; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 		2F7858612401C67100B5F5ED /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2FD536272410A9860048CB79 /* UInt16+extensions.swift */,
 				2F7858622401C69200B5F5ED /* Font+extensions.swift */,
 			);
 			path = Extensions;
@@ -288,6 +295,7 @@
 				2F0647EF23E5027F00965033 /* Layer3DetailView.swift */,
 				2F22B36223EE706F009DD8ED /* Ipv4DetailView.swift */,
 				2F22B36423EE81EC009DD8ED /* Ipv6DetailView.swift */,
+				2FD536242410A8130048CB79 /* ArpDetailView.swift */,
 				2FDD9D7F24062346002D271A /* BpduDetailView.swift */,
 				2FDD9D8224075617002D271A /* CdpDetailView.swift */,
 				2FDD9D85240ADF32002D271A /* LldpDetailView.swift */,
@@ -451,8 +459,10 @@
 				2F7858632401C69200B5F5ED /* Font+extensions.swift in Sources */,
 				2F7F583E240C350B00E08061 /* Icmp4DetailView.swift in Sources */,
 				2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */,
+				2FD536282410A9860048CB79 /* UInt16+extensions.swift in Sources */,
 				2FDD9D8324075617002D271A /* CdpDetailView.swift in Sources */,
 				2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */,
+				2FD536252410A8130048CB79 /* ArpDetailView.swift in Sources */,
 				2F0647D323E38FE900965033 /* ContentView.swift in Sources */,
 				2F7F5841240DDC1B00E08061 /* Icmp6DetailView.swift in Sources */,
 				2F0647D123E38FE900965033 /* AppDelegate.swift in Sources */,
@@ -486,8 +496,10 @@
 				2F7858642401C69300B5F5ED /* Font+extensions.swift in Sources */,
 				2F7F583F240C350B00E08061 /* Icmp4DetailView.swift in Sources */,
 				2F78584723F8CB0800B5F5ED /* Layer4DetailView.swift in Sources */,
+				2FD536292410A9860048CB79 /* UInt16+extensions.swift in Sources */,
 				2FDD9D8424075617002D271A /* CdpDetailView.swift in Sources */,
 				2F78584423F8CB0000B5F5ED /* FrameSummaryView.swift in Sources */,
+				2FD536262410A8130048CB79 /* ArpDetailView.swift in Sources */,
 				2F78584523F8CB0300B5F5ED /* Layer2DetailView.swift in Sources */,
 				2F7F5842240DDC1B00E08061 /* Icmp6DetailView.swift in Sources */,
 				2F78584B23F8CB1300B5F5ED /* Ipv4DetailView.swift in Sources */,

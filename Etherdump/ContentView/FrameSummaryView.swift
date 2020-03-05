@@ -21,7 +21,7 @@ struct FrameSummaryView: View {
     
     var body: some View {
         List(self.filteredFrames) { frame in
-            Text(frame.description)
+            Text("\(frame.frameNumber) \(frame.description)")
                 .font(self.appSettings.font)
                 .padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: 2))
                 .onTapGesture {

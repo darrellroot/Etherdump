@@ -24,9 +24,9 @@ struct AboutView: View {
                 Group {
                 Text("\(BuildConfiguration.appName) is a tool to view ethernet frame captures.")
                 Text(" ")
-                Text("The full \"Etherdump\" version downloadable from https://etherdump.net supports live packet capture on the MacOS network interface.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
+                Text("The full \"Etherdump\" version, downloadable from https://etherdump.net, supports live packet captures on  MacOS network interfaces.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 Text(" ")
-                Text("The \"Etherdump Lite\" version available in the MacOS App Store does not support live packet capture, because that functionality is not compatible with the sandbox security required by the MacOS App Store").fixedSize(horizontal: false, vertical: true).lineLimit(4)
+                Text("The \"Etherdump Lite\" version, available in the MacOS App Store, does not support live packet captures. Live packet capture functionality is not compatible with  sandbox security required by the MacOS App Store.  \"Etherdump Lite\" supports importing .pcap and .pcapng files captured with other tools (such as tcpdump or Wireshark)").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 }
                 Group {
                 Text(" ")
@@ -44,14 +44,15 @@ struct AboutView: View {
                 }
                 Group {
                     Text("Frame Decodes Supported In Version 1.0 February 2020").font(.headline)
-                    Text("Layer 2: Ethernet, 802.3")
-                    Text("Layer 3: IPv4, IPv6")
-                    Text("Layer 4: TCP, UDP")
+                    Text("Layer 2:  Ethernet, 802.3, 802.2 SNAP")
+                    Text("Layer 2+: ARP, BPDU, CDP, LLDP")
+                    Text("Layer 3:  IPv4, IPv6")
+                    Text("Layer 4:  TCP, UDP, ICMPv4, ICMPv6")
                     Text(" ")
                     Text("Etherdump and PackageEtherCapture welcome pull requests for additional decodes.  But all submissions will be carefully reviewed.").fixedSize(horizontal: false, vertical: true).lineLimit(2)
                 }
             }
-        }.font(appSettings.font)
+            }.font(appSettings.font).padding()
     }
 }
 

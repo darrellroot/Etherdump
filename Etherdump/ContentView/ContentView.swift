@@ -51,65 +51,57 @@ struct ContentView: View {
             //.frame(idealWidth: 1000, idealHeight: 1000)
             .font(appSettings.font)
             .onCommand(#selector(AppDelegate.exportAllPcap(_:))) {
-                debugPrint("export all Pcap")
+                DarrellLogHandler.logger.error("export all Pcap")
                 self.appDelegate.exportPcap(frames: self.frames)
             }
             .onCommand(#selector(AppDelegate.exportFilteredPcap(_:))) {
-                debugPrint("export filtered Pcap")
+                DarrellLogHandler.logger.error("export filtered Pcap")
                 self.appDelegate.exportPcap(frames: self.filteredFrames)
             }
     }
     var filteredFrames: [Frame] {
         var outputFrames: [Frame] = []
+        let capacity = frames.capacity
+        outputFrames.reserveCapacity(capacity)
         frameloop: for frame in frames {
-            switch layer3Filter {
-            case .any:
+                            
+            switch (frame.layer3, layer3Filter) {
+            
+            case (_, .any):
                 break
-            case .ipv4:
-                if case .ipv4(_) = frame.layer3 {
-                    break
-                } else {
-                   continue frameloop
-                }
-            case .ipv6:
-                if case .ipv6(_) = frame.layer3 {
-                    break
-                } else {
-                   continue frameloop
-                }
-            case .nonIp:
-                if case .ipv4(_) = frame.layer3 {
-                    continue frameloop
-                } else if case .ipv6(_) = frame.layer3 {
-                    continue frameloop
-                } else {
-                    break
-                }
-            }// switch layer3filter
-            switch layer4Filter {
-            case .any:
+            case (.ipv4,.ipv4):
                 break
-            case .tcp:
-                if case .tcp(_) = frame.layer4 {
+            case (_,.ipv4):
+                continue frameloop
+            case (.ipv6,.ipv6):
+                break
+            case (_,.ipv6):
+                continue frameloop
+            case (.ipv4,.nonIp),(.ipv6,.nonIp):
+                continue frameloop
+            case (.arp,.nonIp),(.bpdu,.nonIp),(.cdp,.nonIp),(.lldp,.nonIp),(.unknown,.nonIp):
+                break
+            }
+            
+            if let layer4 = frame.layer4 {
+                switch (layer4, layer4Filter) {
+                case (.tcp,.tcp),(.udp,.udp),(.icmp4,.icmp),(.icmp6,.icmp),(_,.any):
                     break
-                } else {
+                case (_,.tcp),(_,.udp),(_,.icmp):
                     continue frameloop
                 }
-            case .udp:
-                if case .udp(_) = frame.layer4 {
+            } else {
+                switch layer4Filter {
+                case .any:
                     break
-                } else {
+                case .tcp:
+                    continue frameloop
+                case .udp:
+                    continue frameloop
+                case .icmp:
                     continue frameloop
                 }
-            case .icmp:
-                if case .icmp4 = frame.layer4 {
-                    break
-                } else if case .icmp6 = frame.layer4 {
-                    break
-                } else {
-                    continue frameloop
-                }
-            }// switch layer4filter
+            }
             switch (Int(portFilterA),Int(portFilterB)) {
             case (.none, .none):
                 break

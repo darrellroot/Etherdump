@@ -9,6 +9,7 @@
 import Foundation
 import SwiftUI
 import Network
+import Logging
 
 class AppSettings: ObservableObject {
     @Published var font: Font
