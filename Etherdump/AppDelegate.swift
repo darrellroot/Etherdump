@@ -59,6 +59,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         staticHtmlController.resource = "help"
         staticHtmlController.showWindow(self)
     }
+    
+    func deleteWindow(windowCount: Int) {
+        debugPrint("Delete window \(windowCount)")
+        windows[windowCount] = nil
+    }
 
     /*@IBAction func showHelp(_ sender: Any) {
         windowCount = windowCount + 1
@@ -94,6 +99,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.makeKeyAndOrderFront(nil)
     }
 
+    func enableExportMenu() {
+        debugPrint("enableExportMenu")
+    }
+    func disableExportMenu() {
+        debugPrint("disableExportMenu")
+    }
     
     
     func setupFullVersion() {
@@ -120,6 +131,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             EtherCapture.logger.logLevel = .error
             DarrellLogHandler.logger.logLevel = .error
         }
+        DarrellLogHandler.logger.error("Logging system initialized")
         
         if BuildConfiguration.heavy {
             newCaptureWindow()
@@ -132,7 +144,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func newCaptureWindow() {
         if BuildConfiguration.heavy {
             windowCount = windowCount + 1
-            let contentView = ContentView(showCapture: true).environmentObject(appSettings)
+            let contentView = ContentView(showCapture: true, windowCount: windowCount).environmentObject(appSettings)
             let window = NSWindow(
                 contentRect: NSRect(x: 100, y: 100, width: 1000, height: 1000),
                 styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
@@ -178,10 +190,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         panel.allowsOtherFileTypes = true
         panel.begin { response in
             if response == NSApplication.ModalResponse.OK, let url = panel.url {
-                DarrellLogHandler.logger.error("saving url \(url)")
                 do {
                     try pcapData.write(to: url)
                 } catch {
+                    DarrellLogHandler.logger.error("saving url \(url)")
                     self.windowCount += 1
                     let alertView = AlertView(textMessage: "Unable to save pcap file: \(error)")
                     let window = NSWindow(
@@ -260,8 +272,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         return
                     }
                     //let contentView = ContentView(frames: frames, showCapture: false, appSettings: self.appSettings)
-                    
-                    let contentView = ContentView(frames: frames, showCapture: false).environmentObject(self.appSettings)
+                    self.windowCount += 1
+                    let contentView = ContentView(frames: frames, showCapture: false, windowCount: self.windowCount).environmentObject(self.appSettings)
 
                     let window = NSWindow(
                         contentRect: NSRect(x: 100, y: 100, width: 500, height: 500),

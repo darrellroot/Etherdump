@@ -43,8 +43,8 @@ public class DarrellLogHandler: LogHandler, ObservableObject {
                     message: Logger.Message,
                     metadata: Logger.Metadata?,
                     file: String, function: String, line: UInt) {
-        debugPrint("\(level) \(message)")
-        self.logData.append("\(timestamp()) \(level) \(message)\n")
+        debugPrint("\(message)")
+        self.logData.append("\(timestamp()) \(message)\n")
     }
 
     private func prettify(_ metadata: Logger.Metadata) -> String? {

@@ -23,10 +23,10 @@ struct ContentView: View {
     @State var portFilterA: String = ""
     @State var portFilterB: String = ""
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
+    let windowCount: Int
     
-    init(frames: [Frame] = [], showCapture: Bool) {
-
-        //init(frames: [Frame] = [], showCapture: Bool, appSettings: AppSettings) {
+    init(frames: [Frame] = [], showCapture: Bool, windowCount: Int) {
+        self.windowCount = windowCount
         self.showCapture = showCapture
         _frames = State<[Frame]>(initialValue: frames)
     }
@@ -35,7 +35,7 @@ struct ContentView: View {
             if showCapture {
                 CaptureFilterView(frames: self.$frames,interface: appSettings.interfaces.first ?? "en0")
             }
-            DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
+            DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB, frames: $frames, filteredFrames: filteredFrames)
             FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame , layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             if activeFrame != nil {
                 Layer2DetailView(frame: $activeFrame)
@@ -47,17 +47,22 @@ struct ContentView: View {
                 Layer4DetailView(frame: $activeFrame)
             }
             Text(activeFrame?.hexdump ?? "")
-        }//.frame(maxWidth: .infinity, maxHeight: .infinity)
+        }.onDisappear() {
+            self.appDelegate.deleteWindow(windowCount: self.windowCount)
+        }
+            
+            //.frame(maxWidth: .infinity, maxHeight: .infinity)
             //.frame(idealWidth: 1000, idealHeight: 1000)
             .font(appSettings.font)
-            .onCommand(#selector(AppDelegate.exportAllPcap(_:))) {
+            /*.onCommand(#selector(AppDelegate.exportAllPcap(_:))) {
                 DarrellLogHandler.logger.error("export all Pcap")
                 self.appDelegate.exportPcap(frames: self.frames)
             }
             .onCommand(#selector(AppDelegate.exportFilteredPcap(_:))) {
                 DarrellLogHandler.logger.error("export filtered Pcap")
                 self.appDelegate.exportPcap(frames: self.filteredFrames)
-            }
+        }*/
+    
     }
     var filteredFrames: [Frame] {
         var outputFrames: [Frame] = []
@@ -153,7 +158,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         //ContentView(frames: [Frame.sampleFrame], showCapture: true, appSettings: AppSettings())
-        ContentView(frames: [Frame.sampleFrame], showCapture: false).environmentObject(AppSettings())
+        ContentView(frames: [Frame.sampleFrame], showCapture: false, windowCount: 1).environmentObject(AppSettings())
 
         
     }

@@ -69,18 +69,6 @@
                                                 <action selector="importPcapngFile:" target="Voe-Tx-rLC" id="0tH-2x-ZS4"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Export All Frames to PCAP" id="iei-0Y-AB9">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="exportAllPcap:" target="Ady-hI-5gd" id="mFc-MH-C6j"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Export Filtered Frames to PCAP" id="LcW-kM-xOc">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="exportFilteredPcap:" target="Ady-hI-5gd" id="ErF-hz-oCC"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                             <connections>

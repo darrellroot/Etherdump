@@ -12,7 +12,9 @@ Both versions are <em>free</em>.  Open source code for both versions is availabl
 You can capture 100 ethernet frames from interface en0 by executing the following command in a <em>Terminal</em> window:<p>
 <code>sudo tcpdump -i en0 -c 100 -s 65000 -w capture.pcapng</code>
 <p>
-Then you can use the <em>File -> Import PCAP or PCAPNG File</em> menu item to import the capture.pcapng file into Etherdump Lite.
+(then generate enough network traffic so 100 frames are captured and the command completes)
+<p>
+You can use the <em>File -> Import PCAP or PCAPNG File</em> menu item to import the capture.pcapng file into Etherdump Lite.
 
 <h2>Getting packet captures with Etherdump (full version)</h2>
 <em>In order to capture ethernet frames directly with Etherdump, your username needs read-access to all /dev/bpf* files.</em>  Assuming your account is allowed to administer your Macintosh, you can gain access by executing the following command in a Terminal window:<p>
