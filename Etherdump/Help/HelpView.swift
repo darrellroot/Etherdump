@@ -24,7 +24,7 @@ struct HelpView: View {
                 Text(" ")
                 Text("You can import a .pcap or .pcapng packet capture from another tool using the \"File->Import PCAP\" menu item").fixedSize(horizontal: false, vertical: true).lineLimit(2)
                 Text(" ")
-                Text("The full \"Etherdump\" version downloadable from https://etherdump.net supports live packet capture on the MacOS network interface.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
+                Text("The full \"Etherdump\" version downloadable from https://networkmom.net/etherdump supports live packet capture on the MacOS network interface.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 Text(" ")
                 Text("The \"Etherdump Lite\" version available in the MacOS App Store does not support live packet capture, because that functionality is not compatible with the sandbox security required by the MacOS App Store").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 }

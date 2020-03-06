@@ -24,7 +24,7 @@ struct AboutView: View {
                 Group {
                 Text("\(BuildConfiguration.appName) is a tool to view ethernet frame captures.")
                 Text(" ")
-                Text("The full \"Etherdump\" version, downloadable from https://etherdump.net, supports live packet captures on  MacOS network interfaces.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
+                Text("The full \"Etherdump\" version, downloadable from https://networkmom.net/etherdump, supports live packet captures on  MacOS network interfaces.  The full \"Etherdump\" version is notarized by Apple but is not sandboxed.").fixedSize(horizontal: false, vertical: true).lineLimit(4)
                 Text(" ")
                 Text("The full \"Etherdump\" version requires read-access to /dev/bfp*.  See Help for details.")
                 Text(" ")
