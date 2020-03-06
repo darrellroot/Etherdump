@@ -8,11 +8,13 @@
 
 import Cocoa
 import WebKit
+import Logging
 
 class StaticHtmlController: NSWindowController {
 
-    @IBOutlet weak var webViewOutlet: WKWebView!
+    //@IBOutlet weak var webViewOutlet: WKWebView!
 
+    @IBOutlet var nsTextView: NSTextView!
     var resource: String! //Caller must set this before showing window
     
     override var windowNibName: NSNib.Name? {
@@ -21,8 +23,19 @@ class StaticHtmlController: NSWindowController {
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        let html: String = loadHTML()
-        webViewOutlet.loadHTMLString(html, baseURL: nil)
+        //let html: String = loadHTML()
+        //webViewOutlet.loadHTMLString(html, baseURL: nil)
+        guard let resource = resource else {
+            DarrellLogHandler.logger.error("Error: no resource file specified")
+            return
+        }
+        window?.title = resource.capitalized
+        guard let filePath = Bundle.main.path(forResource: resource, ofType:"rtf") else {
+            DarrellLogHandler.logger.error("Error reading \(resource).html file")
+            return
+        }
+        nsTextView.readRTFD(fromFile: filePath)
+        //nsTextView.string = html
     }
     func loadHTML() -> String {
         var html: String
@@ -30,7 +43,7 @@ class StaticHtmlController: NSWindowController {
             return("Error: no resource file specified")
         }
         window?.title = resource.capitalized
-        guard let filePath = Bundle.main.path(forResource: resource, ofType:"html") else {
+        guard let filePath = Bundle.main.path(forResource: resource, ofType:"rtf") else {
             return("Error reading \(resource).html file")
         }
         let url = URL(fileURLWithPath: filePath)

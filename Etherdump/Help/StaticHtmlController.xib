@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="StaticHtmlController" customModule="Network_Mom_Availability" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="StaticHtmlController" customModule="Etherdump" customModuleProvider="target">
             <connections>
-                <outlet property="webViewOutlet" destination="D4b-iM-0zU" id="7r5-p7-Tvn"/>
+                <outlet property="nsTextView" destination="QZT-oc-Oil" id="Zp2-s4-jWk"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -18,29 +17,49 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="580" height="450"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" wantsLayer="YES" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="580" height="450"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D4b-iM-0zU">
+                    <scrollView appearanceType="aqua" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuK-pq-WS7">
                         <rect key="frame" x="0.0" y="0.0" width="580" height="450"/>
-                        <wkWebViewConfiguration key="configuration">
-                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                            <wkPreferences key="preferences"/>
-                        </wkWebViewConfiguration>
-                    </wkWebView>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Zr5-wJ-AmI">
+                            <rect key="frame" x="0.0" y="0.0" width="565" height="450"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" findStyle="bar" allowsCharacterPickerTouchBarItem="NO" allowsDocumentBackgroundColorChange="YES" textCompletion="NO" id="QZT-oc-Oil">
+                                    <rect key="frame" x="0.0" y="0.0" width="565" height="450"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <size key="minSize" width="565" height="450"/>
+                                    <size key="maxSize" width="565" height="10000000"/>
+                                    <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                </textView>
+                            </subviews>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="e0M-hx-agV">
+                            <rect key="frame" x="-100" y="-100" width="225" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="P5k-d0-zcd">
+                            <rect key="frame" x="565" y="0.0" width="15" height="450"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="D4b-iM-0zU" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="6ph-eg-Lqy"/>
-                    <constraint firstAttribute="bottom" secondItem="D4b-iM-0zU" secondAttribute="bottom" id="ADv-hH-6Am"/>
-                    <constraint firstItem="D4b-iM-0zU" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="I0z-tZ-tA5"/>
-                    <constraint firstAttribute="trailing" secondItem="D4b-iM-0zU" secondAttribute="trailing" id="qKx-Vs-wdo"/>
+                    <constraint firstAttribute="trailing" secondItem="DuK-pq-WS7" secondAttribute="trailing" id="MGj-uf-2IB"/>
+                    <constraint firstItem="DuK-pq-WS7" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="QuU-oq-bB1"/>
+                    <constraint firstAttribute="bottom" secondItem="DuK-pq-WS7" secondAttribute="bottom" id="h3T-nf-uJ3"/>
+                    <constraint firstItem="DuK-pq-WS7" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="xXs-bt-P3M"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
+            <point key="canvasLocation" x="140" y="147"/>
         </window>
     </objects>
 </document>

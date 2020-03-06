@@ -58,6 +58,10 @@
 		2F7F5841240DDC1B00E08061 /* Icmp6DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F5840240DDC1B00E08061 /* Icmp6DetailView.swift */; };
 		2F7F5842240DDC1B00E08061 /* Icmp6DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7F5840240DDC1B00E08061 /* Icmp6DetailView.swift */; };
 		2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */ = {isa = PBXBuildFile; productRef = 2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */; };
+		2FB04EB12412E99200A79310 /* help.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FB04EB02412E99200A79310 /* help.md */; };
+		2FB04EB22412E99200A79310 /* help.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FB04EB02412E99200A79310 /* help.md */; };
+		2FB04EB72412F7A600A79310 /* help.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB04EB62412F7A600A79310 /* help.rtf */; };
+		2FB04EB82412F7A600A79310 /* help.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB04EB62412F7A600A79310 /* help.rtf */; };
 		2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */; };
 		2FB36A3623EE4F1800CC1223 /* UdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */; };
 		2FD30ECD240E18A30020F7F7 /* StaticHtmlController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */; };
@@ -117,6 +121,8 @@
 		2F7858622401C69200B5F5ED /* Font+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+extensions.swift"; sourceTree = "<group>"; };
 		2F7F583D240C350B00E08061 /* Icmp4DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icmp4DetailView.swift; sourceTree = "<group>"; };
 		2F7F5840240DDC1B00E08061 /* Icmp6DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icmp6DetailView.swift; sourceTree = "<group>"; };
+		2FB04EB02412E99200A79310 /* help.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = help.md; sourceTree = "<group>"; };
+		2FB04EB62412F7A600A79310 /* help.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = help.rtf; sourceTree = "<group>"; };
 		2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TcpDetailView.swift; sourceTree = "<group>"; };
 		2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdpDetailView.swift; sourceTree = "<group>"; };
 		2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticHtmlController.xib; sourceTree = "<group>"; };
@@ -254,9 +260,11 @@
 			children = (
 				2FD30ECC240E18A30020F7F7 /* StaticHtmlController.xib */,
 				2FD30ECF240E18A90020F7F7 /* StaticHtmlController.swift */,
+				2FB04EB62412F7A600A79310 /* help.rtf */,
 				2FDD9D792404DC0F002D271A /* HelpView.swift */,
 				2FDD9D7C2405D485002D271A /* AboutView.swift */,
 				2FD30ED2240E19BF0020F7F7 /* help.html */,
+				2FB04EB02412E99200A79310 /* help.md */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -414,7 +422,9 @@
 			files = (
 				2FDD9D732403071A002D271A /* Main.storyboard in Resources */,
 				2FD30ED3240E19BF0020F7F7 /* help.html in Resources */,
+				2FB04EB72412F7A600A79310 /* help.rtf in Resources */,
 				2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */,
+				2FB04EB12412E99200A79310 /* help.md in Resources */,
 				2FD30ECD240E18A30020F7F7 /* StaticHtmlController.xib in Resources */,
 				2FD5362B24116E7C0048CB79 /* Assets.xcassets in Resources */,
 			);
@@ -426,7 +436,9 @@
 			files = (
 				2FD5362E24117B670048CB79 /* help.html in Resources */,
 				2F78583523F8C9FF00B5F5ED /* Main.storyboard in Resources */,
+				2FB04EB82412F7A600A79310 /* help.rtf in Resources */,
 				2F78583223F8C9FF00B5F5ED /* Preview Assets.xcassets in Resources */,
+				2FB04EB22412E99200A79310 /* help.md in Resources */,
 				2FD30ECE240E18A30020F7F7 /* StaticHtmlController.xib in Resources */,
 				2FD5362C24116E860048CB79 /* Assets.xcassets in Resources */,
 			);
@@ -643,7 +655,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Heavy Target/Etherdump.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Heavy Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -668,7 +680,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Heavy Target/Etherdump.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Heavy Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -693,7 +705,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Lite Target/Etherdump_Lite.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Lite Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -717,7 +729,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Lite Target/Etherdump_Lite.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Lite Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
