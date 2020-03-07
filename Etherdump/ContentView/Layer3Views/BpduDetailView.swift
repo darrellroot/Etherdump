@@ -29,8 +29,16 @@ struct BpduDetailView: View {
     }
 }
 
-/*struct BpduDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        BpduDetailView()
+struct BpduDetailView_Previews: PreviewProvider {
+    static var makeBpdu: Bpdu {
+        let packetStream = "0180c20000004c710c19e3120027424203000002027c80004c710c19e30d0000000080004c710c19e30d80050000140002000f000000000000000000"
+        let data = Frame.makeData(packetStream: packetStream)!
+        let frame = Frame(data: data, timeval: timeval(), originalLength: 42)
+        guard case .bpdu(let bpdu) = frame.layer3 else { fatalError() }
+        return bpdu
     }
-}*/
+
+    static var previews: some View {
+        BpduDetailView(bpdu: BpduDetailView_Previews.makeBpdu)
+    }
+}

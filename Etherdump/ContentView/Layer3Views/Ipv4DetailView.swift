@@ -39,8 +39,19 @@ struct Ipv4DetailView: View {
     }
 }
 
-/*struct Ipv4DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        Ipv4DetailView()
+struct Ipv4DetailView_Previews: PreviewProvider {
+    static var makeIpv4: IPv4? {
+        let packetStream = "685b35890a04c869cd2c0d50080045000034000040004006b959c0a80010c0a8000ac001de7ebc1aa99e868a316380100804203100000101080a872fd3281be79ab6"
+        let data = Frame.makeData(packetStream: packetStream)!
+        let frame = Frame(data: data, timeval: timeval(), originalLength: 60)
+        guard case .ipv4(let ipv4) = frame.layer3 else {
+            print("test error not ipv4")
+            return nil
+        }
+        return ipv4
     }
-}*/
+
+    static var previews: some View {
+        Ipv4DetailView(ipv4: Ipv4DetailView_Previews.makeIpv4!)
+    }
+}

@@ -33,8 +33,19 @@ struct Ipv6DetailView: View {
     }
 }
 
-/*struct ipv6DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        Ipv6DetailView()
+struct ipv6DetailView_Previews: PreviewProvider {
+    static var makeIpv6: IPv6? {
+        let packetStream = "685b35890a04b07fb95d8ed286dd620d78a900200639260014061400049c00000000000023132601064748021620d5ae46fbf6c7a15401bbf0f198953ced5030c49a8011011623d200000101080a0243f4b91f79a97d"
+        let data = Frame.makeData(packetStream: packetStream)!
+        let frame = Frame(data: data, timeval: timeval(), originalLength: 60)
+        guard case .ipv6(let ipv6) = frame.layer3 else {
+            print("test error not ipv6")
+            return nil
+        }
+        return ipv6
     }
-}*/
+
+    static var previews: some View {
+        Ipv6DetailView(ipv6: ipv6DetailView_Previews.makeIpv6!)
+    }
+}

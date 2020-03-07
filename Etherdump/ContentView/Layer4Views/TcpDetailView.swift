@@ -33,8 +33,12 @@ struct TcpDetailView: View {
     }
 }
 
-/*struct TcpDetailView_Previews: PreviewProvider {
- static var previews: some View {
- TcpDetailView()
- }
- }*/
+struct TcpDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        guard case .tcp(let tcp) = Frame.sampleFrame.layer4 else {
+            print("fatal error")
+            fatalError()
+        }
+        return TcpDetailView(tcp: tcp)
+    }
+}
