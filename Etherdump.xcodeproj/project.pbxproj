@@ -655,7 +655,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Heavy Target/Etherdump.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Heavy Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -680,7 +680,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Etherdump/Etherdump Heavy Target/Etherdump.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Etherdump/Etherdump Heavy Target/Preview Content\"";
 				DEVELOPMENT_TEAM = 8DU2Q8ABKY;
 				ENABLE_HARDENED_RUNTIME = YES;
