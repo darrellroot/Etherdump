@@ -392,6 +392,12 @@
                                                 <action selector="showLogs:" target="Voe-Tx-rLC" id="mwy-Rc-reA"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Review Etherdump Lite" id="aVK-x5-0zC">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="reviewEtherdumpLite:" target="Voe-Tx-rLC" id="Sx8-oc-3AU"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -406,8 +412,10 @@
                         <outlet property="aboutEtherdumpLiteMenuItem" destination="5kV-Vb-QxS" id="aPW-8g-hFf"/>
                         <outlet property="etherdumpLiteHelpMenuItem" destination="FKE-Sm-Kum" id="pJL-F1-oiX"/>
                         <outlet property="etherdumpLiteMenuItem" destination="1Xt-HY-uBw" id="bVI-tg-i2s"/>
+                        <outlet property="helpMenu" destination="F2S-fz-NVQ" id="zTb-g8-d1l"/>
                         <outlet property="newCaptureWindowMenuItem" destination="Was-JA-tGl" id="DDA-ec-W0L"/>
                         <outlet property="quitEtherdumpMenuItem" destination="4sb-4s-VLi" id="eoM-rc-nTO"/>
+                        <outlet property="reviewEtherdumpLiteMenuItem" destination="aVK-x5-0zC" id="b37-tf-ZtB"/>
                     </connections>
                 </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
