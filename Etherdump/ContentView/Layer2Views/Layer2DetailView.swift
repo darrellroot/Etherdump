@@ -34,15 +34,50 @@ struct Layer2DetailView: View {
                     self.endHighlight = self.frame?.endIndex[.dstmac]
                 }
                 Text(frame?.frameFormat.rawValue ?? "")
-                frame?.ieeeLength.map { Text("Len \($0)")}
+                frame?.ieeeLength.map { Text("Len \($0)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.ieeeLength]
+                        self.endHighlight = self.frame?.endIndex[.ieeeLength]
+                    }
+                }
             }
             Group {
-                frame?.ieeeDsap.map { Text("DSAP \($0.hex)")}
-                frame?.ieeeSsap.map { Text("SSAP \($0.hex)")}
-                frame?.ieeeControl.map { Text("CTRL \($0.hex)")}
-                frame?.snapOrg.map { Text("ORG \($0.hex6)")}
-                frame?.snapType.map { Text("SnapType \($0.hex4)")}
-                frame?.ethertype.map { Text("Ethertype \($0.hex4)")}
+                frame?.ieeeDsap.map { Text("DSAP \($0.hex)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.ieeeDsap]
+                        self.endHighlight = self.frame?.endIndex[.ieeeDsap]
+                    }
+                }
+                frame?.ieeeSsap.map { Text("SSAP \($0.hex)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.ieeeSsap]
+                        self.endHighlight = self.frame?.endIndex[.ieeeSsap]
+                    }
+                }
+                frame?.ieeeControl.map { Text("CTRL \($0.hex)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.ieeeControl]
+                        self.endHighlight = self.frame?.endIndex[.ieeeControl]
+                    }
+                }
+                frame?.snapOrg.map { Text("ORG \($0.hex6)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.snapOrg]
+                        self.endHighlight = self.frame?.endIndex[.snapOrg]
+                    }
+                }
+                frame?.snapType.map { Text("SnapType \($0.hex4)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.snapType]
+                        self.endHighlight = self.frame?.endIndex[.snapType]
+                    }
+                }
+                frame?.ethertype.map { Text("Ethertype \($0.hex4)")
+                    .onTapGesture {
+                        self.startHighlight = self.frame?.startIndex[.ethertype]
+                        self.endHighlight = self.frame?.endIndex[.ethertype]
+                    }
+                }
                 Spacer()
             }
             
