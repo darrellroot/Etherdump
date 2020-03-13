@@ -21,7 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var newCaptureWindowMenuItem: NSMenuItem!
     @IBOutlet weak var etherdumpLiteHelpMenuItem: NSMenuItem!
     @IBOutlet weak var quitEtherdumpMenuItem: NSMenuItem!
-    
+    @IBOutlet weak var reviewEtherdumpLiteMenuItem: NSMenuItem!
+    @IBOutlet weak var helpMenu: NSMenu!
     
     @IBAction @objc func exportAllPcap(_ sender: Any) {
         // this is a fake export pcap needed for menu onCommand to work.  But this will be called if no responding ContentView in focus
@@ -64,6 +65,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         debugPrint("Delete window \(windowCount)")
         windows[windowCount] = nil
     }
+    
+    @IBAction func reviewEtherdumpLite(_ sender: NSMenuItem) {
+        // Note: Replace the XXXXXXXXXX below with the App Store ID for your app
+        //       You can find the App Store ID in your app's product URL
+        guard let writeReviewURL = URL(string: "https://itunes.apple.com/app/id1501736329?action=write-review")
+            else {
+                DarrellLogHandler.logger.error("Invalid URL in reviewNetworkMom")
+                return
+            }
+        do {
+            try NSWorkspace.shared.open(writeReviewURL, options: [], configuration: [:])
+        } catch {
+            DarrellLogHandler.logger.error("Unable to open write review URL error \(error.localizedDescription)")
+        }
+    }
+
 
     /*@IBAction func showHelp(_ sender: Any) {
         windowCount = windowCount + 1
@@ -106,13 +123,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         debugPrint("disableExportMenu")
     }
     
-    
     func setupFullVersion() {
         etherdumpLiteMenuItem.title = "Etherdump"
         aboutEtherdumpLiteMenuItem.title = "About Etherdump"
         newCaptureWindowMenuItem.isEnabled = true
         etherdumpLiteHelpMenuItem.title = "Etherdump Help"
         quitEtherdumpMenuItem.title = "Quit Etherdump"
+        reviewEtherdumpLiteMenuItem.isHidden = true
+        //reviewEtherdumpLiteMenuItem.isEnabled = false
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
