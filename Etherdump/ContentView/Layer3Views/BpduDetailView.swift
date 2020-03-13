@@ -11,21 +11,42 @@ import PackageEtherCapture
 
 struct BpduDetailView: View {
     let bpdu: Bpdu
+    @EnvironmentObject var appSettings: AppSettings
+     
 
     var body: some View {
-        return VStack {
+        return VStack  (spacing:12){
             HStack {
-                Text("BPDU").font(.headline)
-                Spacer()
-                Text("ProtocolID \(bpdu.protocolId) Version \(bpdu.bpduVersion) type \(bpdu.type) portRole \(bpdu.portRole)")
-                Spacer()
+            Text("BPDU").font(.headline)
+            Spacer()
             }
-            Text("Flags: \(bpdu.flagsString)")
-            Text("RootID \(bpdu.rootIdString) BridgeID \(bpdu.bridgeIdString)")
-            Text(verbatim: "Age \(bpdu.age) MaxAge \(bpdu.maxAge) HelloTime \(bpdu.helloTime) ForwardDelay \(bpdu.forwardDelay) \(bpdu.data.count) bytes")
-            Text(" ")
+            VStack (spacing:6){
+                HStack{
+                    Text("ProtocolID \(bpdu.protocolId) Version \(bpdu.bpduVersion) type \(bpdu.type) portRole \(bpdu.portRole)")
+                    Spacer()
+                }
+                HStack{
+                Text("Flags: \(bpdu.flagsString)")
+                    Spacer()
+                }
+                HStack{
+                Text("RootID \(bpdu.rootIdString)")
+                    Spacer()
+                }
+                HStack{
+                    Text("BridgeID \(bpdu.bridgeIdString)")
+                    Spacer()
+                }
+                HStack{
+                Text(verbatim: "Age \(bpdu.age) MaxAge \(bpdu.maxAge) HelloTime \(bpdu.helloTime) ForwardDelay \(bpdu.forwardDelay) \(bpdu.data.count) bytes")
+                    Spacer()
+                }
                 
-    }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
+                
+            }.font(appSettings.font)
+                .padding().cornerRadius(8).border(Color.black.opacity(0),
+                                                                      width: 0).padding(1).background(Color.black.opacity(0.4))
+        }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
 }
 
@@ -40,5 +61,7 @@ struct BpduDetailView_Previews: PreviewProvider {
 
     static var previews: some View {
         BpduDetailView(bpdu: BpduDetailView_Previews.makeBpdu)
+        .environmentObject(AppSettings())
     }
+  
 }

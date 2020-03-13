@@ -11,24 +11,40 @@ import PackageEtherCapture
 
 struct ArpDetailView: View {
     let arp: Arp
-
+    
+    @EnvironmentObject var appSettings: AppSettings
     var body: some View {
-        return VStack {
-            HStack {
-                Text(arp.operation.rawValue).font(.headline)
-                Spacer()
-                Text("Sender \(arp.senderEthernet)  \(arp.senderIp.debugDescription)")
-                Spacer()
-            }
-            HStack {
-                Text("Target \(arp.targetEthernet) \(arp.targetIp.debugDescription)")
-            }
-            HStack {
-                Text("hwType \(arp.hardwareType) hwSize \(arp.hardwareSize)")
-            }
-            HStack {
-                Text("protocolType \(arp.protocolType.hex) protocolSize \(arp.protocolSize)")
-            }
+        return VStack (spacing:12){
+                HStack {
+                   Text(arp.operation.rawValue).font(.headline)
+                   Spacer()
+                   
+                    
+                }
+            VStack (spacing:6){
+                HStack {
+                    Text("Sender \(arp.senderEthernet)  \(arp.senderIp.debugDescription)")
+                        .font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
+                    Spacer()
+                    
+                }
+                HStack {
+                    Text("Target \(arp.targetEthernet)  \(arp.targetIp.debugDescription)")
+                    //.font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
+                    
+                    Spacer()
+                }
+                HStack {
+                    Text("hwType \(arp.hardwareType) hwSize \(arp.hardwareSize)")
+                    Spacer()
+                        
+                }
+                HStack {
+                    Text("protocolType \(arp.protocolType.hex) protocolSize \(arp.protocolSize)")
+                    Spacer()
+                }
+            }.font(appSettings.font).padding().cornerRadius(8).border(Color.black.opacity(0),
+                width: 0).padding(1).background(Color.black.opacity(0.4))
                 
     }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
@@ -45,5 +61,6 @@ struct ArpDetailView_Previews: PreviewProvider {
     
     static var previews: some View {
         ArpDetailView(arp: ArpDetailView_Previews.makeArp)
+        .environmentObject(AppSettings())
     }
 }
