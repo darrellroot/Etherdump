@@ -11,25 +11,51 @@ import PackageEtherCapture
 
 struct Ipv6DetailView: View {
     let ipv6: IPv6
+    @EnvironmentObject var appSettings: AppSettings
     var body: some View {
         let flowLabelHex = String(format: "%x",ipv6.flowLabel).uppercased()
 
-        return VStack {
+        return VStack (spacing:12){
             HStack {
                 Text("IPv6").font(.headline)
                 Spacer()
-                Text("\(ipv6.sourceIP.debugDescription) > \(ipv6.destinationIP.debugDescription)")
+            }
+            VStack(spacing:6){
+                HStack{ Text("\(ipv6.sourceIP.debugDescription) >")
+                    Spacer()
+                }
+                HStack{
+                Text("\(ipv6.destinationIP.debugDescription)")
+                    Spacer()
+                }
+                HStack{
                 Text("NextHeader \(ipv6.nextHeader)")
+                    Spacer()
+                }
+                HStack{
                 Text("Hop Limit \(ipv6.hopLimit)")
                 Spacer()
-            }
+                }
+            
             HStack {
                 Text("Traffic Class: \(ipv6.trafficClass)")
-                Text("FlowLabel: 0x\(flowLabelHex)")
-                Text(verbatim: "PayloadLength: \(ipv6.payloadLength)")
-                Text("Padding: \(ipv6.padding.count) Bytes")
+                Spacer()
             }
-        }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
+            HStack{
+                Text("FlowLabel: 0x\(flowLabelHex)")
+                Spacer()
+            }
+            HStack{
+                Text(verbatim: "PayloadLength: \(ipv6.payloadLength)")
+                Spacer()
+            }
+            HStack{
+                Text("Padding: \(ipv6.padding.count) Bytes")
+                Spacer()
+            }
+            }.font(appSettings.font).padding().cornerRadius(8).border(Color.black.opacity(0),
+            width: 0).padding(1).background(Color.black.opacity(0.4))
+            }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
 }
 
@@ -47,5 +73,6 @@ struct ipv6DetailView_Previews: PreviewProvider {
 
     static var previews: some View {
         Ipv6DetailView(ipv6: ipv6DetailView_Previews.makeIpv6!)
+        .environmentObject(AppSettings())
     }
 }

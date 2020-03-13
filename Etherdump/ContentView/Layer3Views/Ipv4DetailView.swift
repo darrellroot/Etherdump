@@ -11,30 +11,73 @@ import PackageEtherCapture
 
 struct Ipv4DetailView: View {
     let ipv4: IPv4
+    @EnvironmentObject var appSettings: AppSettings
     var body: some View {
-        return VStack {
+        return VStack (spacing:12){
             HStack {
                 Text("IPv4").font(.headline)
                 Spacer()
-                Text("\(ipv4.sourceIP.debugDescription) > \(ipv4.destinationIP.debugDescription)")
+            }
+            VStack (spacing:6){
+                HStack{ Text("\(ipv4.sourceIP.debugDescription) > \(ipv4.destinationIP.debugDescription)")
+                    Spacer()
+                }
+                HStack{
                 Text("IP Protocol \(ipv4.ipProtocol)")
+                    Spacer()
+                }
+                HStack{
                 Text("TTL \(ipv4.ttl)")
                 Spacer()
-            }
+                }
+            
             HStack {
                 Text("DSCP: \(ipv4.dscp)")
-                Text("ECN: \(ipv4.ecn)")
-                Text("Header Length: \(ipv4.ihl * 5) bytes")
-                Text(verbatim: "Header checksum: \(ipv4.headerChecksum)")
+                Spacer()
             }
-            HStack {
+                Group{
+                    HStack {
+                Text("ECN: \(ipv4.ecn)")
+                    Spacer()
+                    }
+                    HStack{
+                    
+                Text("Header Length: \(ipv4.ihl * 5) bytes")
+                Spacer()
+                    }
+                    HStack{
+                Text(verbatim: "Header checksum: \(ipv4.headerChecksum)")
+                Spacer()
+                    }
+            }
+            HStack{
                 Text("TotalLength: \(ipv4.totalLength)")
+                Spacer()
+            }
+            HStack{
                 if ipv4.dontFragmentFlag { Text("DontFrag")}
                 if ipv4.moreFragmentsFlag { Text("MoreFrag")}
-                Text("FragmentOffset: \(ipv4.fragmentOffset)")
-                if ipv4.options != nil { Text("Options: \(ipv4.options!.hexdump)") }
-                Text("Padding: \(ipv4.padding.count) Bytes")
+                Spacer()
             }
+            HStack{
+                Text("FragmentOffset: \(ipv4.fragmentOffset)")
+                Spacer()
+            }
+            if ipv4.options != nil {
+                HStack{
+                    Text("Options: \(ipv4.options!.hexdump)")
+                    Spacer()
+                }
+            }
+            HStack{
+                Text("Padding: \(ipv4.padding.count) Bytes")
+                Spacer()
+            }
+            }.font(appSettings.font)
+                .padding().cornerRadius(8).border(Color.black.opacity(0),
+            width: 0).padding(1).background(Color.black.opacity(0.4))
+           
+            
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
 }
@@ -53,5 +96,6 @@ struct Ipv4DetailView_Previews: PreviewProvider {
 
     static var previews: some View {
         Ipv4DetailView(ipv4: Ipv4DetailView_Previews.makeIpv4!)
+        .environmentObject(AppSettings())
     }
 }
