@@ -10,7 +10,6 @@
 		2F0647D123E38FE900965033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647D023E38FE900965033 /* AppDelegate.swift */; };
 		2F0647D323E38FE900965033 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647D223E38FE900965033 /* ContentView.swift */; };
 		2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D723E38FEC00965033 /* Preview Assets.xcassets */; };
-		2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2F0647E423E3907C00965033 /* PackageEtherCapture */; };
 		2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E623E3919300965033 /* CaptureFilterView.swift */; };
 		2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E823E4CA3800965033 /* FrameSummaryView.swift */; };
 		2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */; };
@@ -81,6 +80,7 @@
 		2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
 		2FDD9D7D2405D485002D271A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7C2405D485002D271A /* AboutView.swift */; };
 		2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7C2405D485002D271A /* AboutView.swift */; };
+		2FE93EC4241D7405007395AA /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE93EC3241D7405007395AA /* PackageEtherCapture */; };
 		A1AC5FA2241C42C5005B4142 /* CdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9C241C42C4005B4142 /* CdpDetailView.swift */; };
 		A1AC5FA3241C42C5005B4142 /* Ipv6DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9D241C42C4005B4142 /* Ipv6DetailView.swift */; };
 		A1AC5FA4241C42C5005B4142 /* Ipv4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9E241C42C5005B4142 /* Ipv4DetailView.swift */; };
@@ -148,8 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE93EC4241D7405007395AA /* PackageEtherCapture in Frameworks */,
 				2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */,
-				2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */,
 				2F78585023F8CE0C00B5F5ED /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +172,7 @@
 			children = (
 				2F0647CF23E38FE900965033 /* Etherdump */,
 				2F0647CE23E38FE900965033 /* Products */,
+				2FE93EC2241D7405007395AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,6 +336,13 @@
 			path = Layer4Views;
 			sourceTree = "<group>";
 		};
+		2FE93EC2241D7405007395AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -352,9 +360,9 @@
 			);
 			name = Etherdump;
 			packageProductDependencies = (
-				2F0647E423E3907C00965033 /* PackageEtherCapture */,
 				2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */,
 				2F78584F23F8CE0C00B5F5ED /* Logging */,
+				2FE93EC3241D7405007395AA /* PackageEtherCapture */,
 			);
 			productName = Etherdump;
 			productReference = 2F0647CD23E38FE900965033 /* Etherdump.app */;
@@ -506,8 +514,6 @@
 				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
 				2FDA6C75241B2C7700BB5469 /* UInt8+extensions.swift in Sources */,
-				2F78584623F8CB0500B5F5ED /* Layer3DetailView.swift in Sources */,
-				2FDD9D8124062346002D271A /* BpduDetailView.swift in Sources */,
 				2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */,
 				2F78584A23F8CB1000B5F5ED /* PayloadView.swift in Sources */,
 				2F78584D23F8CB1800B5F5ED /* LogView.swift in Sources */,
@@ -818,11 +824,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2F0647E423E3907C00965033 /* PackageEtherCapture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */;
-			productName = PackageEtherCapture;
-		};
 		2F78584F23F8CE0C00B5F5ED /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F78584E23F8CE0C00B5F5ED /* XCRemoteSwiftPackageReference "swift-log" */;
@@ -847,6 +848,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FA6196B23E9D91700A75FA4 /* XCRemoteSwiftPackageReference "PackageSwiftPcapng" */;
 			productName = PackageSwiftPcapng;
+		};
+		2FE93EC3241D7405007395AA /* PackageEtherCapture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */;
+			productName = PackageEtherCapture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

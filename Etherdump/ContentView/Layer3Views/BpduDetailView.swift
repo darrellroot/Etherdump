@@ -89,7 +89,12 @@ struct BpduDetailView: View {
                             self.highlight.start = self.bpdu.startIndex[.forwardDelay]
                             self.highlight.end = self.bpdu.endIndex[.forwardDelay]
                     }
-                    Text("\(bpdu.data.count) bytes)")
+                    Text("V1Length \(bpdu.v1Length)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.v1Length]
+                            self.highlight.end = self.bpdu.endIndex[.v1Length]
+                    }
+
                 /*Text(verbatim: "Age \(bpdu.age) MaxAge \(bpdu.maxAge) HelloTime \(bpdu.helloTime) ForwardDelay \(bpdu.forwardDelay) \(bpdu.data.count) bytes")*/
                     Spacer()
                 }
