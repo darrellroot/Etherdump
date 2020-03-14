@@ -11,6 +11,7 @@ import PackageEtherCapture
 
 struct FrameSummaryView: View {
     @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var highlight: Highlight
     @Binding var frames: [Frame]
     var filteredFrames: [Frame]
     @Binding var activeFrame: Frame?
@@ -28,6 +29,8 @@ struct FrameSummaryView: View {
                     .padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: frame.id == self.activeFrame?.id ? 4 : 2))
                 .onTapGesture {
                     self.activeFrame = frame
+                    self.highlight.start = nil
+                    self.highlight.end = nil
                 }
                 Spacer()
             }

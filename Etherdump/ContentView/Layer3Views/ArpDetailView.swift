@@ -23,22 +23,47 @@ struct ArpDetailView: View {
             VStack (spacing:6){
                 HStack {
                     Text("Sender \(arp.senderEthernet)  \(arp.senderIp.debugDescription)")
-                        .font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
+                        //.font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.senderEthernet]
+                            self.highlight.end = self.arp.endIndex[.senderEthernet]
+                    }
                     Spacer()
                 }
                 HStack {
                     Text("Target \(arp.targetEthernet)  \(arp.targetIp.debugDescription)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.targetEthernet]
+                            self.highlight.end = self.arp.endIndex[.targetEthernet]
+                    }
+
                     //.font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
                     
                     Spacer()
                 }
                 HStack {
                     Text("hwType \(arp.hardwareType) hwSize \(arp.hardwareSize)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.hardwareSize]
+                            self.highlight.end = self.arp.endIndex[.hardwareSize]
+                    }
+
                     Spacer()
                         
                 }
                 HStack {
-                    Text("protocolType \(arp.protocolType.hex) protocolSize \(arp.protocolSize)")
+                    Text("protocolType \(arp.protocolType.hex)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.protocolType]
+                            self.highlight.end = self.arp.endIndex[.protocolType]
+                    }
+
+                    Text("protocolSize \(arp.protocolSize)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.protocolSize]
+                            self.highlight.end = self.arp.endIndex[.protocolSize]
+                    }
+
                     Spacer()
                 }
             }.font(appSettings.font).padding().cornerRadius(8).border(Color.black.opacity(0),
@@ -59,6 +84,6 @@ struct ArpDetailView_Previews: PreviewProvider {
     
     static var previews: some View {
         ArpDetailView(arp: ArpDetailView_Previews.makeArp)
-        .environmentObject(AppSettings())
+            .environmentObject(AppSettings()).environmentObject(Highlight())
     }
 }
