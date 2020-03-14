@@ -18,15 +18,12 @@ struct ArpDetailView: View {
                 HStack {
                    Text(arp.operation.rawValue).font(.headline)
                    Spacer()
-                   
-                    
                 }
             VStack (spacing:6){
                 HStack {
                     Text("Sender \(arp.senderEthernet)  \(arp.senderIp.debugDescription)")
                         .font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
                     Spacer()
-                    
                 }
                 HStack {
                     Text("Target \(arp.targetEthernet)  \(arp.targetIp.debugDescription)")

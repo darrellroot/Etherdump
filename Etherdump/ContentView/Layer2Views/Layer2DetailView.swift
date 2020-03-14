@@ -33,7 +33,6 @@ struct Layer2DetailView: View {
                     self.startHighlight = self.frame?.startIndex[.dstmac]
                     self.endHighlight = self.frame?.endIndex[.dstmac]
                 }
-                Text(frame?.frameFormat.rawValue ?? "")
                 frame?.ieeeLength.map { Text("Len \($0)")
                     .onTapGesture {
                         self.startHighlight = self.frame?.startIndex[.ieeeLength]

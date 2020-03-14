@@ -35,7 +35,7 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 0) {
             if showCapture {
-                CaptureFilterView(frames: self.$frames,interface: appSettings.interfaces.first ?? "en0")
+                CaptureFilterView(frames: self.$frames,interface: appSettings.interfaces.first ?? "en0", activeFrame: self.$activeFrame)
             }
             DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB, frames: $frames, filteredFrames: filteredFrames)
             FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame , layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)

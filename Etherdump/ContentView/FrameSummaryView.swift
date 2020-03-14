@@ -21,12 +21,16 @@ struct FrameSummaryView: View {
     
     var body: some View {
         List(self.filteredFrames) { frame in
-            Text("\(frame.frameNumber) \(frame.description)")
+            HStack {
+                Text("\(frame.frameNumber) \(frame.description)")
                 .font(self.appSettings.font)
-                .padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: 2))
+                //.padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: 2))
+                    .padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: frame.id == self.activeFrame?.id ? 4 : 2))
                 .onTapGesture {
                     self.activeFrame = frame
                 }
+                Spacer()
+            }
         }.padding().background(Color.purple.opacity(0.7))
     }
 }

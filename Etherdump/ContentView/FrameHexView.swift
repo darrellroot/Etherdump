@@ -19,7 +19,8 @@ struct FrameHexView: View {
         let start = startHighlight ?? 0
         let end = endHighlight ?? 0
         for (position,datum) in frame.data.enumerated() {
-            switch (position % 2 == 0, position % 16 == 0, position % 16 == 15, position >= start, position < end) {
+            let dataIndex = position + frame.data.startIndex  //startIndex is not 0 if imported from pcap file
+            switch (position % 2 == 0, position % 16 == 0, position % 16 == 15, dataIndex >= start, dataIndex < end) {
             case (false, false, false, true, true): // odd positions
                 retval = retval + Text(datum.plainhex).fontWeight(.bold) + Text(" ")
             case (false, false, false, _, _): // odd positions
