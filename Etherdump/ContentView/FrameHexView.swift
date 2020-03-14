@@ -11,13 +11,14 @@ import PackageEtherCapture
 
 struct FrameHexView: View {
     @Binding var frame: Frame?
-    @Binding var startHighlight: Data.Index?
-    @Binding var endHighlight: Data.Index?
+    @EnvironmentObject var highlight: Highlight
+    //@Binding var startHighlight: Data.Index?
+    //@Binding var endHighlight: Data.Index?
     var body: some View {
         guard let frame = frame else { return Text("")}
         var retval = Text("")
-        let start = startHighlight ?? 0
-        let end = endHighlight ?? 0
+        let start = highlight.start ?? 0
+        let end = highlight.end ?? 0
         for (position,datum) in frame.data.enumerated() {
             let dataIndex = position + frame.data.startIndex  //startIndex is not 0 if imported from pcap file
             switch (position % 2 == 0, position % 16 == 0, position % 16 == 15, dataIndex >= start, dataIndex < end) {
@@ -51,6 +52,6 @@ struct FrameHexView: View {
 
 struct FrameHexView_Previews: PreviewProvider {
     static var previews: some View {
-        FrameHexView(frame: .constant(Frame.sampleFrame), startHighlight: .constant(nil), endHighlight: .constant(nil))
+        FrameHexView(frame: .constant(Frame.sampleFrame)).environmentObject(Highlight())
     }
 }

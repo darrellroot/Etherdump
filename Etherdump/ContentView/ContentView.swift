@@ -10,11 +10,15 @@ import SwiftUI
 import PackageEtherCapture
 
 
-
+class Highlight: ObservableObject {
+    @Published var start: Data.Index? = nil
+    @Published var end: Data.Index? = nil
+}
 
 struct ContentView: View {
     let showCapture: Bool
     //@Environment(\.font) var font
+    var highlight = Highlight()
     @EnvironmentObject var appSettings: AppSettings
     @State var frames: [Frame] = []
     @State var activeFrame: Frame? = nil
@@ -22,8 +26,8 @@ struct ContentView: View {
     @State var layer4Filter: Layer4Filter = .any
     @State var portFilterA: String = ""
     @State var portFilterB: String = ""
-    @State var startHighlight: Data.Index? = nil
-    @State var endHighlight: Data.Index? = nil
+    //@State var startHighlight: Data.Index? = nil
+    //@State var endHighlight: Data.Index? = nil
     let appDelegate = NSApplication.shared.delegate as! AppDelegate
     let windowCount: Int
     
@@ -40,7 +44,7 @@ struct ContentView: View {
             DisplayFilterView(layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB, frames: $frames, filteredFrames: filteredFrames)
             FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame , layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB)
             if activeFrame != nil {
-                Layer2DetailView(frame: $activeFrame, startHighlight: $startHighlight, endHighlight: $endHighlight)
+                Layer2DetailView(frame: $activeFrame)
             }
             if activeFrame != nil {
                 Layer3DetailView(frame: $activeFrame)
@@ -49,10 +53,10 @@ struct ContentView: View {
                 Layer4DetailView(frame: $activeFrame)
             }
             if activeFrame != nil {
-                FrameHexView(frame: $activeFrame, startHighlight: $startHighlight, endHighlight: $endHighlight)
+                FrameHexView(frame: $activeFrame)
             }
             //Text(activeFrame?.hexdump ?? "")
-        }.onDisappear() {
+            }.environmentObject(highlight).onDisappear() {
             self.appDelegate.deleteWindow(windowCount: self.windowCount)
         }
             

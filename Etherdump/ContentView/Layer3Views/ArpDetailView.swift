@@ -11,7 +11,8 @@ import PackageEtherCapture
 
 struct ArpDetailView: View {
     let arp: Arp
-    
+    @EnvironmentObject var highlight: Highlight
+
     @EnvironmentObject var appSettings: AppSettings
     var body: some View {
         return VStack (spacing:12){
