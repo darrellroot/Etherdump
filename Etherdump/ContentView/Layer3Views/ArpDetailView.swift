@@ -18,36 +18,50 @@ struct ArpDetailView: View {
         return VStack (spacing:12){
                 HStack {
                    Text(arp.operation.rawValue).font(.headline)
+                    .onTapGesture {
+                        self.highlight.start = self.arp.startIndex[.operation]
+                        self.highlight.end = self.arp.endIndex[.operation]
+                    }
                    Spacer()
                 }
             VStack (spacing:6){
                 HStack {
-                    Text("Sender \(arp.senderEthernet)  \(arp.senderIp.debugDescription)")
-                        //.font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
+                    Text("Sender \(arp.senderEthernet)")
                         .onTapGesture {
                             self.highlight.start = self.arp.startIndex[.senderEthernet]
                             self.highlight.end = self.arp.endIndex[.senderEthernet]
                     }
+                    Text(arp.senderIp.debugDescription)
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.senderIp]
+                            self.highlight.end = self.arp.endIndex[.senderIp]
+                    }
                     Spacer()
                 }
                 HStack {
-                    Text("Target \(arp.targetEthernet)  \(arp.targetIp.debugDescription)")
+                    Text("Target \(arp.targetEthernet)")
                         .onTapGesture {
                             self.highlight.start = self.arp.startIndex[.targetEthernet]
                             self.highlight.end = self.arp.endIndex[.targetEthernet]
                     }
-
-                    //.font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
-                    
+                    Text(arp.targetIp.debugDescription)
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.targetIp]
+                            self.highlight.end = self.arp.endIndex[.targetIp]
+                    }
                     Spacer()
                 }
                 HStack {
-                    Text("hwType \(arp.hardwareType) hwSize \(arp.hardwareSize)")
+                    Text("hwType \(arp.hardwareType)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.hardwareType]
+                            self.highlight.end = self.arp.endIndex[.hardwareType]
+                    }
+                    Text("hwSize \(arp.hardwareSize)")
                         .onTapGesture {
                             self.highlight.start = self.arp.startIndex[.hardwareSize]
                             self.highlight.end = self.arp.endIndex[.hardwareSize]
                     }
-
                     Spacer()
                         
                 }
