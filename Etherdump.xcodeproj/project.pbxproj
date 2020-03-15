@@ -311,13 +311,13 @@
 		2FDD9D772403796B002D271A /* Layer3Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1AC5FA1241C42C5005B4142 /* Layer3DetailView.swift */,
 				A1AC5FA0241C42C5005B4142 /* ArpDetailView.swift */,
 				A1AC5FA8241C435D005B4142 /* LldpDetailView.swift */,
 				A1AC5F9F241C42C5005B4142 /* BpduDetailView.swift */,
 				A1AC5F9C241C42C4005B4142 /* CdpDetailView.swift */,
 				A1AC5F9E241C42C5005B4142 /* Ipv4DetailView.swift */,
 				A1AC5F9D241C42C4005B4142 /* Ipv6DetailView.swift */,
-				A1AC5FA1241C42C5005B4142 /* Layer3DetailView.swift */,
 			);
 			path = Layer3Views;
 			sourceTree = "<group>";
@@ -506,8 +506,6 @@
 				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
 				2FDA6C75241B2C7700BB5469 /* UInt8+extensions.swift in Sources */,
-				2F78584623F8CB0500B5F5ED /* Layer3DetailView.swift in Sources */,
-				2FDD9D8124062346002D271A /* BpduDetailView.swift in Sources */,
 				2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */,
 				2F78584A23F8CB1000B5F5ED /* PayloadView.swift in Sources */,
 				2F78584D23F8CB1800B5F5ED /* LogView.swift in Sources */,

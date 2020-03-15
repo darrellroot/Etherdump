@@ -16,17 +16,28 @@ struct UdpDetailView: View {
             HStack {
                 Text("UDP").font(.headline)
                 Spacer()
-                Text(verbatim: "\(udp.sourcePort) > \(udp.destinationPort)")
-                Text(verbatim: "Checksum: \(udp.checksum)")
-                Spacer()
+                VStack{
+                    HStack{
+                        Text(verbatim: "\(udp.sourcePort) > \(udp.destinationPort)")
+                        Spacer()
+                    }
+                    HStack{
+                        Text(verbatim: "Checksum: \(udp.checksum)")
+                        Spacer()
+                    }
+                        
+                }
             }
             PayloadView(payload: udp.payload)
             }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
 }
 
-/*struct TcpDetailView_Previews: PreviewProvider {
+/*struct UdpDetailView_Previews: PreviewProvider {
  static var previews: some View {
- TcpDetailView()
+ //UdpDetailView()
+    return UdpDetailView(udp: udp)
+    .environmentObject(AppSettings())
  }
- }*/
+ }
+*/
