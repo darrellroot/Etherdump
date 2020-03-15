@@ -15,8 +15,8 @@ struct FrameSummaryView: View {
     @Binding var frames: [Frame]
     var filteredFrames: [Frame]
     @Binding var activeFrame: Frame?
-    @Binding var layer3Filter: Layer3Filter
-    @Binding var layer4Filter: Layer4Filter
+    //@Binding var layer3Filter: Layer3Filter
+    //@Binding var layer4Filter: Layer4Filter
     @Binding var portFilterA: String
     @Binding var portFilterB: String
     
