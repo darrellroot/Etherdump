@@ -35,8 +35,14 @@ struct Icmp6DetailView: View {
     }
 }
 
-/*struct TcpDetailView_Previews: PreviewProvider {
- static var previews: some View {
- TcpDetailView()
- }
- }*/
+struct Icmp6DetailView_Previews: PreviewProvider {
+static var previews: some View {
+       guard case .icmp6(let icmp6) = Frame.sampleFrameIcmp6.layer4 else {
+           print("fatal error")
+           fatalError()
+       }
+       
+       return Icmp6DetailView(icmp: icmp6)
+        .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
+   }
+}
