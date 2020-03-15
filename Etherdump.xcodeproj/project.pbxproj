@@ -316,13 +316,13 @@
 		2FDD9D772403796B002D271A /* Layer3Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1AC5FA1241C42C5005B4142 /* Layer3DetailView.swift */,
 				A1AC5FA0241C42C5005B4142 /* ArpDetailView.swift */,
 				A1AC5FA8241C435D005B4142 /* LldpDetailView.swift */,
 				A1AC5F9F241C42C5005B4142 /* BpduDetailView.swift */,
 				A1AC5F9C241C42C4005B4142 /* CdpDetailView.swift */,
 				A1AC5F9E241C42C5005B4142 /* Ipv4DetailView.swift */,
 				A1AC5F9D241C42C4005B4142 /* Ipv6DetailView.swift */,
-				A1AC5FA1241C42C5005B4142 /* Layer3DetailView.swift */,
 			);
 			path = Layer3Views;
 			sourceTree = "<group>";
