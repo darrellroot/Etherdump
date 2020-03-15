@@ -15,12 +15,14 @@ struct CaptureFilterView: View {
     @State var etherCapture: EtherCapture? = nil
     @EnvironmentObject var appSettings: AppSettings
     @Binding var frames: [Frame]
+    @Binding var activeFrame: Frame?
     @State var captureFilter: String = ""
     @State var error: String = ""
     @State var numberPackets = 10
     @State var interface: String = ""
-    init(frames: Binding<[Frame]>, interface: String) {
+    init(frames: Binding<[Frame]>, interface: String, activeFrame: Binding<Frame?>) {
         self._frames = frames
+        self._activeFrame = activeFrame
         self.interface = interface
     }
     var body: some View {
@@ -52,6 +54,7 @@ struct CaptureFilterView: View {
             }
             Button("Erase Frames") {
                 self.frames = []
+                self.activeFrame = nil
             }
         }.padding()
             .background(Color.green.opacity(0.7))
@@ -79,6 +82,6 @@ struct CaptureFilterView: View {
 
 struct CaptureFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        CaptureFilterView(frames: .constant([Frame.sampleFrame]), interface: "en0")
+        CaptureFilterView(frames: .constant([Frame.sampleFrame]), interface: "en0", activeFrame: .constant(Frame.sampleFrame))
     }
 }

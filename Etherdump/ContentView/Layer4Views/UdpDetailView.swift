@@ -33,11 +33,16 @@ struct UdpDetailView: View {
     }
 }
 
-/*struct UdpDetailView_Previews: PreviewProvider {
- static var previews: some View {
- //UdpDetailView()
-    return UdpDetailView(udp: udp)
-    .environmentObject(AppSettings())
- }
- }
-*/
+struct UdpDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        
+        guard case .udp(let udp) = Frame.sampleFrameUdp.layer4 else {
+            print("fatal error")
+            fatalError()
+        }
+        
+        return UdpDetailView(udp: udp)
+            .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
+    }
+}
+

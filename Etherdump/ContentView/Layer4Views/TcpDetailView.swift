@@ -73,6 +73,6 @@ struct TcpDetailView_Previews: PreviewProvider {
             fatalError()
         }
         return TcpDetailView(tcp: tcp)
-        .environmentObject(AppSettings())
+        .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
     }
 }

@@ -11,36 +11,73 @@ import PackageEtherCapture
 
 struct ArpDetailView: View {
     let arp: Arp
-    
+    @EnvironmentObject var highlight: Highlight
+
     @EnvironmentObject var appSettings: AppSettings
     var body: some View {
         return VStack (spacing:12){
                 HStack {
                    Text(arp.operation.rawValue).font(.headline)
+                    .onTapGesture {
+                        self.highlight.start = self.arp.startIndex[.operation]
+                        self.highlight.end = self.arp.endIndex[.operation]
+                    }
                    Spacer()
-                   
-                    
                 }
             VStack (spacing:6){
                 HStack {
-                    Text("Sender \(arp.senderEthernet)  \(arp.senderIp.debugDescription)")
-                        .font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
+                    Text("Sender \(arp.senderEthernet)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.senderEthernet]
+                            self.highlight.end = self.arp.endIndex[.senderEthernet]
+                    }
+                    Text(arp.senderIp.debugDescription)
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.senderIp]
+                            self.highlight.end = self.arp.endIndex[.senderIp]
+                    }
                     Spacer()
-                    
                 }
                 HStack {
-                    Text("Target \(arp.targetEthernet)  \(arp.targetIp.debugDescription)")
-                    //.font(Font.system(size: CGFloat(17), weight: .regular, design: .monospaced))
-                    
+                    Text("Target \(arp.targetEthernet)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.targetEthernet]
+                            self.highlight.end = self.arp.endIndex[.targetEthernet]
+                    }
+                    Text(arp.targetIp.debugDescription)
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.targetIp]
+                            self.highlight.end = self.arp.endIndex[.targetIp]
+                    }
                     Spacer()
                 }
                 HStack {
-                    Text("hwType \(arp.hardwareType) hwSize \(arp.hardwareSize)")
+                    Text("hwType \(arp.hardwareType)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.hardwareType]
+                            self.highlight.end = self.arp.endIndex[.hardwareType]
+                    }
+                    Text("hwSize \(arp.hardwareSize)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.hardwareSize]
+                            self.highlight.end = self.arp.endIndex[.hardwareSize]
+                    }
                     Spacer()
                         
                 }
                 HStack {
-                    Text("protocolType \(arp.protocolType.hex) protocolSize \(arp.protocolSize)")
+                    Text("protocolType \(arp.protocolType.hex)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.protocolType]
+                            self.highlight.end = self.arp.endIndex[.protocolType]
+                    }
+
+                    Text("protocolSize \(arp.protocolSize)")
+                        .onTapGesture {
+                            self.highlight.start = self.arp.startIndex[.protocolSize]
+                            self.highlight.end = self.arp.endIndex[.protocolSize]
+                    }
+
                     Spacer()
                 }
             }.font(appSettings.font).padding().cornerRadius(8).border(Color.black.opacity(0),
@@ -61,6 +98,6 @@ struct ArpDetailView_Previews: PreviewProvider {
     
     static var previews: some View {
         ArpDetailView(arp: ArpDetailView_Previews.makeArp)
-        .environmentObject(AppSettings())
+            .environmentObject(AppSettings()).environmentObject(Highlight())
     }
 }

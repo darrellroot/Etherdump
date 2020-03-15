@@ -10,12 +10,13 @@
 		2F0647D123E38FE900965033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647D023E38FE900965033 /* AppDelegate.swift */; };
 		2F0647D323E38FE900965033 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647D223E38FE900965033 /* ContentView.swift */; };
 		2F0647D823E38FEC00965033 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F0647D723E38FEC00965033 /* Preview Assets.xcassets */; };
-		2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2F0647E423E3907C00965033 /* PackageEtherCapture */; };
 		2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E623E3919300965033 /* CaptureFilterView.swift */; };
 		2F0647E923E4CA3800965033 /* FrameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647E823E4CA3800965033 /* FrameSummaryView.swift */; };
 		2F0647EE23E4FE9100965033 /* Layer2DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */; };
 		2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0647F123E502A400965033 /* Layer4DetailView.swift */; };
 		2F22B36123EE6B77009DD8ED /* PayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F22B36023EE6B77009DD8ED /* PayloadView.swift */; };
+		2F4F2E73241EC6B1004DD475 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E72241EC6B1004DD475 /* String+extensions.swift */; };
+		2F4F2E74241EC6B1004DD475 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E72241EC6B1004DD475 /* String+extensions.swift */; };
 		2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D123EE082900207DA3 /* DisplayFilterView.swift */; };
 		2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
 		2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */; };
@@ -81,6 +82,7 @@
 		2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D792404DC0F002D271A /* HelpView.swift */; };
 		2FDD9D7D2405D485002D271A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7C2405D485002D271A /* AboutView.swift */; };
 		2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDD9D7C2405D485002D271A /* AboutView.swift */; };
+		2FE93EC4241D7405007395AA /* PackageEtherCapture in Frameworks */ = {isa = PBXBuildFile; productRef = 2FE93EC3241D7405007395AA /* PackageEtherCapture */; };
 		A1AC5FA2241C42C5005B4142 /* CdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9C241C42C4005B4142 /* CdpDetailView.swift */; };
 		A1AC5FA3241C42C5005B4142 /* Ipv6DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9D241C42C4005B4142 /* Ipv6DetailView.swift */; };
 		A1AC5FA4241C42C5005B4142 /* Ipv4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9E241C42C5005B4142 /* Ipv4DetailView.swift */; };
@@ -102,6 +104,7 @@
 		2F0647ED23E4FE9100965033 /* Layer2DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layer2DetailView.swift; sourceTree = "<group>"; };
 		2F0647F123E502A400965033 /* Layer4DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer4DetailView.swift; sourceTree = "<group>"; };
 		2F22B36023EE6B77009DD8ED /* PayloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadView.swift; sourceTree = "<group>"; };
+		2F4F2E72241EC6B1004DD475 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		2F5451D123EE082900207DA3 /* DisplayFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFilterView.swift; sourceTree = "<group>"; };
 		2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterEnumerations.swift; sourceTree = "<group>"; };
 		2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarrellLogHandler.swift; sourceTree = "<group>"; };
@@ -148,8 +151,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE93EC4241D7405007395AA /* PackageEtherCapture in Frameworks */,
 				2FA6196D23E9D91700A75FA4 /* PackageSwiftPcapng in Frameworks */,
-				2F0647E523E3907C00965033 /* PackageEtherCapture in Frameworks */,
 				2F78585023F8CE0C00B5F5ED /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +175,7 @@
 			children = (
 				2F0647CF23E38FE900965033 /* Etherdump */,
 				2F0647CE23E38FE900965033 /* Products */,
+				2FE93EC2241D7405007395AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -259,6 +263,7 @@
 				2FD536272410A9860048CB79 /* UInt16+extensions.swift */,
 				2FDA6C73241B2C7700BB5469 /* UInt8+extensions.swift */,
 				2F7858622401C69200B5F5ED /* Font+extensions.swift */,
+				2F4F2E72241EC6B1004DD475 /* String+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +340,13 @@
 			path = Layer4Views;
 			sourceTree = "<group>";
 		};
+		2FE93EC2241D7405007395AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -352,9 +364,9 @@
 			);
 			name = Etherdump;
 			packageProductDependencies = (
-				2F0647E423E3907C00965033 /* PackageEtherCapture */,
 				2FA6196C23E9D91700A75FA4 /* PackageSwiftPcapng */,
 				2F78584F23F8CE0C00B5F5ED /* Logging */,
+				2FE93EC3241D7405007395AA /* PackageEtherCapture */,
 			);
 			productName = Etherdump;
 			productReference = 2F0647CD23E38FE900965033 /* Etherdump.app */;
@@ -489,6 +501,7 @@
 				A1AC5FA3241C42C5005B4142 /* Ipv6DetailView.swift in Sources */,
 				2FB36A3423EE433D00CC1223 /* TcpDetailView.swift in Sources */,
 				A1AC5FA4241C42C5005B4142 /* Ipv4DetailView.swift in Sources */,
+				2F4F2E73241EC6B1004DD475 /* String+extensions.swift in Sources */,
 				A1AC5FA2241C42C5005B4142 /* CdpDetailView.swift in Sources */,
 				2F0647D323E38FE900965033 /* ContentView.swift in Sources */,
 				2F7F5841240DDC1B00E08061 /* Icmp6DetailView.swift in Sources */,
@@ -509,6 +522,7 @@
 				2F78583F23F8CAF400B5F5ED /* AppDelegate.swift in Sources */,
 				2F78584A23F8CB1000B5F5ED /* PayloadView.swift in Sources */,
 				2F78584D23F8CB1800B5F5ED /* LogView.swift in Sources */,
+				2F4F2E74241EC6B1004DD475 /* String+extensions.swift in Sources */,
 				2FDA6C7B241B324D00BB5469 /* FrameHexView.swift in Sources */,
 				2FDA6C78241B2E0C00BB5469 /* UInt+extensions copy.swift in Sources */,
 				2FDA6C7E241B370500BB5469 /* Int+extensions copy.swift in Sources */,
@@ -816,11 +830,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2F0647E423E3907C00965033 /* PackageEtherCapture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */;
-			productName = PackageEtherCapture;
-		};
 		2F78584F23F8CE0C00B5F5ED /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2F78584E23F8CE0C00B5F5ED /* XCRemoteSwiftPackageReference "swift-log" */;
@@ -845,6 +854,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2FA6196B23E9D91700A75FA4 /* XCRemoteSwiftPackageReference "PackageSwiftPcapng" */;
 			productName = PackageSwiftPcapng;
+		};
+		2FE93EC3241D7405007395AA /* PackageEtherCapture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F0647E323E3907C00965033 /* XCRemoteSwiftPackageReference "PackageEtherCapture" */;
+			productName = PackageEtherCapture;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -30,8 +30,14 @@ struct Icmp4DetailView: View {
     }
 }
 
-/*struct TcpDetailView_Previews: PreviewProvider {
+struct Icmp4DetailView_Previews: PreviewProvider {
  static var previews: some View {
- TcpDetailView()
+        guard case .icmp4(let icmp4) = Frame.sampleFrameIcmp4.layer4 else {
+            print("fatal error")
+            fatalError()
+        }
+        
+        return Icmp4DetailView(icmp: icmp4)
+            .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
+    }
  }
- }*/

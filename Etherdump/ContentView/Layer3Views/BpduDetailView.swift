@@ -12,7 +12,7 @@ import PackageEtherCapture
 struct BpduDetailView: View {
     let bpdu: Bpdu
     @EnvironmentObject var appSettings: AppSettings
-     
+    @EnvironmentObject var highlight: Highlight
 
     var body: some View {
         return VStack  (spacing:12){
@@ -22,23 +22,80 @@ struct BpduDetailView: View {
             }
             VStack (spacing:6){
                 HStack{
-                    Text("ProtocolID \(bpdu.protocolId) Version \(bpdu.bpduVersion) type \(bpdu.type) portRole \(bpdu.portRole)")
+                    Text("ProtocolID \(bpdu.protocolId)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.protocolId]
+                            self.highlight.end = self.bpdu.endIndex[.protocolId]
+                    }
+                    Text("Version \(bpdu.bpduVersion)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.bpduVersion]
+                            self.highlight.end = self.bpdu.endIndex[.bpduVersion]
+                    }
+                    Text("type \(bpdu.type)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.type]
+                            self.highlight.end = self.bpdu.endIndex[.type]
+                    }
+                    Text("portRole \(bpdu.portRole)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.flags]
+                            self.highlight.end = self.bpdu.endIndex[.flags]
+                    }
                     Spacer()
                 }
                 HStack{
                 Text("Flags: \(bpdu.flagsString)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.flags]
+                            self.highlight.end = self.bpdu.endIndex[.flags]
+                    }
                     Spacer()
                 }
                 HStack{
                 Text("RootID \(bpdu.rootIdString)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.rootId]
+                            self.highlight.end = self.bpdu.endIndex[.rootId]
+                    }
                     Spacer()
                 }
                 HStack{
                     Text("BridgeID \(bpdu.bridgeIdString)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.bridgeId]
+                            self.highlight.end = self.bpdu.endIndex[.bridgeId]
+                    }
                     Spacer()
                 }
                 HStack{
-                Text(verbatim: "Age \(bpdu.age) MaxAge \(bpdu.maxAge) HelloTime \(bpdu.helloTime) ForwardDelay \(bpdu.forwardDelay) \(bpdu.data.count) bytes")
+                    Text(verbatim: "Age \(bpdu.age)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.age]
+                            self.highlight.end = self.bpdu.endIndex[.age]
+                    }
+                    Text(verbatim: "MaxAge \(bpdu.maxAge)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.maxAge]
+                            self.highlight.end = self.bpdu.endIndex[.maxAge]
+                    }
+                    Text(verbatim: "HelloTime \(bpdu.helloTime)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.helloTime]
+                            self.highlight.end = self.bpdu.endIndex[.helloTime]
+                    }
+                    Text(verbatim: "ForwardDelay \(bpdu.forwardDelay)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.forwardDelay]
+                            self.highlight.end = self.bpdu.endIndex[.forwardDelay]
+                    }
+                    Text("V1Length \(bpdu.v1Length)")
+                        .onTapGesture {
+                            self.highlight.start = self.bpdu.startIndex[.v1Length]
+                            self.highlight.end = self.bpdu.endIndex[.v1Length]
+                    }
+
+                /*Text(verbatim: "Age \(bpdu.age) MaxAge \(bpdu.maxAge) HelloTime \(bpdu.helloTime) ForwardDelay \(bpdu.forwardDelay) \(bpdu.data.count) bytes")*/
                     Spacer()
                 }
                 

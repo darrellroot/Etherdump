@@ -38,6 +38,6 @@ struct Layer4DetailView: View {
 
 struct Layer4DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        Layer4DetailView(frame: .constant(Frame.sampleFrame))
+        Layer4DetailView(frame: .constant(Frame.sampleFrame)).environmentObject(AppSettings())
     }
 }

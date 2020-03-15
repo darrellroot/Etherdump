@@ -12,18 +12,35 @@ import PackageEtherCapture
 struct CdpDetailView: View {
     let cdp: Cdp
     @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var highlight: Highlight
     var body: some View {
         return VStack {
             HStack {
                 Text("CDP").font(.headline)
                 Spacer()
                 Text("Version \(cdp.version)")
+                    .onTapGesture {
+                        self.highlight.start = self.cdp.startIndex[.version]
+                        self.highlight.end = self.cdp.endIndex[.version]
+                }
                 Text("TTL \(cdp.ttl)")
+                    .onTapGesture {
+                        self.highlight.start = self.cdp.startIndex[.ttl]
+                        self.highlight.end = self.cdp.endIndex[.ttl]
+                }
                 Text(verbatim: "Checksum \(cdp.checksum)")
+                    .onTapGesture {
+                        self.highlight.start = self.cdp.startIndex[.checksum]
+                        self.highlight.end = self.cdp.endIndex[.checksum]
+                }
             }
             List(cdp.values, id: \.self) { value in
                 Text(value.description)
                     .font(self.appSettings.font)
+                    .onTapGesture {
+                        self.highlight.start = value.startIndex
+                        self.highlight.end = value.endIndex
+                }
             }
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }

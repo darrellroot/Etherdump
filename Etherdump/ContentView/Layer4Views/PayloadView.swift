@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import PackageEtherCapture
 
 struct PayloadView: View {
     //@EnvironmentObject var appSettings: AppSettings
@@ -23,7 +24,15 @@ struct PayloadView: View {
 }
 
 struct PayloadView_Previews: PreviewProvider {
+    
+
     static var previews: some View {
-        PayloadView(payload: Data())
+        guard case .udp(let udp) = Frame.sampleFrameUdp.layer4 else {
+            print("fatal error")
+            fatalError()
+        }
+        
+        return PayloadView(payload: udp.payload)
+            .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
     }
 }
