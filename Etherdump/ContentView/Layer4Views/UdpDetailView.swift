@@ -12,6 +12,7 @@ import PackageEtherCapture
 struct UdpDetailView: View {
     var udp: Udp
     @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var highlight: Highlight
     var body: some View {
         VStack (spacing:6){
             HStack {
@@ -20,31 +21,49 @@ struct UdpDetailView: View {
             }
             HStack{
                 VStack(spacing:6){
-                HStack{
-                    Text(verbatim: "\(udp.sourcePort) > \(udp.destinationPort)")
-                    Spacer()
+                    HStack{
+                        Text(verbatim: "\(udp.sourcePort)")
+                            .onTapGesture {
+                                self.highlight.start = self.udp.startIndex[.sourcePort]
+                                self.highlight.end = self.udp.endIndex[.sourcePort]
+                        }
+                        Text(">")
+                        Text("\(udp.destinationPort)")
+                            .onTapGesture {
+                                self.highlight.start = self.udp.startIndex[.destinationPort]
+                                self.highlight.end = self.udp.endIndex[.destinationPort]
+                        }
+                        Spacer()
+                    }
+                    HStack{
+                        Text(verbatim: "Checksum: \(udp.checksum)")
+                            .onTapGesture {
+                                self.highlight.start = self.udp.startIndex[.checksum]
+                                self.highlight.end = self.udp.endIndex[.checksum]
+                        }
+                        Spacer()
+                    }
+                    HStack{
+                        PayloadView2(payload: udp.payload)
+                            .onTapGesture {
+                                self.highlight.start = self.udp.startIndex[.payload]
+                                self.highlight.end = self.udp.endIndex[.payload]
+                        }
+                        Spacer()
+                    }
+                    
                 }
-                HStack{
-                    Text(verbatim: "Checksum: \(udp.checksum)")
-                    Spacer()
-                }
-                HStack{
-                               PayloadView2(payload: udp.payload)
-                                       Spacer()
-                               }
                 
-        }
-            
             }.font(appSettings.font)
                 .padding().cornerRadius(8).border(Color.black.opacity(0),
-            width: 0).padding(1).background(Color.black.opacity(0.4))
-         //       HStack{
-           // PayloadView(payload: udp.payload)
-           //         Spacer()
+                                                  width: 0).padding(1).background(Color.black.opacity(0.4))
+            //       HStack{
+            // PayloadView(payload: udp.payload)
+            //         Spacer()
             //    }.background(Color.black.opacity(0.4))
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
-
-}
+        
+    }
 }
 
 struct UdpDetailView_Previews: PreviewProvider {

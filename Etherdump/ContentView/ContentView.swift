@@ -48,34 +48,21 @@ struct ContentView: View {
             DisplayFilterView(layer2Filter: $layer2Filter, layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB, ipFilterA: $ipFilterA, ipFilterB: $ipFilterB, frames: $frames, filteredFrames: filteredFrames)
             FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame)
             FrameDetailView(activeFrame: $activeFrame)
-            /*if activeFrame != nil {
-                Layer2DetailView(frame: $activeFrame)
-            }
-            if activeFrame != nil {
-                Layer3DetailView(frame: $activeFrame)
-            }
-            if activeFrame != nil {
-                Layer4DetailView(frame: $activeFrame)
-            }
-            if activeFrame != nil {
-                FrameHexView(frame: $activeFrame)
-            }*/
-            //Text(activeFrame?.hexdump ?? "")
-            }.environmentObject(highlight).onDisappear() {
+        }.environmentObject(highlight).onDisappear() {
             self.appDelegate.deleteWindow(windowCount: self.windowCount)
         }
             
             //.frame(maxWidth: .infinity, maxHeight: .infinity)
             //.frame(idealWidth: 1000, idealHeight: 1000)
             .font(appSettings.font)
-            /*.onCommand(#selector(AppDelegate.exportAllPcap(_:))) {
-                DarrellLogHandler.logger.error("export all Pcap")
-                self.appDelegate.exportPcap(frames: self.frames)
-            }
-            .onCommand(#selector(AppDelegate.exportFilteredPcap(_:))) {
-                DarrellLogHandler.logger.error("export filtered Pcap")
-                self.appDelegate.exportPcap(frames: self.filteredFrames)
-        }*/
+        /*.onCommand(#selector(AppDelegate.exportAllPcap(_:))) {
+         DarrellLogHandler.logger.error("export all Pcap")
+         self.appDelegate.exportPcap(frames: self.frames)
+         }
+         .onCommand(#selector(AppDelegate.exportFilteredPcap(_:))) {
+         DarrellLogHandler.logger.error("export filtered Pcap")
+         self.appDelegate.exportPcap(frames: self.filteredFrames)
+         }*/
     }
     func port(_ portString: String) -> Int? {
         //returns port number if valid port, nil otherwise
@@ -107,9 +94,9 @@ struct ContentView: View {
             case (_,.arp),(_,.bpdu),(_,.cdp),(_,.lldp):
                 continue frameloop
             }
-                            
-            switch (frame.layer3, layer3Filter) {
             
+            switch (frame.layer3, layer3Filter) {
+                
             case (_, .any):
                 break
             case (.ipv4,.ipv4):
@@ -137,13 +124,13 @@ struct ContentView: View {
                     break  //pass
                 }
                 continue frameloop  // fail
-                case (.ipv4(let ipv4),.some(let filterAddress),_),(.ipv4(let ipv4),_,.some(let filterAddress)):
-                    guard ipv4.sourceIP == filterAddress || ipv4.destinationIP == filterAddress else {
-                        continue frameloop  // fail
-                    }
-                    break // pass
-                case (_, _, _):  // frame is not ipv6, but at least one ipv6 filter exists
-                    continue frameloop
+            case (.ipv4(let ipv4),.some(let filterAddress),_),(.ipv4(let ipv4),_,.some(let filterAddress)):
+                guard ipv4.sourceIP == filterAddress || ipv4.destinationIP == filterAddress else {
+                    continue frameloop  // fail
+                }
+            break // pass
+            case (_, _, _):  // frame is not ipv6, but at least one ipv6 filter exists
+                continue frameloop
             }
             switch (frame.layer3, IPv6Address(ipFilterA), IPv6Address(ipFilterB)) {
             case (_, .none, .none):
@@ -160,7 +147,7 @@ struct ContentView: View {
                 guard ipv6.sourceIP == filterAddress || ipv6.destinationIP == filterAddress else {
                     continue frameloop  // fail
                 }
-                break // pass
+            break // pass
             case (_, _, _):  // frame is not ipv6, but at least one ipv6 filter exists
                 continue frameloop
             }//switch frame layer3 IPv6
@@ -193,43 +180,43 @@ struct ContentView: View {
                     continue frameloop
                 }
                 switch layer4 {
-                    case .tcp(let tcp):
-                        if tcp.sourcePort != filterPort && tcp.destinationPort != filterPort {
-                            continue frameloop
-                        }
-                    case .udp(let udp):
-                        if udp.sourcePort != filterPort && udp.destinationPort != filterPort {
-                            continue frameloop
-                        }
-                    default:
-                        //not tcp or udp so filter it!
+                case .tcp(let tcp):
+                    if tcp.sourcePort != filterPort && tcp.destinationPort != filterPort {
                         continue frameloop
+                    }
+                case .udp(let udp):
+                    if udp.sourcePort != filterPort && udp.destinationPort != filterPort {
+                        continue frameloop
+                    }
+                default:
+                    //not tcp or udp so filter it!
+                    continue frameloop
                 }
-                case (.some(let portA), .some(let portB)):
-                    guard let layer4 = frame.layer4 else {
-                        //not tcp or udp so filter it!
+            case (.some(let portA), .some(let portB)):
+                guard let layer4 = frame.layer4 else {
+                    //not tcp or udp so filter it!
+                    continue frameloop
+                }
+                switch layer4 {
+                case .tcp(let tcp):
+                    if (tcp.sourcePort != portA || tcp.destinationPort != portB) && (tcp.sourcePort != portB || tcp.destinationPort != portA) {
                         continue frameloop
                     }
-                    switch layer4 {
-                    case .tcp(let tcp):
-                        if (tcp.sourcePort != portA || tcp.destinationPort != portB) && (tcp.sourcePort != portB || tcp.destinationPort != portA) {
-                            continue frameloop
-                        }
-                    case .udp(let udp):
-                        if (udp.sourcePort != portA || udp.destinationPort != portB) && (udp.sourcePort != portB || udp.destinationPort != portA) {
-                            continue frameloop
-                        }
-                    default:
-                        //not tcp or udp so filter it!
+                case .udp(let udp):
+                    if (udp.sourcePort != portA || udp.destinationPort != portB) && (udp.sourcePort != portB || udp.destinationPort != portA) {
                         continue frameloop
                     }
-                }// switch portFilterAB
+                default:
+                    //not tcp or udp so filter it!
+                    continue frameloop
+                }
+            }// switch portFilterAB
             
             outputFrames.append(frame)
         }//frameloop
         return outputFrames
     }
-
+    
 }
 
 
@@ -237,7 +224,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         //ContentView(frames: [Frame.sampleFrame], showCapture: true, appSettings: AppSettings())
         ContentView(frames: [Frame.sampleFrame], showCapture: false, windowCount: 1).environmentObject(AppSettings())
-
+        
         
     }
 }

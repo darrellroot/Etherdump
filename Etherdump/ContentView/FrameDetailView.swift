@@ -24,7 +24,7 @@ struct FrameDetailView: View {
                 Layer4DetailView(frame: $activeFrame)
             }
             if activeFrame != nil {
-                FrameHexView(frame: $activeFrame)
+                FrameHexViewHolder(frame: $activeFrame)
             }
         }
     }

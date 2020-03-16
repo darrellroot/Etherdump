@@ -15,7 +15,7 @@ struct PayloadView2: View {
     var body: some View {
         HStack(spacing:6){
             VStack(alignment: .leading){
-                HStack{
+                HStack {
                     Text("Payload").font(.headline)
                     //.frame(alignment: .leading)
                 }
@@ -23,10 +23,13 @@ struct PayloadView2: View {
                     Text("\(payload.count) Bytes")
                     //.frame(alignment: .leading)
                 }
+                Spacer()
             }
             HStack {
                 Spacer()
-                Text(payload.hexdump)
+                if payload.count < 100 {
+                    Text(payload.hexdump)
+                }
                 Spacer()
             }//.padding()
         }
