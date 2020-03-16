@@ -12,23 +12,47 @@ import PackageEtherCapture
 struct Icmp4DetailView: View {
     var icmp: Icmp4
     @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var highlight: Highlight
     var body: some View {
         VStack (spacing:6){
             HStack {
-                Text("ICMP for IPv4").font(.headline)
+                VStack {
+                    Text("ICMP for IPv4").font(.headline)
+                    Text(icmp.icmpType.typeString).font(.headline)
+                        .onTapGesture {
+                            self.highlight.start = self.icmp.startIndex[.type]
+                            self.highlight.end = self.icmp.endIndex[.type]
+                    }
+                }
                 Spacer()
-                Text(verbatim: "Type: \(icmp.type) Code: \(icmp.code)")
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(verbatim: "Type: \(icmp.type)")
+                            .onTapGesture {
+                                self.highlight.start = self.icmp.startIndex[.type]
+                                self.highlight.end = self.icmp.endIndex[.type]
+                        }
+                        Text("Code: \(icmp.code)")
+                            .onTapGesture {
+                                self.highlight.start = self.icmp.startIndex[.code]
+                                self.highlight.end = self.icmp.endIndex[.code]
+                        }
+                        Text("Checksum \(icmp.checksum.hex4)")
+                            .onTapGesture {
+                                self.highlight.start = self.icmp.startIndex[.checksum]
+                                self.highlight.end = self.icmp.endIndex[.checksum]
+                        }
+                    }
+                    Icmp4TypeView(icmp: icmp)
+                }
                 Spacer()
             }
-            HStack {
-                Text(icmp.icmpType.typeString).font(.headline)
-                Spacer()
-                Text(icmp.icmpType.details)
-                Spacer()
-            }
-            HStack{
             PayloadView(payload: icmp.payload)
-            }.font(appSettings.font)
+                    .onTapGesture {
+                        self.highlight.start = self.icmp.startIndex[.payload]
+                        self.highlight.end = self.icmp.endIndex[.payload]
+                }
+            .font(appSettings.font)
                 .padding().cornerRadius(8).border(Color.black.opacity(0),
             width: 0).padding(1).background(Color.black.opacity(0.4))
             

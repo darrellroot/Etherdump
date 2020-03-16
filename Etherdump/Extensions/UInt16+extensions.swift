@@ -19,4 +19,7 @@ extension UInt16 {
             return String(format: "0x%x",self)
         }
     }
+    var hex4: String {
+        return self.hex
+    }
 }

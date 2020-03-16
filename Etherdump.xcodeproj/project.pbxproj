@@ -21,6 +21,8 @@
 		2F4F2E77241F28C9004DD475 /* FrameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E75241F28C9004DD475 /* FrameDetailView.swift */; };
 		2F4F2E79241F326A004DD475 /* FrameHexViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E78241F326A004DD475 /* FrameHexViewHolder.swift */; };
 		2F4F2E7A241F326A004DD475 /* FrameHexViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E78241F326A004DD475 /* FrameHexViewHolder.swift */; };
+		2F4F2E7C24200151004DD475 /* Icmp4TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E7B24200151004DD475 /* Icmp4TypeView.swift */; };
+		2F4F2E7D24200151004DD475 /* Icmp4TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E7B24200151004DD475 /* Icmp4TypeView.swift */; };
 		2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D123EE082900207DA3 /* DisplayFilterView.swift */; };
 		2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
 		2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */; };
@@ -112,6 +114,7 @@
 		2F4F2E72241EC6B1004DD475 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		2F4F2E75241F28C9004DD475 /* FrameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameDetailView.swift; sourceTree = "<group>"; };
 		2F4F2E78241F326A004DD475 /* FrameHexViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameHexViewHolder.swift; sourceTree = "<group>"; };
+		2F4F2E7B24200151004DD475 /* Icmp4TypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icmp4TypeView.swift; sourceTree = "<group>"; };
 		2F5451D123EE082900207DA3 /* DisplayFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFilterView.swift; sourceTree = "<group>"; };
 		2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterEnumerations.swift; sourceTree = "<group>"; };
 		2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarrellLogHandler.swift; sourceTree = "<group>"; };
@@ -344,6 +347,7 @@
 				2FB36A3323EE433D00CC1223 /* TcpDetailView.swift */,
 				2FB36A3523EE4F1800CC1223 /* UdpDetailView.swift */,
 				2F7F583D240C350B00E08061 /* Icmp4DetailView.swift */,
+				2F4F2E7B24200151004DD475 /* Icmp4TypeView.swift */,
 				2F7F5840240DDC1B00E08061 /* Icmp6DetailView.swift */,
 				2F22B36023EE6B77009DD8ED /* PayloadView.swift */,
 				A12BC7FF241F178C00F72F6E /* PayloadView2.swift */,
@@ -495,6 +499,7 @@
 				2F78582323F6603A00B5F5ED /* LogView.swift in Sources */,
 				2FDA6C7A241B324D00BB5469 /* FrameHexView.swift in Sources */,
 				2FDA6C77241B2E0C00BB5469 /* UInt+extensions copy.swift in Sources */,
+				2F4F2E7C24200151004DD475 /* Icmp4TypeView.swift in Sources */,
 				2FDA6C7D241B370500BB5469 /* Int+extensions copy.swift in Sources */,
 				2FD30ED0240E18A90020F7F7 /* StaticHtmlController.swift in Sources */,
 				2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */,
@@ -532,6 +537,7 @@
 				2F4F2E77241F28C9004DD475 /* FrameDetailView.swift in Sources */,
 				2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
+				2F4F2E7D24200151004DD475 /* Icmp4TypeView.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
 				2FDA6C75241B2C7700BB5469 /* UInt8+extensions.swift in Sources */,
 				2F4F2E7A241F326A004DD475 /* FrameHexViewHolder.swift in Sources */,
