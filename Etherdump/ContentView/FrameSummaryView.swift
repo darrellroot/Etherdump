@@ -15,18 +15,15 @@ struct FrameSummaryView: View {
     @Binding var frames: [Frame]
     var filteredFrames: [Frame]
     @Binding var activeFrame: Frame?
-    //@Binding var layer3Filter: Layer3Filter
-    //@Binding var layer4Filter: Layer4Filter
-    @Binding var portFilterA: String
-    @Binding var portFilterB: String
+    //@Binding var portFilterA: String
+    //@Binding var portFilterB: String
     
     var body: some View {
         List(self.filteredFrames) { frame in
             HStack {
                 Text("\(frame.frameNumber) \(frame.description)")
                 .font(self.appSettings.font)
-                //.padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: 2))
-                    .padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: frame.id == self.activeFrame?.id ? 4 : 2))
+                .padding(4).overlay(RoundedRectangle(cornerRadius: 3).stroke(Color.primary.opacity(0.6), lineWidth: frame.id == self.activeFrame?.id ? 4 : 2))
                 .onTapGesture {
                     self.activeFrame = frame
                     self.highlight.start = nil
@@ -35,6 +32,7 @@ struct FrameSummaryView: View {
                 Spacer()
             }
         }.padding().background(Color.purple.opacity(0.7))
+            .frame(minHeight: 150.0, maxHeight: 400.0)
     }
 }
 

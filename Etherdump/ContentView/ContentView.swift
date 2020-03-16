@@ -46,8 +46,9 @@ struct ContentView: View {
                 CaptureFilterView(frames: self.$frames,interface: appSettings.interfaces.first ?? "en0", activeFrame: self.$activeFrame)
             }
             DisplayFilterView(layer2Filter: $layer2Filter, layer3Filter: $layer3Filter, layer4Filter: $layer4Filter, portFilterA: $portFilterA, portFilterB: $portFilterB, ipFilterA: $ipFilterA, ipFilterB: $ipFilterB, frames: $frames, filteredFrames: filteredFrames)
-            FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame , portFilterA: $portFilterA, portFilterB: $portFilterB)
-            if activeFrame != nil {
+            FrameSummaryView(frames: $frames,filteredFrames: filteredFrames,activeFrame:  $activeFrame)
+            FrameDetailView(activeFrame: $activeFrame)
+            /*if activeFrame != nil {
                 Layer2DetailView(frame: $activeFrame)
             }
             if activeFrame != nil {
@@ -58,7 +59,7 @@ struct ContentView: View {
             }
             if activeFrame != nil {
                 FrameHexView(frame: $activeFrame)
-            }
+            }*/
             //Text(activeFrame?.hexdump ?? "")
             }.environmentObject(highlight).onDisappear() {
             self.appDelegate.deleteWindow(windowCount: self.windowCount)
@@ -75,7 +76,6 @@ struct ContentView: View {
                 DarrellLogHandler.logger.error("export filtered Pcap")
                 self.appDelegate.exportPcap(frames: self.filteredFrames)
         }*/
-    
     }
     func port(_ portString: String) -> Int? {
         //returns port number if valid port, nil otherwise

@@ -17,12 +17,6 @@ struct Layer2DetailView: View {
     //@Binding var startHighlight: Data.Index?
     //@Binding var endHighlight: Data.Index?
     var body: some View {
-/*        HStack {
-            Text(frame?.frameFormat.rawValue ?? "Frame").font(.headline)
-            Spacer()
-            Text(frame?.verboseDescription ?? "Error displaying frame header")
-            Spacer()
-*/
         HStack {
             Text(frame?.frameFormat.rawValue ?? "Frame").font(.headline)
             Spacer()
@@ -88,9 +82,9 @@ struct Layer2DetailView: View {
                         }
                     }
                 }//HStack
-        }//VStack
-        Spacer()
-    }.padding().cornerRadius(8).border(Color.green.opacity(0.7),width: 2).padding()
+            }//VStack
+            Spacer()
+        }.padding().cornerRadius(8).border(Color.green.opacity(0.7),width: 2).padding()
     }
 }
 

@@ -17,6 +17,8 @@
 		2F22B36123EE6B77009DD8ED /* PayloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F22B36023EE6B77009DD8ED /* PayloadView.swift */; };
 		2F4F2E73241EC6B1004DD475 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E72241EC6B1004DD475 /* String+extensions.swift */; };
 		2F4F2E74241EC6B1004DD475 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E72241EC6B1004DD475 /* String+extensions.swift */; };
+		2F4F2E76241F28C9004DD475 /* FrameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E75241F28C9004DD475 /* FrameDetailView.swift */; };
+		2F4F2E77241F28C9004DD475 /* FrameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E75241F28C9004DD475 /* FrameDetailView.swift */; };
 		2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D123EE082900207DA3 /* DisplayFilterView.swift */; };
 		2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
 		2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */; };
@@ -106,6 +108,7 @@
 		2F0647F123E502A400965033 /* Layer4DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer4DetailView.swift; sourceTree = "<group>"; };
 		2F22B36023EE6B77009DD8ED /* PayloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadView.swift; sourceTree = "<group>"; };
 		2F4F2E72241EC6B1004DD475 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
+		2F4F2E75241F28C9004DD475 /* FrameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameDetailView.swift; sourceTree = "<group>"; };
 		2F5451D123EE082900207DA3 /* DisplayFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayFilterView.swift; sourceTree = "<group>"; };
 		2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = filterEnumerations.swift; sourceTree = "<group>"; };
 		2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarrellLogHandler.swift; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 				2F0647E623E3919300965033 /* CaptureFilterView.swift */,
 				2F5451D123EE082900207DA3 /* DisplayFilterView.swift */,
 				2F0647E823E4CA3800965033 /* FrameSummaryView.swift */,
+				2F4F2E75241F28C9004DD475 /* FrameDetailView.swift */,
 				2FDA6C79241B324D00BB5469 /* FrameHexView.swift */,
 				2FDD9D7624037962002D271A /* Layer2Views */,
 				2FDD9D772403796B002D271A /* Layer3Views */,
@@ -495,6 +499,7 @@
 				A1AC5FA7241C42C5005B4142 /* Layer3DetailView.swift in Sources */,
 				2FDD9D7A2404DC0F002D271A /* HelpView.swift in Sources */,
 				2F0647E723E3919300965033 /* CaptureFilterView.swift in Sources */,
+				2F4F2E76241F28C9004DD475 /* FrameDetailView.swift in Sources */,
 				2F0647F223E502A400965033 /* Layer4DetailView.swift in Sources */,
 				2F78585C23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F7858632401C69200B5F5ED /* Font+extensions.swift in Sources */,
@@ -519,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78584023F8CAF700B5F5ED /* DarrellLogHandler.swift in Sources */,
+				2F4F2E77241F28C9004DD475 /* FrameDetailView.swift in Sources */,
 				2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
 				2F78584823F8CB0B00B5F5ED /* TcpDetailView.swift in Sources */,
