@@ -11,8 +11,9 @@ import PackageEtherCapture
 
 struct Icmp4DetailView: View {
     var icmp: Icmp4
+    @EnvironmentObject var appSettings: AppSettings
     var body: some View {
-        VStack {
+        VStack (spacing:6){
             HStack {
                 Text("ICMP for IPv4").font(.headline)
                 Spacer()
@@ -25,7 +26,12 @@ struct Icmp4DetailView: View {
                 Text(icmp.icmpType.details)
                 Spacer()
             }
+            HStack{
             PayloadView(payload: icmp.payload)
+            }.font(appSettings.font)
+                .padding().cornerRadius(8).border(Color.black.opacity(0),
+            width: 0).padding(1).background(Color.black.opacity(0.4))
+            
             }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }
 }
