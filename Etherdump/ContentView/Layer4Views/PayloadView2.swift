@@ -9,20 +9,26 @@
 import SwiftUI
 import PackageEtherCapture
 
-struct PayloadView: View {
+struct PayloadView2: View {
     //@EnvironmentObject var appSettings: AppSettings
     var payload: Data
     var body: some View {
-        VStack(spacing:6){
-            HStack{
-                Text("Payload").font(.headline)
-                Text("\t\(payload.count) Bytes")
+        HStack(spacing:6){
+            VStack(alignment: .leading){
+                HStack{
+                    Text("Payload").font(.headline)
+                    //.frame(alignment: .leading)
+                }
+                HStack{
+                    Text("\(payload.count) Bytes")
+                    //.frame(alignment: .leading)
+                }
             }
-        HStack {
-            Spacer()
-            Text(payload.hexdump)
-            Spacer()
-        }//.padding()
+            HStack {
+                Spacer()
+                Text(payload.hexdump)
+                Spacer()
+            }//.padding()
         }
     }
 }
@@ -30,7 +36,7 @@ struct PayloadView: View {
 //.cornerRadius(8).border(Color.gray.opacity(0.7), width: 2).padding()
 
 
-struct PayloadView_Previews: PreviewProvider {
+struct PayloadView2_Previews: PreviewProvider {
     
 
     static var previews: some View {

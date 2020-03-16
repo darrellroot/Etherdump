@@ -18,44 +18,38 @@ struct TcpDetailView: View {
                 Text("TCP").font(.headline)
                 Spacer()
             }
-            VStack (spacing:6){
+            HStack{
+                VStack (alignment: .leading, spacing:6 ){
                 HStack{
                     Text(verbatim: "\(tcp.sourcePort) > \(tcp.destinationPort)")
-                    Spacer()
                 }
                     HStack{
                 Text("Flags: \(tcp.flags)")
-                        Spacer()
                     }
                     HStack{
                 Text("Payload: \(tcp.payload.count) bytes")
-                        Spacer()
                     }
                 Group{
                     HStack {
                 Text(verbatim: "Seq: \(tcp.sequenceNumber)")
-                Spacer()
                     }
                     HStack{
                 Text(verbatim: "Ack: \(tcp.acknowledgementNumber)")
-                        Spacer()
                     }
                     HStack{
                 Text(verbatim: "Window: \(tcp.window)")
-                        Spacer()
                 }
                 HStack{
                 Text(verbatim: "Urgent: \(tcp.urgentPointer)")
-                    Spacer()
                 }
                 HStack{
                 Text(verbatim: "Offset: \(tcp.dataOffset)")
-                    Spacer()
             }
                 }
-                    HStack{
-            PayloadView(payload: tcp.payload)
-                        Spacer()
+                
+            }
+                HStack{
+                    PayloadView(payload: tcp.payload)
                 }
             }.font(appSettings.font)
                 .padding().cornerRadius(8).border(Color.black.opacity(0),
