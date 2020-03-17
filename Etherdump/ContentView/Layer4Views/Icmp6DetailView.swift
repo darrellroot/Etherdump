@@ -12,19 +12,35 @@ import PackageEtherCapture
 struct Icmp6DetailView: View {
     var icmp: Icmp6
     @EnvironmentObject var appSettings: AppSettings
+    @EnvironmentObject var highlight: Highlight
+    
     var body: some View {
         VStack (spacing:6){
             HStack {
                 Text("ICMP for IPv6").font(.headline)
                 Spacer()
-                Text(verbatim: "Type: \(icmp.type) Code: \(icmp.code)")
+                Text(verbatim: "Type: \(icmp.type)")
+                    .onTapGesture {
+                        self.highlight.start = self.icmp.startIndex[.type]
+                        self.highlight.end = self.icmp.endIndex[.type]
+                }
+                Text("Code: \(icmp.code)")
+                    .onTapGesture {
+                        self.highlight.start = self.icmp.startIndex[.code]
+                        self.highlight.end = self.icmp.endIndex[.code]
+                }
                 Spacer()
             }
             HStack {
                 Text(icmp.icmpType.typeString).font(.headline)
+                    .onTapGesture {
+                        self.highlight.start = self.icmp.startIndex[.type]
+                        self.highlight.end = self.icmp.endIndex[.type]
+                }
                 Text("  ")
                 Spacer()
-                Text(icmp.icmpType.details)
+                Icmp6TypeView(icmp: icmp)
+                //Text(icmp.icmpType.details)
                 Spacer()
             }
             VStack{
@@ -33,6 +49,10 @@ struct Icmp6DetailView: View {
                 .font(self.appSettings.font)
             }
             PayloadView(payload: icmp.payload)
+                    .onTapGesture {
+                        self.highlight.start = self.icmp.startIndex[.payload]
+                        self.highlight.end = self.icmp.endIndex[.payload]
+                }
             }.font(appSettings.font)
                 .cornerRadius(8).border(Color.black.opacity(0),
             width: 0).padding(0).background(Color.black.opacity(0.3))
