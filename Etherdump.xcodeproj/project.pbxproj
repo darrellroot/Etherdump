@@ -25,6 +25,14 @@
 		2F4F2E7D24200151004DD475 /* Icmp4TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E7B24200151004DD475 /* Icmp4TypeView.swift */; };
 		2F4F2E7F24203EB6004DD475 /* Icmp6TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E7E24203EB6004DD475 /* Icmp6TypeView.swift */; };
 		2F4F2E8024203EB6004DD475 /* Icmp6TypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4F2E7E24203EB6004DD475 /* Icmp6TypeView.swift */; };
+		2F4F2E8124207468004DD475 /* Layer3DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5FA1241C42C5005B4142 /* Layer3DetailView.swift */; };
+		2F4F2E8224207479004DD475 /* Ipv4DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9E241C42C5005B4142 /* Ipv4DetailView.swift */; };
+		2F4F2E832420747C004DD475 /* Ipv6DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9D241C42C4005B4142 /* Ipv6DetailView.swift */; };
+		2F4F2E8424207486004DD475 /* LldpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5FA8241C435D005B4142 /* LldpDetailView.swift */; };
+		2F4F2E8524207489004DD475 /* ArpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5FA0241C42C5005B4142 /* ArpDetailView.swift */; };
+		2F4F2E862420748D004DD475 /* BpduDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9F241C42C5005B4142 /* BpduDetailView.swift */; };
+		2F4F2E8724207491004DD475 /* CdpDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AC5F9C241C42C4005B4142 /* CdpDetailView.swift */; };
+		2F4F2E88242074AC004DD475 /* PayloadView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12BC7FF241F178C00F72F6E /* PayloadView2.swift */; };
 		2F5451D223EE082900207DA3 /* DisplayFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D123EE082900207DA3 /* DisplayFilterView.swift */; };
 		2F5451D523EE0A8A00207DA3 /* filterEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5451D423EE0A8A00207DA3 /* filterEnumerations.swift */; };
 		2F78582023F6428500B5F5ED /* DarrellLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F78581F23F6428500B5F5ED /* DarrellLogHandler.swift */; };
@@ -539,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F78584023F8CAF700B5F5ED /* DarrellLogHandler.swift in Sources */,
+				2F4F2E8424207486004DD475 /* LldpDetailView.swift in Sources */,
 				2F4F2E77241F28C9004DD475 /* FrameDetailView.swift in Sources */,
 				2F78586023F9E71400B5F5ED /* AppSettings.swift in Sources */,
 				2FDD9D7E2405D485002D271A /* AboutView.swift in Sources */,
@@ -555,18 +564,25 @@
 				2FDA6C78241B2E0C00BB5469 /* UInt+extensions copy.swift in Sources */,
 				2FDA6C7E241B370500BB5469 /* Int+extensions copy.swift in Sources */,
 				2FD30ED1240E18A90020F7F7 /* StaticHtmlController.swift in Sources */,
+				2F4F2E862420748D004DD475 /* BpduDetailView.swift in Sources */,
 				2F78584223F8CAFC00B5F5ED /* CaptureFilterView.swift in Sources */,
 				2F78585823F8CF3900B5F5ED /* BuildConfiguration.swift in Sources */,
+				2F4F2E8124207468004DD475 /* Layer3DetailView.swift in Sources */,
 				2F78584923F8CB0E00B5F5ED /* UdpDetailView.swift in Sources */,
 				2FDD9D7B2404DC0F002D271A /* HelpView.swift in Sources */,
 				2F78584123F8CAF900B5F5ED /* ContentView.swift in Sources */,
+				2F4F2E832420747C004DD475 /* Ipv6DetailView.swift in Sources */,
 				2F78585D23F8D2BB00B5F5ED /* AlertView.swift in Sources */,
 				2F78583E23F8CAF100B5F5ED /* filterEnumerations.swift in Sources */,
+				2F4F2E8724207491004DD475 /* CdpDetailView.swift in Sources */,
 				2F7858642401C69300B5F5ED /* Font+extensions.swift in Sources */,
+				2F4F2E8224207479004DD475 /* Ipv4DetailView.swift in Sources */,
 				2F7F583F240C350B00E08061 /* Icmp4DetailView.swift in Sources */,
 				2F78584723F8CB0800B5F5ED /* Layer4DetailView.swift in Sources */,
 				2FD536292410A9860048CB79 /* UInt16+extensions.swift in Sources */,
 				2F78584423F8CB0000B5F5ED /* FrameSummaryView.swift in Sources */,
+				2F4F2E8524207489004DD475 /* ArpDetailView.swift in Sources */,
+				2F4F2E88242074AC004DD475 /* PayloadView2.swift in Sources */,
 				2F78584523F8CB0300B5F5ED /* Layer2DetailView.swift in Sources */,
 				2F7F5842240DDC1B00E08061 /* Icmp6DetailView.swift in Sources */,
 				2F78584323F8CAFE00B5F5ED /* DisplayFilterView.swift in Sources */,
