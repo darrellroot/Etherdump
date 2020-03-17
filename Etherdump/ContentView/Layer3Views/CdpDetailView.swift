@@ -14,7 +14,8 @@ struct CdpDetailView: View {
     @EnvironmentObject var appSettings: AppSettings
     @EnvironmentObject var highlight: Highlight
     var body: some View {
-        return VStack {
+        
+        VStack {
             HStack {
                 Text("CDP").font(.headline)
                 Spacer()
@@ -28,19 +29,25 @@ struct CdpDetailView: View {
                         self.highlight.start = self.cdp.startIndex[.ttl]
                         self.highlight.end = self.cdp.endIndex[.ttl]
                 }
-                Text(verbatim: "Checksum \(cdp.checksum)")
+                Text(verbatim: "Checksum \(cdp.checksum.hex4)")
                     .onTapGesture {
                         self.highlight.start = self.cdp.startIndex[.checksum]
                         self.highlight.end = self.cdp.endIndex[.checksum]
                 }
             }
-            List(cdp.values, id: \.self) { value in
-                Text(value.description)
-                    .font(self.appSettings.font)
-                    .onTapGesture {
-                        self.highlight.start = value.startIndex
-                        self.highlight.end = value.endIndex
+            HStack {
+                Spacer()
+                VStack(alignment: .leading) {
+                    ForEach(cdp.values, id: \.self) { value in
+                        Text(value.description)
+                            .font(self.appSettings.font)
+                            .onTapGesture {
+                                self.highlight.start = value.startIndex
+                                self.highlight.end = value.endIndex
+                        }
+                    }
                 }
+                Spacer()
             }
         }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
     }

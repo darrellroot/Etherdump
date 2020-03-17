@@ -15,7 +15,7 @@ struct LldpDetailView: View {
     @EnvironmentObject var highlight: Highlight
     
     var body: some View {
-        return VStack {
+        return VStack(alignment: .leading) {
             HStack {
                 Text("LLDP").font(.headline)
                 Spacer()
@@ -23,7 +23,7 @@ struct LldpDetailView: View {
                 //Text("TTL \(cdp.ttl)")
                 //Text(verbatim: "Checksum \(cdp.checksum)")
             }
-            List(lldp.values, id: \.self) { value in
+            ForEach(lldp.values, id: \.self) { value in
                 Text(value.description)
                     .font(self.appSettings.font)
                     .onTapGesture {

@@ -91,17 +91,17 @@ struct Icmp6TypeView: View {
                         self.highlight.start = self.icmp.startIndex[.target]
                         self.highlight.end = self.icmp.endIndex[.target]
                 }
-                Text("Router \(router.description)")
+                Text("Router:\(router.description)")
                     .onTapGesture {
                         self.highlight.start = self.icmp.startIndex[.flags]
                         self.highlight.end = self.icmp.endIndex[.flags]
                 }
-                Text("Solicited: \(solicited.description)")
+                Text("Solicited:\(solicited.description)")
                     .onTapGesture {
                         self.highlight.start = self.icmp.startIndex[.flags]
                         self.highlight.end = self.icmp.endIndex[.flags]
                 }
-                Text("Override: \(override.description)")
+                Text("Override:\(override.description)")
                     .onTapGesture {
                         self.highlight.start = self.icmp.startIndex[.flags]
                         self.highlight.end = self.icmp.endIndex[.flags]

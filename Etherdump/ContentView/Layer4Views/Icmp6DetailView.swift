@@ -15,61 +15,66 @@ struct Icmp6DetailView: View {
     @EnvironmentObject var highlight: Highlight
     
     var body: some View {
-        VStack (spacing:6){
-            HStack {
-                Text("ICMP for IPv6").font(.headline)
-                Spacer()
-                Text(verbatim: "Type: \(icmp.type)")
-                    .onTapGesture {
-                        self.highlight.start = self.icmp.startIndex[.type]
-                        self.highlight.end = self.icmp.endIndex[.type]
-                }
-                Text("Code: \(icmp.code)")
-                    .onTapGesture {
-                        self.highlight.start = self.icmp.startIndex[.code]
-                        self.highlight.end = self.icmp.endIndex[.code]
+        VStack {
+            HStack (spacing:6){
+                VStack(alignment: .leading) {
+                    Text("ICMP for IPv6").font(.headline)
+                    Text(icmp.icmpType.typeString).font(.headline)
+                        .onTapGesture {
+                            self.highlight.start = self.icmp.startIndex[.type]
+                            self.highlight.end = self.icmp.endIndex[.type]
+                    }
                 }
                 Spacer()
-            }
-            HStack {
-                Text(icmp.icmpType.typeString).font(.headline)
-                    .onTapGesture {
-                        self.highlight.start = self.icmp.startIndex[.type]
-                        self.highlight.end = self.icmp.endIndex[.type]
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(verbatim: "Type: \(icmp.type)")
+                            .onTapGesture {
+                                self.highlight.start = self.icmp.startIndex[.type]
+                                self.highlight.end = self.icmp.endIndex[.type]
+                        }
+                        Text("Code: \(icmp.code)")
+                            .onTapGesture {
+                                self.highlight.start = self.icmp.startIndex[.code]
+                                self.highlight.end = self.icmp.endIndex[.code]
+                        }
+                    }
+                    HStack {
+                        Icmp6TypeView(icmp: icmp)
+                    }
+                    VStack(alignment: .leading) {
+                        ForEach(icmp.options, id: \.self) { option in
+                            Text(option.description)
+                                .font(self.appSettings.font)
+                                .onTapGesture {
+                                    self.highlight.start = option.startIndex
+                                    self.highlight.end = option.endIndex
+                            }
+                        }
+                    }
                 }
-                Text("  ")
                 Spacer()
-                Icmp6TypeView(icmp: icmp)
-                //Text(icmp.icmpType.details)
-                Spacer()
-            }
-            VStack{
-            List(icmp.options, id: \.self) { option in
-                Text(option.description)
-                .font(self.appSettings.font)
             }
             PayloadView(payload: icmp.payload)
-                    .onTapGesture {
-                        self.highlight.start = self.icmp.startIndex[.payload]
-                        self.highlight.end = self.icmp.endIndex[.payload]
-                }
-            }.font(appSettings.font)
-                .cornerRadius(8).border(Color.black.opacity(0),
-            width: 0).padding(0).background(Color.black.opacity(0.3))
-            
-            
-            }.padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
-    }
-}
+                .padding(8).background(Color.black.opacity(0.3))
+                .onTapGesture {
+                    self.highlight.start = self.icmp.startIndex[.payload]
+                    self.highlight.end = self.icmp.endIndex[.payload]
+            }
+
+        }// Outer VStack
+        .padding().cornerRadius(8).border(Color.green.opacity(0.7), width: 2).padding()
+    }// var body
+}// struct Icmp6DetailView
 
 struct Icmp6DetailView_Previews: PreviewProvider {
-static var previews: some View {
-       guard case .icmp6(let icmp6) = Frame.sampleFrameIcmp6.layer4 else {
-           print("fatal error")
-           fatalError()
-       }
-       
-       return Icmp6DetailView(icmp: icmp6)
-        .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
-   }
+    static var previews: some View {
+        guard case .icmp6(let icmp6) = Frame.sampleFrameIcmp6.layer4 else {
+            print("fatal error")
+            fatalError()
+        }
+        
+        return Icmp6DetailView(icmp: icmp6)
+            .environmentObject(AppSettings()).font(.system(.body, design: .monospaced))
+    }
 }
