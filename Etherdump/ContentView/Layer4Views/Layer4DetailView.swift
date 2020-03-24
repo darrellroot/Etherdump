@@ -28,6 +28,8 @@ struct Layer4DetailView: View {
                 return AnyView(Icmp6DetailView(icmp: icmp6))
             case .unknown(_):
                 return AnyView(Text("layer 4 protocol unknown"))
+            case .igmp4(let igmp4):
+                return AnyView(Igmp4DetailView(igmp: igmp4))
             }
         } else {
             return AnyView(Text("layer 4 decode not implemented"))
